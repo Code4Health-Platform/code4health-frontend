@@ -1,11 +1,13 @@
 {
-  "presets": ["es2015", "react"],
+  "presets": ["es2015", "react", "stage-2"],
   "plugins": [
     "react-hot-loader/babel",
     "transform-class-properties",
     ["module-resolver", {
       "alias": {
          "^@(atoms|molecules|organisms|templates|pages)/(.*)$": "./app/src/components/\\1/\\2/\\2",
+         "^@components/(.*)$": "./app/src/components/\\1",
+         "^@(reducers|actions)/(.*)$": "./app/src/redux/\\1/\\2"
       }
     }]
   ]

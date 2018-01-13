@@ -1,8 +1,6 @@
 export const config = {
 
-  entry: {
-    bundle: './app/src/index.js'
-  },
+  entry: ['babel-polyfill', './app/src/index.js'],
   output: {
     filename: 'static/js/[name].js'
   },

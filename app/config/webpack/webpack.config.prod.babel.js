@@ -8,9 +8,7 @@ export default () => {
     bail: true,
     devtool: 'source-map',
 
-    entry: {
-      bundle: config.entry.bundle
-    },
+    entry: config.entry,
 
     output: {
       filename: config.output.filename,

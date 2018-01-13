@@ -4,9 +4,7 @@ import { config } from './webpack.config.common.js'
 
 export default () => {
   return {
-    entry: {
-      bundle: config.entry.bundle
-    },
+    entry: config.entry,
     devServer: {
       hot: true,
       overlay: true,
