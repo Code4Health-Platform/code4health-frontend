@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { logOutAction } from '@actions/auth'
 import { connect } from 'react-redux'
+import {Link} from 'react-router-dom'
 
 class LogOut extends Component {
   logOut () {
@@ -17,7 +18,12 @@ class LogOut extends Component {
         </div>
       )
     } else {
-      return (<h1>Logged out</h1>)
+      return (
+        <div>
+          <h1>Logged out</h1>
+          <Link to={`/log-in`}>log in</Link>
+        </div>
+      )
     }
   }
 }
