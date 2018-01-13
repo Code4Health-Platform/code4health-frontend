@@ -14,7 +14,7 @@ export function logInAction ({email, password}, history) {
       const res = await axios.post(`${URL}/auth`, { email, password })
       dispatch({ type: AUTHENTICATED })
       localStorage.setItem('user', res.data.token)
-      history.push('/secret')
+      history.push('/dashboard')
     } catch (error) {
       dispatch({
         type: AUTHENTICATION_ERROR,

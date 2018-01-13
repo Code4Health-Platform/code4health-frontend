@@ -3,6 +3,7 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom'
 
 import NavigationBar from '@organisms/NavigationBar'
 import Welcome from '@pages/Welcome'
+import Dashboard from '@pages/Dashboard'
 import LogIn from '@pages/LogIn'
 import LogOut from '@pages/LogOut'
 
@@ -17,8 +18,8 @@ export default class App extends Component {
           <Route exact path="/" component={Welcome} />
           <Route exact path="/log-in" component={LogIn} />
           <Route exact path="/log-out" component={LogOut} />
-          <Route exact path="/secret" component={AuthRequired(Welcome)} />
-        </Switch>
+          <Route exact path="/dashboard" component={AuthRequired(Dashboard)} />
+        </div>
       </BrowserRouter>
     )
   }
