@@ -16,8 +16,9 @@ class LogIn extends Component {
     }
   }
 
-  render () {
+  logInForm () {
     const { handleSubmit } = this.props
+
     return (
       <div>
         <h1>Log In</h1>
@@ -42,10 +43,21 @@ class LogIn extends Component {
       </div>
     )
   }
+
+  render () {
+    if (!this.props.authenticated) {
+      return this.logInForm()
+    } else {
+      return (<h1>already logged in</h1>)
+    }
+  }
 }
 
 function mapStateToProps (state) {
-  return { errorMessage: state.auth.error }
+  return {
+    errorMessage: state.auth.error,
+    authenticated: state.auth.authenticated
+  }
 }
 
 const reduxFormLogIn = reduxForm({
