@@ -8,7 +8,7 @@ import Router from './components/Router'
 
 import configureStore from './redux/store'
 import { Provider } from 'react-redux'
-import { AUTHENTICATED } from '@actions/auth'
+import { AUTHENTICATED } from '@actions/auth/constants'
 
 const rootElement = document.getElementById('app')
 
