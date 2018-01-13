@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {BrowserRouter, Route, Switch} from 'react-router-dom'
+import {BrowserRouter, Route} from 'react-router-dom'
 
 import NavigationBar from '@organisms/NavigationBar'
 import Welcome from '@pages/Welcome'
@@ -13,7 +13,7 @@ export default class App extends Component {
   render () {
     return (
       <BrowserRouter>
-        <Switch>
+        <div>
           <NavigationBar />
           <Route exact path="/" component={Welcome} />
           <Route exact path="/log-in" component={LogIn} />
