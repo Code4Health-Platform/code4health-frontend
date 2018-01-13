@@ -1,10 +1,24 @@
+/* global localStorage */
+
 import 'react-hot-loader/patch'
 import { AppContainer } from 'react-hot-loader'
 import React from 'react'
 import { render } from 'react-dom'
 import Router from './components/Router'
-import store from './redux/store'
+
+import configureStore from './redux/store'
 import { Provider } from 'react-redux'
+import { AUTHENTICATED } from '@actions/auth'
+
+const rootElement = document.getElementById('app')
+
+const initialState = {}
+const store = configureStore(initialState)
+
+const user = localStorage.getItem('user')
+if (user) {
+  store.dispatch({ type: AUTHENTICATED })
+}
 
 renderWithHotModuleReplacement(Router)
 
@@ -22,6 +36,6 @@ function renderWithHotModuleReplacement (Router) {
         <Router />
       </Provider>
     </AppContainer>,
-    document.getElementById('app')
+    rootElement
   )
 }
