@@ -3,6 +3,7 @@
   "plugins": ["react"],
   "rules": {
     "react/jsx-uses-react": "error",
-    "react/jsx-uses-vars": "error"
+    "react/jsx-uses-vars": "error",
+    "react/prefer-stateless-function": [0, { "ignorePureComponents": true}]
   }
 }

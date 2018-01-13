@@ -9,6 +9,7 @@ export default () => {
     },
     devServer: {
       hot: true,
+      overlay: true,
       historyApiFallback: true,
       stats: {
         colors: true,
