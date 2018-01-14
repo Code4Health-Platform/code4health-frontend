@@ -6,9 +6,11 @@ class NavigationBar extends Component {
     return (
       <nav>
         <Link to={`/`}>code4health</Link>
+        <Link to={`/dashboard`}>dashboard</Link>
         <hr />
         <Link to={`/log-in`}>log in</Link>
         <Link to={`/log-out`}>log out</Link>
+        <Link to={`/sign-up`}>sign up</Link>
         <hr />
       </nav>
     )
