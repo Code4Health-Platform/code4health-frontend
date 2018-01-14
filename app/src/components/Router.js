@@ -3,13 +3,8 @@ import { connect } from 'react-redux'
 import {BrowserRouter, Route} from 'react-router-dom'
 
 import AuthRequired from '@components/auth/AuthRequired'
-import Footer from '@organisms/Footer'
-import NavigationBar from '@organisms/NavigationBar'
-import Welcome from '@pages/Welcome'
-import Dashboard from '@pages/Dashboard'
-import LogIn from '@pages/LogIn'
-import LogOut from '@pages/LogOut'
-import SignUp from '@pages/SignUp'
+import {Footer, NavigationBar} from '@organisms'
+import {Dashboard, LogIn, LogOut, SignUp, Welcome} from '@pages'
 
 const AuthenticatedDashboard = AuthRequired(Dashboard)
 const ConnectedDashboard = connect()(AuthenticatedDashboard)
