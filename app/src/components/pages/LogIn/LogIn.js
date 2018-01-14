@@ -26,16 +26,16 @@ class LogIn extends Component {
           {this.errorMessage()}
           <form onSubmit={ handleSubmit(this.submit) }>
             <Field
-              name="email"
+              name="username"
               component="input"
               type="text"
-              placeholder="Email"
+              placeholder="username"
             />
             <Field
               name="password"
               component="input"
               type="password"
-              placeholder="Password"
+              placeholder="password"
             />
             <button type="submit">Log In</button>
           </form>
@@ -45,10 +45,10 @@ class LogIn extends Component {
   }
 
   render () {
-    if (!this.props.authenticated) {
-      return this.logInForm()
-    } else {
+    if (this.props.authenticated) {
       return (<h1>already logged in</h1>)
+    } else {
+      return this.logInForm()
     }
   }
 }

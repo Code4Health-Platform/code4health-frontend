@@ -5,7 +5,6 @@ import {Link} from 'react-router-dom'
 
 class LogOut extends Component {
   logOut () {
-    console.log('log out called')
     this.props.logOutAction(this.props.history)
   }
 
