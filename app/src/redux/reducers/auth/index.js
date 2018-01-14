@@ -8,6 +8,8 @@ export default function (state = {}, action) {
       return { ...state, authenticated: false }
     case constants.AUTHENTICATION_ERROR:
       return { ...state, error: action.payload }
+    case constants.SIGNUP_ERROR:
+      return { ...state, error: action.payload }
   }
   return state
 }
