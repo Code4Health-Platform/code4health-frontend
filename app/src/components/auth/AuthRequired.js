@@ -16,13 +16,15 @@ export default function (ComposedComponent) {
       }
     }
 
-    PropTypes = {
-      router: PropTypes.object
-    }
-
     render () {
       return <ComposedComponent {...this.props} />
     }
+  }
+
+  Authentication.propTypes = {
+    router: PropTypes.object,
+    authenticated: PropTypes.bool,
+    history: PropTypes.object
   }
 
   function mapStateToProps (state) {

@@ -20,11 +20,11 @@ export default class App extends Component {
       <BrowserRouter>
         <div>
           <NavigationBar />
-          <Route exact path="/" component={Welcome} />
-          <Route exact path="/log-in" component={LogIn} />
-          <Route exact path="/log-out" component={LogOut} />
-          <Route exact path="/sign-up" component={SignUp} />
-          <Route exact path="/dashboard" component={ConnectedDashboard} />
+          <Route exact path='/' component={Welcome} />
+          <Route exact path='/log-in' component={LogIn} />
+          <Route exact path='/log-out' component={LogOut} />
+          <Route exact path='/sign-up' component={SignUp} />
+          <Route exact path='/dashboard' component={ConnectedDashboard} />
           <Footer />
         </div>
       </BrowserRouter>

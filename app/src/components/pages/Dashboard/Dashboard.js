@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import {fetchSomethingIfNeeded} from '@actions/dashboard'
+import PropTypes from 'prop-types'
 
 class Dashboard extends Component {
   componentDidMount () {
@@ -18,6 +19,12 @@ class Dashboard extends Component {
       </div>
     )
   }
+}
+
+Dashboard.propTypes = {
+  dispatch: PropTypes.func,
+  isLoading: PropTypes.bool,
+  data: PropTypes.string
 }
 
 function mapStateToProps (state) {

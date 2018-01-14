@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { logOutAction } from '@actions/auth'
 import { connect } from 'react-redux'
 import {Link} from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 class LogOut extends Component {
   logOut () {
@@ -25,6 +26,12 @@ class LogOut extends Component {
       )
     }
   }
+}
+
+LogOut.propTypes = {
+  authenticated: PropTypes.bool,
+  history: PropTypes.object,
+  logOutAction: PropTypes.func
 }
 
 function mapStateToProps (state) {

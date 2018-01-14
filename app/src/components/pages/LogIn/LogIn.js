@@ -2,9 +2,10 @@ import React, { Component } from 'react'
 import { Field, reduxForm } from 'redux-form'
 import { logInAction } from '@actions/auth'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 
 class LogIn extends Component {
-  submit = (values) => {
+  submit (values) {
     this.props.logInAction(values, this.props.history)
   }
 
@@ -24,20 +25,20 @@ class LogIn extends Component {
         <h1>Log In</h1>
         <div>
           {this.errorMessage()}
-          <form onSubmit={ handleSubmit(this.submit) }>
+          <form onSubmit={handleSubmit(this.submit.bind(this))}>
             <Field
-              name="username"
-              component="input"
-              type="text"
-              placeholder="username"
+              name='username'
+              component='input'
+              type='text'
+              placeholder='username'
             />
             <Field
-              name="password"
-              component="input"
-              type="password"
-              placeholder="password"
+              name='password'
+              component='input'
+              type='password'
+              placeholder='password'
             />
-            <button type="submit">Log In</button>
+            <button type='submit'>Log In</button>
           </form>
         </div>
       </div>
@@ -51,6 +52,14 @@ class LogIn extends Component {
       return this.logInForm()
     }
   }
+}
+
+LogIn.propTypes = {
+  authenticated: PropTypes.bool,
+  errorMessage: PropTypes.string,
+  history: PropTypes.object,
+  logInAction: PropTypes.func,
+  handleSubmit: PropTypes.func
 }
 
 function mapStateToProps (state) {

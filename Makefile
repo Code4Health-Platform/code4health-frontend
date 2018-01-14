@@ -22,6 +22,9 @@ test: ## Test the application
 lint: ## Lint the application
 	${docker-compose-run} yarn lint
 
+lint-fix: ## Fix lint issues
+	${docker-compose-run} yarn lint:fix
+
 upgrade: ## Upgrade npm packages
 	${docker-compose-run} yarn upgrade
 
