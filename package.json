@@ -45,6 +45,6 @@
     "build": "webpack --config ./app/config/webpack/webpack.config.prod.babel.js",
     "lint": "eslint . --ignore-pattern build/",
     "lint:fix": "eslint . --ignore-pattern build/ --fix",
-    "start:dev": "webpack-dev-server --config ./app/config/webpack/webpack.config.dev.babel.js"
+    "start:dev": "webpack-dev-server --config ./app/config/webpack/webpack.config.dev.babel.js --port 8888"
   }
 }
