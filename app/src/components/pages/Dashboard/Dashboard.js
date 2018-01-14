@@ -1,10 +1,31 @@
-import React from 'react'
+import React, { Component } from 'react'
+import {connect} from 'react-redux'
+import {fetchSomething} from '@actions/dashboard'
 
-export const Dashboard = (props) => (
-  <h1>code4health Dashboard</h1>
-)
+class Dashboard extends Component {
+  componentDidMount () {
+    const { dispatch } = this.props
+    dispatch(fetchSomething())
+  }
 
-Dashboard.propTypes = {
+  render () {
+    const { isLoading } = this.props
+    return (
+      <div>
+        <h1>Dashboard</h1>
+        {isLoading && <h2>Loading</h2>}
+        {JSON.stringify(this.props.data)}
+      </div>
+    )
+  }
 }
 
-export default Dashboard
+function mapStateToProps (state) {
+  return {
+    authenticated: state.auth.authenticated,
+    data: state.dashboard.data,
+    isLoading: state.dashboard.isLoading
+  }
+}
+
+export default connect(mapStateToProps)(Dashboard)
