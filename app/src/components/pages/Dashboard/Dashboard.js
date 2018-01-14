@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
-import {fetchSomething} from '@actions/dashboard'
+import {fetchSomethingIfNeeded} from '@actions/dashboard'
 
 class Dashboard extends Component {
   componentDidMount () {
     const { dispatch } = this.props
-    dispatch(fetchSomething())
+    dispatch(fetchSomethingIfNeeded())
   }
 
   render () {

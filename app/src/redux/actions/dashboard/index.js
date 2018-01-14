@@ -5,11 +5,10 @@ import * as constants from '@actions/dashboard/constants'
 
 const URL = 'http://localhost:3001/api/protected/random-quote'
 
-function receiveSomething (json) {
-  console.log('receive something: ' + JSON.stringify(json))
+function receiveSomething (something) {
   return {
     type: constants.RECEIVE_SOMETHING,
-    data: json,
+    data: something,
     receivedAt: Date.now()
   }
 }
@@ -20,8 +19,16 @@ function isLoading () {
   }
 }
 
-export function fetchSomething () {
-  console.log('start fetching')
+function shouldFetchSomething (state) {
+  const data = state.dashboard.data
+  if (data) {
+    return false
+  } else {
+    return true
+  }
+}
+
+function fetchSomething () {
   return async (dispatch) => {
     dispatch(isLoading())
     try {
@@ -33,11 +40,19 @@ export function fetchSomething () {
       })
       dispatch(receiveSomething(res.data))
     } catch (error) {
-      console.log('error')
+      console.log(error)
       dispatch({
         type: constants.ERROR_GETTING_SOMETHING,
         payload: 'Error getting something'
       })
+    }
+  }
+}
+
+export function fetchSomethingIfNeeded () {
+  return (dispatch, getState) => {
+    if (shouldFetchSomething(getState())) {
+      return dispatch(fetchSomething())
     }
   }
 }
