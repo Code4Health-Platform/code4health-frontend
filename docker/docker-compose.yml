@@ -1,0 +1,15 @@
+version: '3'
+services:
+  web:
+    build:
+      context: ../
+      dockerfile: docker/Dockerfile
+    image: code4health-frontend
+    container_name: code4health-frontend
+    volumes:
+      - ../:/web:cached
+    ports:
+      - "8888:8888"
+    command:
+      - yarn
+      - start:dev
