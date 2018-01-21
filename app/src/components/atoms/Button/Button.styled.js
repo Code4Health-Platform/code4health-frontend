@@ -1,4 +1,4 @@
-import React from 'React'
+import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import {Link} from 'react-router-dom'
@@ -37,9 +37,6 @@ function BuildButtonStyled (width, variant, href, type) {
   `
 
   if (href) {
-    styles += `
-
-    `
     return styled(Link).attrs({
       'to': href
     })`${styles}`

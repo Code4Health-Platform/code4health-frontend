@@ -4,10 +4,6 @@ import {Flex} from 'grid-styled'
 const Container = styled(Flex)`
   max-width: 1024px;
   margin: 0 auto;
-
-  div {
-    line-height: 4rem;
-  }
 `
 const Nav = styled.div`
   width: 100%;
