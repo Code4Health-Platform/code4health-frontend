@@ -1,21 +1,54 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
-import {Link} from 'react-router-dom'
 import PropTypes from 'prop-types'
+import {Box} from 'grid-styled'
+import {Nav, Container} from './NavigationBar.styled.js'
+import {NavigationItem} from '@molecules'
 
 class NavigationBar extends Component {
   render () {
     return (
-      <nav>
-        <Link to={`/`}>code4health</Link>
-        {this.props.authenticated && <Link to={`/dashboard`}>dashboard</Link>}
-        <hr />
-        {this.props.authenticated && <Link to={`/account`}>account</Link>}
-        {!this.props.authenticated && <Link to={`/log-in`}>log in</Link>}
-        {this.props.authenticated && <Link to={`/log-out`}>log out</Link>}
-        {!this.props.authenticated && <Link to={`/sign-up`}>sign up</Link>}
-        <hr />
-      </nav>
+      <Nav>
+        <Container align='center' is='nav'>
+          <NavigationItem type='logo' href='/'>
+            Code4Health
+            <span>&trade;</span>
+          </NavigationItem>
+
+          {this.props.authenticated &&
+            <NavigationItem type='link' href='/dashboard'>
+              dashboard
+            </NavigationItem>
+          }
+
+          <Box m='auto' />
+
+          {this.props.authenticated &&
+            <NavigationItem type='link' href='/account'>
+              account
+            </NavigationItem>
+          }
+
+          {this.props.authenticated &&
+            <NavigationItem type='link' href='/log-out'>
+              log out
+            </NavigationItem>
+          }
+
+          {!this.props.authenticated &&
+            <NavigationItem type='button' href='/log-in'>
+              log in
+            </NavigationItem>
+          }
+
+          {!this.props.authenticated &&
+            <NavigationItem type='button' href='/sign-up'>
+              sign up
+            </NavigationItem>
+          }
+
+        </Container>
+      </Nav>
     )
   }
 }

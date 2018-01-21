@@ -1,12 +1,18 @@
-import React, { Component } from 'react'
-import { Field, reduxForm } from 'redux-form'
-import { signUpAction } from '@actions/auth'
-import { connect } from 'react-redux'
+import React, {Component} from 'react'
+import {signUpAction} from '@actions/auth'
+import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
+import SignUpTemplate from '@templates/SignUp'
 
 class SignUp extends Component {
+  constructor (props) {
+    super(props)
+    this.submit= this.submit.bind(this)
+  }
+
   submit (values) {
     console.log('submit: ' + JSON.stringify(values))
+    console.log('props: ' + JSON.stringify(this.props))
     this.props.signUpAction(values, this.props.history)
   }
 
@@ -19,36 +25,11 @@ class SignUp extends Component {
   }
 
   signUpForm () {
-    const { handleSubmit } = this.props
-
     return (
-      <div>
-        <h1>Sign Up</h1>
-        <div>
-          {this.errorMessage()}
-          <form onSubmit={handleSubmit(this.submit.bind(this))}>
-            <Field
-              name='username'
-              component='input'
-              type='text'
-              placeholder='username'
-            />
-            <Field
-              name='password'
-              component='input'
-              type='password'
-              placeholder='password'
-            />
-            <Field
-              name='confirm-password'
-              component='input'
-              type='password'
-              placeholder='confirm password'
-            />
-            <button type='submit'>create your account</button>
-          </form>
-        </div>
-      </div>
+      <SignUpTemplate
+        formHandler={this.submit}
+        errorMessage={this.props.errorMessage}
+      />
     )
   }
 
@@ -65,8 +46,7 @@ SignUp.propTypes = {
   authenticated: PropTypes.bool,
   errorMessage: PropTypes.string,
   history: PropTypes.object,
-  signUpAction: PropTypes.func,
-  handleSubmit: PropTypes.func
+  signUpAction: PropTypes.func
 }
 
 function mapStateToProps (state) {
@@ -76,8 +56,4 @@ function mapStateToProps (state) {
   }
 }
 
-const reduxFormSignUp = reduxForm({
-  form: 'signUp'
-})(SignUp)
-
-export default connect(mapStateToProps, {signUpAction})(reduxFormSignUp)
+export default connect(mapStateToProps, {signUpAction})(SignUp)

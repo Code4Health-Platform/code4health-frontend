@@ -1,9 +1,9 @@
-import Account from '@page/Account'
-import Dashboard from '@page/Dashboard'
-import LogIn from '@page/LogIn'
-import LogOut from '@page/LogOut'
-import SignUp from '@page/SignUp'
-import Welcome from '@page/Welcome'
+import Account from '@pages/Account'
+import Dashboard from '@pages/Dashboard'
+import LogIn from '@pages/LogIn'
+import LogOut from '@pages/LogOut'
+import SignUp from '@pages/SignUp'
+import Welcome from '@pages/Welcome'
 
 export {
   Account,

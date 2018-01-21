@@ -19,7 +19,7 @@ export function logInAction ({username, password}, history) {
     } catch (error) {
       dispatch({
         type: constants.AUTHENTICATION_ERROR,
-        payload: 'Invalid email or password'
+        payload: error
       })
     }
   }
@@ -50,7 +50,7 @@ export function signUpAction ({username, password}, history) {
       console.log(error)
       dispatch({
         type: constants.SIGNUP_ERROR,
-        payload: 'Unable to sign up'
+        payload: error.response.data
       })
     }
   }

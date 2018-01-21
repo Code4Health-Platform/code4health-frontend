@@ -1,11 +1,19 @@
-import React, { Component } from 'react'
-import { Field, reduxForm } from 'redux-form'
-import { logInAction } from '@actions/auth'
-import { connect } from 'react-redux'
+import React, {Component} from 'react'
+import {reduxForm} from 'redux-form'
+import {logInAction} from '@actions/auth'
+import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
+import LogInTemplate from '@templates/LogIn'
 
 class LogIn extends Component {
+  constructor (props) {
+    super(props)
+    this.submit= this.submit.bind(this)
+  }
+
   submit (values) {
+    console.log('submit: ' + JSON.stringify(values))
+    console.log('props: ' + JSON.stringify(this.props))
     this.props.logInAction(values, this.props.history)
   }
 
@@ -17,39 +25,13 @@ class LogIn extends Component {
     }
   }
 
-  logInForm () {
-    const { handleSubmit } = this.props
-
-    return (
-      <div>
-        <h1>Log In</h1>
-        <div>
-          {this.errorMessage()}
-          <form onSubmit={handleSubmit(this.submit.bind(this))}>
-            <Field
-              name='username'
-              component='input'
-              type='text'
-              placeholder='username'
-            />
-            <Field
-              name='password'
-              component='input'
-              type='password'
-              placeholder='password'
-            />
-            <button type='submit'>Log In</button>
-          </form>
-        </div>
-      </div>
-    )
-  }
-
   render () {
     if (this.props.authenticated) {
       return (<h1>already logged in</h1>)
     } else {
-      return this.logInForm()
+      return (
+        <LogInTemplate formHandler={this.submit} />
+      )
     }
   }
 }
@@ -58,8 +40,7 @@ LogIn.propTypes = {
   authenticated: PropTypes.bool,
   errorMessage: PropTypes.string,
   history: PropTypes.object,
-  logInAction: PropTypes.func,
-  handleSubmit: PropTypes.func
+  logInAction: PropTypes.func
 }
 
 function mapStateToProps (state) {
