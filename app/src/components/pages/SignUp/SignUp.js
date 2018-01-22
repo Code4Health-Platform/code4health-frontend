@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {signUpAction} from '@actions/auth'
+import {signUpAction, signUpUnloadAction} from '@actions/auth'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import SignUpTemplate from '@templates/SignUp'
@@ -8,6 +8,10 @@ class SignUp extends Component {
   constructor (props) {
     super(props)
     this.submit= this.submit.bind(this)
+  }
+
+  componentWillUnmount () {
+    this.props.signUpUnloadAction()
   }
 
   submit (values) {
@@ -46,14 +50,15 @@ SignUp.propTypes = {
   authenticated: PropTypes.bool,
   errorMessage: PropTypes.string,
   history: PropTypes.object,
-  signUpAction: PropTypes.func
+  signUpAction: PropTypes.func,
+  signUpUnloadAction: PropTypes.func
 }
 
 function mapStateToProps (state) {
   return {
-    errorMessage: state.auth.error,
+    errorMessage: state.auth.sign_up_error,
     authenticated: state.auth.authenticated
   }
 }
 
-export default connect(mapStateToProps, {signUpAction})(SignUp)
+export default connect(mapStateToProps, {signUpAction, signUpUnloadAction})(SignUp)

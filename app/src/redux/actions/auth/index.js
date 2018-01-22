@@ -9,7 +9,7 @@ export function logInAction ({username, password}, history) {
   return async (dispatch) => {
     try {
       const res = await axios.post(`${URL}/sessions/create`, { username, password })
-      dispatch({type: constants.AUTHENTICATED})
+      dispatch({type: constants.LOG_IN_SUCCESS})
       const user = {
         token: res.data.token,
         access_token: res.data.access_token
@@ -18,10 +18,22 @@ export function logInAction ({username, password}, history) {
       history.push('/dashboard')
     } catch (error) {
       dispatch({
-        type: constants.AUTHENTICATION_ERROR,
-        payload: error
+        type: constants.LOG_IN_ERROR,
+        payload: error.response.data
       })
     }
+  }
+}
+
+export function logInUnloadAction () {
+  return {
+    type: constants.LOG_IN_UNLOAD
+  }
+}
+
+export function signUpUnloadAction () {
+  return {
+    type: constants.SIGN_UP_UNLOAD
   }
 }
 
@@ -39,7 +51,7 @@ export function signUpAction ({username, password}, history) {
         `${URL}/users`,
         {username, password}
       )
-      dispatch({ type: constants.AUTHENTICATED })
+      dispatch({ type: constants.SIGN_UP_SUCCESS })
       const user = {
         token: res.data.token,
         access_token: res.data.access_token
@@ -49,7 +61,7 @@ export function signUpAction ({username, password}, history) {
     } catch (error) {
       console.log(error)
       dispatch({
-        type: constants.SIGNUP_ERROR,
+        type: constants.SIGN_UP_ERROR,
         payload: error.response.data
       })
     }

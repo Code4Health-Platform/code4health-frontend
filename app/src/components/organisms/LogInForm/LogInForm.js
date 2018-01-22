@@ -8,35 +8,45 @@ class LoginForm extends Component {
   render () {
     const {handleSubmit} = this.props
 
+    const usernameField = (
+      <Field
+        name='username'
+        component={field =>
+          <Input
+            type='text'
+            placeholder='username'
+            content={field.input.value}
+            onChangeHander={param =>
+              field.input.onChange(param)
+            }
+          />
+        }
+      />
+    )
+
+    const passwordField = (
+      <Field
+        name='password'
+        component={field =>
+          <Input
+            type='password'
+            placeholder='password'
+            content={field.input.value}
+            onChangeHander={param =>
+              field.input.onChange(param)
+            }
+          />
+        }
+      />
+    )
+
     return (
       <form onSubmit={handleSubmit(this.props.formHandler)}>
-        <Field
-          name='username'
-          component={field =>
-            <Input
-              type='text'
-              placeholder='username'
-              content={field.input.value}
-              onChangeHander={param =>
-                field.input.onChange(param)
-              }
-            />
-          }
-        />
+        {this.props.errorMessage}
 
-        <Field
-          name='password'
-          component={field =>
-            <Input
-              type='password'
-              placeholder='password'
-              content={field.input.value}
-              onChangeHander={param =>
-                field.input.onChange(param)
-              }
-            />
-          }
-        />
+        {usernameField}
+
+        {passwordField}
 
         <Button type='submit'>
           Log In
@@ -52,7 +62,8 @@ class LoginForm extends Component {
 
 LoginForm.propTypes = {
   formHandler: PropTypes.func,
-  handleSubmit: PropTypes.any
+  handleSubmit: PropTypes.any,
+  errorMessage: PropTypes.string
 }
 
 const reduxFormLogin = reduxForm({

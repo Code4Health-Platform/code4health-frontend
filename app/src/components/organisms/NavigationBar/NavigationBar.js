@@ -36,7 +36,7 @@ class NavigationBar extends Component {
           }
 
           {!this.props.authenticated &&
-            <NavigationItem type='button' href='/log-in'>
+            <NavigationItem type='link' href='/log-in'>
               log in
             </NavigationItem>
           }

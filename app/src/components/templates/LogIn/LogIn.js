@@ -13,7 +13,9 @@ const LogIn = props => (
       </Heading>
     </Grid>
     <Grid w={[1, 1, 1/3]} p={1}>
-      <LogInForm formHandler={props.formHandler} />
+      <LogInForm
+        formHandler={props.formHandler} errorMessage={props.errorMessage}
+      />
     </Grid>
     <Grid w={[1, 1, 2/3]} p={1}>
       <Panel>
@@ -24,7 +26,8 @@ const LogIn = props => (
 )
 
 LogIn.propTypes = {
-  formHandler: PropTypes.func
+  formHandler: PropTypes.func,
+  errorMessage: PropTypes.string
 }
 
 export default LogIn
