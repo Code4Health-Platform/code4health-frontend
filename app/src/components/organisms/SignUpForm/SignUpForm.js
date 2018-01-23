@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {Field, reduxForm} from 'redux-form'
 import PropTypes from 'prop-types'
-import {Button, Input, Link} from '@atoms'
+import {Button, Input} from '@atoms'
 
 class SignUp extends Component {
   render () {

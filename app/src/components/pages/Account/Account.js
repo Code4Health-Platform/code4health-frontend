@@ -15,7 +15,7 @@ class Account extends Component {
       <div>
         <h1>Account</h1>
         {isLoading && <h2>Loading</h2>}
-        {JSON.stringify(this.props.data)}
+        {this.props.data}
       </div>
     )
   }

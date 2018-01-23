@@ -1,10 +1,16 @@
-import React, { Component } from 'react'
-import { logOutAction } from '@actions/auth'
-import { connect } from 'react-redux'
+import React, {Component} from 'react'
+import {logOutAction} from '@actions/auth'
+import {Button, Paragraph} from '@atoms'
+import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 class LogOut extends Component {
+  constructor (props) {
+    super(props)
+    this.logOut = this.logOut.bind(this)
+  }
+
   logOut () {
     this.props.logOutAction(this.props.history)
   }
@@ -13,8 +19,14 @@ class LogOut extends Component {
     if (this.props.authenticated) {
       return (
         <div>
-          <h1>Are you sure you want to log out?</h1>
-          <button onClick={() => this.logOut()}>Log Out</button>
+          <Paragraph>Are you sure you want to log out?</Paragraph>
+          <Button
+            type='button'
+            clickHandler={() => this.logOut}
+            width='auto'
+          >
+            Log Out
+          </Button>
         </div>
       )
     } else {

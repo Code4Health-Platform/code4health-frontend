@@ -3,11 +3,11 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import {Link} from 'react-router-dom'
 
-function BuildButtonStyled (width, variant, href, type) {
+function BuildButtonStyled (width, variant, href, type, clickHandler) {
   let styles = `
     width: ${width === 'auto' ? 'auto' : '100%'};
     border-radius: 4px;
-    margin: ${type === 'submit' ? '0 0 2rem 0' : '0'};
+    margin: ${type === 'submit' ? '0 0 1rem 0' : '0'};
     padding: 0;
     background-color: ${variant === 'muted' ? 'white' : '#3273dc'};
     cursor: pointer;
@@ -43,7 +43,8 @@ function BuildButtonStyled (width, variant, href, type) {
   }
 
   return styled.button.attrs({
-    'type': type
+    'type': type,
+    'onClick': clickHandler
   })`${styles}`
 }
 
@@ -52,7 +53,8 @@ const ButtonStyled = (props) => {
     props.width,
     props.variant,
     props.href,
-    props.type
+    props.type,
+    props.clickHandler
   )
 
   return (
@@ -67,7 +69,8 @@ ButtonStyled.propTypes = {
   href: PropTypes.string,
   type: PropTypes.string,
   variant: PropTypes.string,
-  width: PropTypes.string
+  width: PropTypes.string,
+  clickHandler: PropTypes.func
 }
 
 export default ButtonStyled

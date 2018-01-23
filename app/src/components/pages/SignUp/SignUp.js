@@ -15,8 +15,6 @@ class SignUp extends Component {
   }
 
   submit (values) {
-    console.log('submit: ' + JSON.stringify(values))
-    console.log('props: ' + JSON.stringify(this.props))
     this.props.signUpAction(values, this.props.history)
   }
 
