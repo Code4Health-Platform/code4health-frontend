@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 const Link = props => {
   return (
-    <StyledLink to={props.to}>
+    <StyledLink to={props.to} onClick={props.click}>
       {props.children}
     </StyledLink>
   )
@@ -12,7 +12,8 @@ const Link = props => {
 
 Link.propTypes = {
   children: PropTypes.node,
-  to: PropTypes.string
+  to: PropTypes.string,
+  click: PropTypes.func
 }
 
 export default Link

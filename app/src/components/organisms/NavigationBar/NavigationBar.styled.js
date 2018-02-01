@@ -1,15 +1,40 @@
 import styled from 'styled-components'
 import {Flex} from 'grid-styled'
 
-const Container = styled(Flex)`
+const Container = styled.div`
+  margin: 0;
+  padding: 0;
+  min-height: 5.6rem;
+  position: relative;
+
+  &:after {
+    position: absolute;
+    bottom: -0.5rem;
+    left: 0;
+    display: block;
+    height: 0.5rem;
+    padding: 0;
+    width: 100%;
+    content: '';
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1), transparent);
+  }
+
+  @media (min-width: 768px) {
+    padding: 0;
+  }
+`
+const Nav = styled(Flex)`
   max-width: 1024px;
   margin: 0 auto;
-`
-const Nav = styled.div`
-  width: 100%;
-  border-bottom: 1px solid #efefef;
   padding: 0;
-  margin: 0;
+  align-items: center;
+  display: block;
+
+
+  @media (min-width: 768px) {
+    display: flex;
+    padding: 0;
+  }
 `
 
 export {

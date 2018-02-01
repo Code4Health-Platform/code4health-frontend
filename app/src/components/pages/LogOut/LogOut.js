@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {logOutAction} from '@actions/auth'
 import {Button, Paragraph} from '@atoms'
 import {connect} from 'react-redux'
-import {Link} from 'react-router-dom'
+import Link from '@atoms/Link'
 import PropTypes from 'prop-types'
 
 class LogOut extends Component {

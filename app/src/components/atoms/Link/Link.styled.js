@@ -8,4 +8,8 @@ export const StyledLink = styled(Link)`
   &:active, &:visited {
     color: #363636;
   }
+
+  &:hover {
+    color: #3273dc;
+  }
 `

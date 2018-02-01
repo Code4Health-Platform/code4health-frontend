@@ -40,10 +40,9 @@ function fetchSomething () {
       })
       dispatch(receiveSomething(res.data))
     } catch (error) {
-      console.log(error)
       dispatch({
         type: constants.ERROR_GETTING_SOMETHING,
-        payload: 'Error getting something'
+        error: error
       })
     }
   }
