@@ -1,7 +1,7 @@
 /* global localStorage */
 
 import axios from 'axios'
-import * as constants from '@actions/dashboard/constants'
+import * as constants from '@constants/dashboard'
 
 const URL = 'http://localhost:3001/api/protected/random-quote'
 

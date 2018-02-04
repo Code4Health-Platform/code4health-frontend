@@ -1,7 +1,7 @@
 /* global localStorage */
 
 import axios from 'axios'
-import * as constants from '@actions/auth/constants'
+import * as constants from '@constants/auth'
 
 const URL = 'http://localhost:3001'
 

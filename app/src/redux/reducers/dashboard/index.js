@@ -1,4 +1,4 @@
-import * as constants from '@actions/dashboard/constants'
+import * as constants from '@constants/dashboard'
 
 export default function (state = {}, action) {
   switch (action.type) {

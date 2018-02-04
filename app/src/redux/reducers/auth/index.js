@@ -1,4 +1,4 @@
-import * as constants from '@actions/auth/constants'
+import * as constants from '@constants/auth'
 
 export default function (state = {}, action) {
   switch (action.type) {
