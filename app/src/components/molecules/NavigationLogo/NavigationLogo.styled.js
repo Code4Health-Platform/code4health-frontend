@@ -6,6 +6,10 @@ const NavigationLogoStyled = styled.div`
   display: block;
   font-size: 3rem;
 
+  a {
+    text-decoration: none;
+  }
+
   @media (min-width: 768px) {
     display: flex;
   }
