@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {fetchSomethingIfNeeded} from '@actions/dashboard'
 import PropTypes from 'prop-types'
