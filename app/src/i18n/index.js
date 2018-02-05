@@ -10,18 +10,22 @@ export default function configureLocales () {
 // workaround for react-intl only supporting flat messages
 // https://github.com/yahoo/react-intl/wiki/Upgrade-Guide#flatten-messages-object
 function flattenMessages (nestedMessages, prefix = '') {
-  return Object.keys(nestedMessages).reduce((messages, key) => {
-    const value = nestedMessages[key]
-    const prefixedKey = prefix ? `${prefix}.${key}` : key
+  if (nestedMessages) {
+    return Object.keys(nestedMessages).reduce((messages, key) => {
+      const value = nestedMessages[key]
+      const prefixedKey = prefix ? `${prefix}.${key}` : key
 
-    if (typeof value === 'string') {
-      messages[prefixedKey] = value
-    } else {
-      Object.assign(messages, flattenMessages(value, prefixedKey))
-    }
+      if (typeof value === 'string') {
+        messages[prefixedKey] = value
+      } else {
+        Object.assign(messages, flattenMessages(value, prefixedKey))
+      }
 
-    return messages
-  }, {})
+      return messages
+    }, {})
+  } else {
+    return {}
+  }
 }
 
 export {configureLocales, flattenMessages}

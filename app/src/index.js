@@ -5,10 +5,10 @@ import {AppContainer} from 'react-hot-loader'
 import React from 'react'
 import {render} from 'react-dom'
 import Router from '@src/router'
-
 import configureStore from './redux/store'
 import {Provider} from 'react-redux'
 import {AUTHENTICATED} from '@constants/auth'
+import I18nProvider from './i18n/provider'
 
 const rootElement = document.getElementById('app')
 
@@ -19,20 +19,22 @@ if (user) {
   store.dispatch({type: AUTHENTICATED})
 }
 
-renderWithHotModuleReplacement(Router)
+renderWithHotModuleReplacement(I18nProvider)
 
 if (module.hot) {
-  module.hot.accept('./router', () => {
-    const Router = require('./router').default
-    renderWithHotModuleReplacement(Router)
+  module.hot.accept('./i18n/provider', () => {
+    const I18nProvider = require('./i18n/provider').default
+    renderWithHotModuleReplacement(I18nProvider)
   })
 }
 
-function renderWithHotModuleReplacement (Router) {
+function renderWithHotModuleReplacement (I18nProvider) {
   render(
     <AppContainer>
       <Provider store={store}>
-        <Router />
+        <I18nProvider>
+          <Router />
+        </I18nProvider>
       </Provider>
     </AppContainer>,
     rootElement
