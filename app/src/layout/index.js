@@ -2,20 +2,20 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
-import {IntlProvider, addLocaleData} from 'react-intl'
+import {IntlProvider} from 'react-intl'
 import {Footer, NavigationBar} from '@organisms'
 import Container from './styled.js'
-import {flattenMessages} from '@i18n'
-
-import en from 'react-intl/locale-data/en'
-import se from 'react-intl/locale-data/se'
-
-addLocaleData([...en, ...se])
+import * as Localisation from '@i18n'
 
 class Layout extends Component {
+  constructor (props) {
+    Localisation.configureLocales()
+    super(props)
+  }
+
   render () {
     return (
-      <IntlProvider locale={this.props.locale} messages={flattenMessages(this.props.messages)} key={this.props.locale}>
+      <IntlProvider locale={this.props.locale} messages={Localisation.flattenMessages(this.props.messages)} key={this.props.locale}>
         <div>
           <NavigationBar />
           <Container>

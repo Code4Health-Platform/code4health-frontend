@@ -5,7 +5,6 @@ import {SWEDISH_TRANSLATION} from '@messages/se'
 export default function (state = {}, action) {
   switch (action.type) {
     case constants.LOCALE_SWITCHED:
-      console.log('switch locale reducer: ' + action.locale)
       switch (action.locale) {
         case 'en':
           return { ...state,
