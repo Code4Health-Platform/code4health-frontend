@@ -4,7 +4,13 @@
 
 ## Local development (requires docker)
 
-To bring up the development environment, run the following:
+Build Docker images
+
+```
+$ make upgrade
+```
+
+To bring up the development environment:
 
 ```
 $ make start-dev
