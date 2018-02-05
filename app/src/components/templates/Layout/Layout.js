@@ -1,3 +1,4 @@
+/* @todo - this component is doing far too much - refactor */
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
