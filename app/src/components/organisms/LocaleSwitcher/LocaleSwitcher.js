@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
-import {switchLocale} from '@actions/Locale'
+import {switchLocale} from '@actions/locale'
 import PropTypes from 'prop-types'
 
 class LocaleSwitcher extends Component {
@@ -18,17 +18,17 @@ class LocaleSwitcher extends Component {
     return (
       <select
         onChange={this.handleChange}
-        value={this.props.locale}
+        value={this.props.locale.lang}
       >
-        <option value='en_gb'>English (UK)</option>
-        <option value='en_us'>English (US)</option>
+        <option value='en'>English</option>
+        <option value='se'>Svenska</option>
       </select>
     )
   }
 }
 
 LocaleSwitcher.propTypes = {
-  locale: PropTypes.string,
+  locale: PropTypes.object,
   switchLocale: PropTypes.func
 }
 

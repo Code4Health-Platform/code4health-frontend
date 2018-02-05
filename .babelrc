@@ -8,7 +8,10 @@
          "^@(atoms|molecules|templates|organisms|pages)/(.*)$": "./app/src/components/\\1/\\2/\\2",
          "^@(atoms|molecules|templates|organisms|pages)$": "./app/src/components/\\1",
          "^@components/(.*)$": "./app/src/components/\\1",
-         "^@(reducers|actions|constants)/(.*)$": "./app/src/redux/\\1/\\2"
+         "^@(reducers|actions|constants)/(.*)$": "./app/src/redux/\\1/\\2",
+         "^@i18n": "./app/src/i18n",
+         "^@messages/(.*)$": "./app/src/i18n/messages/\\1",
+
       }
     }]
   ]

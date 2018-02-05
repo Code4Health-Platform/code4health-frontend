@@ -1,10 +1,10 @@
 import React from 'react'
+import {FormattedMessage} from 'react-intl'
 
-export const Welcome = (props) => (
-  <h1>Welcome to code4health</h1>
+const Welcome = (props) => (
+  <h1>
+    <FormattedMessage id='app.welcomeMessage' />
+  </h1>
 )
-
-Welcome.propTypes = {
-}
 
 export default Welcome

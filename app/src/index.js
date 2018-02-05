@@ -11,8 +11,8 @@ import {Provider} from 'react-redux'
 import {AUTHENTICATED} from '@constants/auth'
 
 const rootElement = document.getElementById('app')
-const initialState = {locale: 'en_gb'}
-const store = configureStore(initialState)
+
+const store = configureStore()
 
 const user = localStorage.getItem('user')
 if (user) {
