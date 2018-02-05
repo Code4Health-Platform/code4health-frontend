@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {BrowserRouter, Route} from 'react-router-dom'
 
 import AuthRequired from '@components/auth/AuthRequired'
-import {Layout} from '@templates'
+import Layout from '@src/layout'
 import {Account, Dashboard, LogIn, LogOut, SignUp, Welcome} from '@pages'
 
 const AuthenticatedDashboard = AuthRequired(Dashboard)
@@ -12,7 +12,7 @@ const ConnectedDashboard = connect()(AuthenticatedDashboard)
 const AuthenticatedAccount = AuthRequired(Account)
 const ConnectedAccount = connect()(AuthenticatedAccount)
 
-class App extends Component {
+class Router extends Component {
   render () {
     return (
       <BrowserRouter>
@@ -29,4 +29,4 @@ class App extends Component {
   }
 }
 
-export default App
+export default Router

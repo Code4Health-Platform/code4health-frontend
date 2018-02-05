@@ -4,7 +4,7 @@ import 'react-hot-loader/patch'
 import {AppContainer} from 'react-hot-loader'
 import React from 'react'
 import {render} from 'react-dom'
-import Router from './components/Router'
+import Router from '@src/router'
 
 import configureStore from './redux/store'
 import {Provider} from 'react-redux'
@@ -22,8 +22,8 @@ if (user) {
 renderWithHotModuleReplacement(Router)
 
 if (module.hot) {
-  module.hot.accept('./components/Router', () => {
-    const Router = require('./components/Router').default
+  module.hot.accept('./router', () => {
+    const Router = require('./router').default
     renderWithHotModuleReplacement(Router)
   })
 }

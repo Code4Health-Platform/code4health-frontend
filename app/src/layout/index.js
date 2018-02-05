@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {IntlProvider, addLocaleData} from 'react-intl'
 import {Footer, NavigationBar} from '@organisms'
-import Container from './Layout.styled.js'
+import Container from './styled.js'
 import {flattenMessages} from '@i18n'
 
 import en from 'react-intl/locale-data/en'

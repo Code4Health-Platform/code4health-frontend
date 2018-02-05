@@ -18,7 +18,7 @@ export default () => {
     plugins: [
       new HtmlWebpackPlugin({
         inject: true,
-        template: './app/public/index.html'
+        template: './app/src/public/index.html'
       }),
 
       new webpack.HotModuleReplacementPlugin(),
