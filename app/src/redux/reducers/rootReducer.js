@@ -1,11 +1,11 @@
 /* global localStorage */
 
-import { combineReducers } from 'redux'
-import { reducer as formReducer } from 'redux-form'
+import {combineReducers} from 'redux'
+import {reducer as formReducer} from 'redux-form'
 import authReducer from '@reducers/auth'
-import * as authConstants from '@constants/auth'
 import dashboardReducer from '@reducers/dashboard'
 import localeReducer from '@reducers/locale'
+import * as authConstants from '@constants/auth'
 
 const appReducer = combineReducers({
   auth: authReducer,
@@ -16,8 +16,9 @@ const appReducer = combineReducers({
 
 const rootReducer = (state, action) => {
   if (action.type === authConstants.UNAUTHENTICATED) {
-    state = undefined
-    localStorage.removeItem('user')
+    state.auth = {}
+    state.dashboard = {}
+    localStorage.clear()
   }
 
   return appReducer(state, action)

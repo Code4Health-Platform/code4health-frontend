@@ -38,7 +38,6 @@ export function signUpUnloadAction () {
 }
 
 export function logOutAction () {
-  localStorage.clear()
   return {
     type: constants.UNAUTHENTICATED
   }

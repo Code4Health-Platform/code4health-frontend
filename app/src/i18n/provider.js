@@ -29,6 +29,10 @@ I18nProvider.propTypes = {
   children: PropTypes.element.isRequired
 }
 
+I18nProvider.defaultProps = {
+  locale: {lang: 'en'}
+}
+
 function mapStateToProps (state) {
   return {
     locale: state.locale
