@@ -1,11 +1,12 @@
 import PropTypes from 'prop-types'
 import React from 'react'
+import StyledLabel from './Label.styled.js'
 
 const Label = props => {
   return (
-    <label>
+    <StyledLabel>
       {props.label}
-    </label>
+    </StyledLabel>
   )
 }
 
