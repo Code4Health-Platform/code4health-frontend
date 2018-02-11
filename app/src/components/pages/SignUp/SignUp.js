@@ -31,6 +31,7 @@ class SignUp extends Component {
       <SignUpTemplate
         formHandler={this.submit}
         errorMessage={this.props.errorMessage}
+        success={this.props.success}
       />
     )
   }
@@ -49,13 +50,17 @@ SignUp.propTypes = {
   errorMessage: PropTypes.string,
   history: PropTypes.object,
   signUpAction: PropTypes.func,
-  signUpUnloadAction: PropTypes.func
+  signUpUnloadAction: PropTypes.func,
+  success: PropTypes.bool
 }
 
 function mapStateToProps (state) {
   return {
-    errorMessage: state.auth.sign_up_error,
-    authenticated: state.auth.authenticated
+    authenticated: state.auth.authenticated,
+    error: state.auth.error,
+    errorMessage: state.auth.errorMessage,
+    loading: state.auth.loading,
+    success: state.auth.success
   }
 }
 

@@ -1,80 +1,47 @@
 import React, {Component} from 'react'
-import {Field, reduxForm} from 'redux-form'
+import {Fields, formValueSelector, reduxForm} from 'redux-form'
 import PropTypes from 'prop-types'
-import {Button, Input} from '@atoms'
+import {Button, Input, Paragraph} from '@atoms'
+
+const renderFields = (fields) => (
+  <div>
+    <Input {...fields.username.input} type='text' placeholder='username' />
+    <Input {...fields.email.input} type='text' placeholder='email' />
+    <Input {...fields.password.input} type='password' placeholder='password' />
+    <Input {...fields.confirmPassword.input} type='password' placeholder='confirm-password' />
+  </div>
+)
 
 class SignUp extends Component {
   render () {
-    const {handleSubmit} = this.props
-
     return (
-      <form onSubmit={handleSubmit(this.props.formHandler)}>
+      <form onSubmit={this.props.handleSubmit}>
         {this.props.errorMessage}
-        <Field
-          name='username'
-          component={field =>
-            <Input
-              type='text'
-              placeholder='username'
-              content={field.input.value}
-              onChangeHander={param =>
-                field.input.onChange(param)
-              }
-            />
-          }
-        />
-        <Field
-          name='email'
-          component={field =>
-            <Input
-              type='text'
-              placeholder='email'
-              content={field.input.value}
-              onChangeHander={param =>
-                field.input.onChange(param)
-              }
-            />
-          }
-        />
-        <Field
-          name='password'
-          component={field =>
-            <Input
-              type='password'
-              placeholder='password'
-              content={field.input.value}
-              onChangeHander={param =>
-                field.input.onChange(param)
-              }
-            />
-          }
-        />
-        <Field
-          name='confirm-password'
-          component={field =>
-            <Input
-              type='password'
-              placeholder='confirm password'
-              content={field.input.value}
-              onChangeHander={param =>
-                field.input.onChange(param)
-              }
-            />
-          }
-        />
-        <Button type='submit'>Create your account</Button>
-        <Button variant='muted' href={`/log-in`}>
-          Already registered? Log in
-        </Button>
+
+        {this.props.success &&
+          <Paragraph>
+            Thank you for signing up. Please check your email to activate your account.
+          </Paragraph>
+        }
+
+        {!this.props.success &&
+          <div>
+            <Fields names={['username', 'email', 'password', 'confirmPassword']} component={renderFields} />
+            <Button type='submit'>Create your account</Button>
+            <Button variant='muted' href={`/log-in`}>
+              Already registered? Log in
+            </Button>
+          </div>
+        }
       </form>
     )
   }
 }
 
 SignUp.propTypes = {
-  formHandler: PropTypes.func,
   handleSubmit: PropTypes.any,
-  errorMessage: PropTypes.string
+  errorMessage: PropTypes.string,
+  success: PropTypes.bool
 }
 
 const reduxFormSignUp = reduxForm({

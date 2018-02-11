@@ -12,7 +12,9 @@ const SignUp = props => (
     </Grid>
     <Grid w={[1, 1, 1/3]} p={1}>
       <SignUpForm
-        formHandler={props.formHandler} errorMessage={props.errorMessage}
+        onSubmit={props.formHandler}
+        errorMessage={props.errorMessage}
+        success={props.success}
       />
     </Grid>
     <Grid w={[1, 1, 2/3]} p={1}>
@@ -25,7 +27,8 @@ const SignUp = props => (
 
 SignUp.propTypes = {
   formHandler: PropTypes.func,
-  errorMessage: PropTypes.string
+  errorMessage: PropTypes.string,
+  success: PropTypes.bool
 }
 
 export default SignUp

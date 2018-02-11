@@ -1,56 +1,22 @@
 import React, { Component } from 'react'
-import {Field, reduxForm} from 'redux-form'
+import {Fields, reduxForm} from 'redux-form'
 import PropTypes from 'prop-types'
 import {Button, Input} from '@atoms'
-import {injectIntl} from 'react-intl'
+
+const renderFields = (fields) => (
+  <div>
+    <Input {...fields.username.input} type='text' placeholder='username' />
+    <Input {...fields.password.input} type='password' placeholder='password' />
+  </div>
+)
 
 class LoginForm extends Component {
-  usernameField () {
-    return (
-      <Field
-        name='username'
-        component={field =>
-          <Input
-            label={this.props.intl.formatMessage({id: 'auth.logIn.form.username.label'})}
-            type='text'
-            placeholder='username'
-            content={field.input.value}
-            onChangeHandler={param =>
-              field.input.onChange(param)
-            }
-          />
-        }
-      />
-    )
-  }
-
-  passwordField () {
-    return (
-      <Field
-        name='password'
-        component={field =>
-          <Input
-            label={this.props.intl.formatMessage({id: 'auth.logIn.form.password.label'})}
-            type='password'
-            placeholder='password'
-            content={field.input.value}
-            onChangeHandler={param =>
-              field.input.onChange(param)
-            }
-          />
-        }
-      />
-    )
-  }
-
   render () {
     return (
-      <form onSubmit={this.props.handleSubmit(this.props.formHandler)}>
+      <form onSubmit={this.props.handleSubmit}>
         {this.props.errorMessage}
 
-        {this.usernameField()}
-
-        {this.passwordField()}
+        <Fields names={['username', 'password']} component={renderFields} />
 
         <Button type='submit'>
           Log In
@@ -69,10 +35,8 @@ class LoginForm extends Component {
 }
 
 LoginForm.propTypes = {
-  formHandler: PropTypes.func,
   handleSubmit: PropTypes.any,
-  errorMessage: PropTypes.string,
-  intl: PropTypes.any
+  errorMessage: PropTypes.string
 }
 
 const reduxFormLogin = reduxForm({
@@ -80,4 +44,4 @@ const reduxFormLogin = reduxForm({
   fields: ['username', 'password', 'confirm-password']
 })(LoginForm)
 
-export default injectIntl(reduxFormLogin)
+export default reduxFormLogin

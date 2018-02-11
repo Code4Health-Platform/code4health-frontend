@@ -14,7 +14,7 @@ const LogIn = props => (
     </Grid>
     <Grid w={[1, 1, 1/3]} p={1}>
       <LogInForm
-        formHandler={props.formHandler} errorMessage={props.errorMessage}
+        onSubmit={props.formHandler} errorMessage={props.errorMessage}
       />
     </Grid>
     <Grid w={[1, 1, 2/3]} p={1}>
