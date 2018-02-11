@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {StyledInput} from './Input.styled.js'
+import StyledInput from './Input.styled.js'
 
 const Input = props => {
   return (
@@ -8,7 +8,7 @@ const Input = props => {
       type={props.type}
       placeholder={props.placeholder}
       value={props.content}
-      onChange={props.onChangeHander}
+      onChange={props.onChangeHandler}
       name={props.name}
     />
   )
@@ -17,7 +17,7 @@ const Input = props => {
 Input.propTypes = {
   placeholder: PropTypes.string,
   type: PropTypes.oneOf(['text', 'password']),
-  onChangeHander: PropTypes.func,
+  onChangeHandler: PropTypes.func,
   content: PropTypes.any,
   name: PropTypes.any
 }
