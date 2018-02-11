@@ -8,8 +8,11 @@ class FormInput extends Component {
       <div>
         <Label label={this.props.label} />
         <Input
-          type={this.props.type} placeholder={this.props.placeholder}
-          value={this.props.inputValue}
+          type={this.props.type}
+          placeholder={this.props.placeholder}
+          value={this.props.content}
+          onChange={this.props.onChangeHandler}
+          name={this.props.name}
         />
       </div>
     )
@@ -19,8 +22,10 @@ class FormInput extends Component {
 FormInput.propTypes = {
   type: PropTypes.oneOf(['text', 'password']),
   placeholder: PropTypes.string,
-  inputValue: PropTypes.string,
-  label: PropTypes.string
+  content: PropTypes.string,
+  label: PropTypes.string,
+  onChangeHandler: PropTypes.func,
+  name: PropTypes.any
 }
 
 export default FormInput
