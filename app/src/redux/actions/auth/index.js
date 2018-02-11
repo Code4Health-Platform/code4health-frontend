@@ -6,7 +6,6 @@ import * as constants from '@constants/auth'
 const URL = 'http://localhost:8080/api'
 
 export function logInAction ({username, password}, history) {
-  console.log('loginaction called with: ' + username + ' ' + password)
   return async (dispatch) => {
     try {
       const res = await axios.post(`${URL}/authenticate`, { username: username, password: password })
@@ -91,6 +90,30 @@ export function passwordResetAction ({username}, history) {
       console.log(JSON.stringify(error))
       dispatch({
         type: constants.PASSWORD_RESET_ERROR,
+        payload: error.response.data
+      })
+    }
+  }
+}
+
+function isActivating () {
+  return {
+    type: constants.ACTIVATION_IN_PROGRESS
+  }
+}
+
+export function activateAccount (key, history) {
+  return async (dispatch) => {
+    dispatch(isActivating())
+    try {
+      const res = await axios.get(
+        `${URL}/activate?key=${key}`
+      )
+      console.log(res)
+      dispatch({type: constants.ACTIVATION_SUCCESS})
+    } catch (error) {
+      dispatch({
+        type: constants.ACTIVATION_ERROR,
         payload: error.response.data
       })
     }

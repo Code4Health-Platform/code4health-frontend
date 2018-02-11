@@ -4,7 +4,7 @@ import {BrowserRouter, Route} from 'react-router-dom'
 
 import AuthRequired from '@components/auth/AuthRequired'
 import Layout from '@src/layout'
-import {Account, Dashboard, LogIn, LogOut, SignUp, Welcome, PasswordReset} from '@pages'
+import {Account, Activate, Dashboard, LogIn, LogOut, SignUp, Welcome, PasswordReset} from '@pages'
 
 const AuthenticatedDashboard = AuthRequired(Dashboard)
 const ConnectedDashboard = connect()(AuthenticatedDashboard)
@@ -18,6 +18,7 @@ class Router extends Component {
       <BrowserRouter>
         <Layout>
           <Route exact path='/' component={Welcome} />
+          <Route exact path='/activate' component={Activate} />
           <Route exact path='/log-in' component={LogIn} />
           <Route exact path='/log-out' component={LogOut} />
           <Route exact path='/sign-up' component={SignUp} />
