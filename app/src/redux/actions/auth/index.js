@@ -3,12 +3,13 @@
 import axios from 'axios'
 import * as constants from '@constants/auth'
 
-const URL = 'http://localhost:3001'
+const URL = 'http://localhost:8080/api'
 
 export function logInAction ({username, password}, history) {
+  console.log('loginaction called with: ' + username + ' ' + password)
   return async (dispatch) => {
     try {
-      const res = await axios.post(`${URL}/sessions/create`, { username, password })
+      const res = await axios.post(`${URL}/authenticate`, { username: username, password: password })
       dispatch({type: constants.LOG_IN_SUCCESS})
       const user = {
         token: res.data.token,
@@ -17,6 +18,8 @@ export function logInAction ({username, password}, history) {
       localStorage.setItem('user', JSON.stringify(user))
       history.push('/dashboard')
     } catch (error) {
+      console.log(error)
+      console.log(JSON.stringify(error))
       dispatch({
         type: constants.LOG_IN_ERROR,
         payload: error.response.data
@@ -49,22 +52,24 @@ export function logOutAction () {
   }
 }
 
-export function signUpAction ({username, password}, history) {
+export function signUpAction ({email, username, password}, history) {
   return async (dispatch) => {
     try {
       const res = await axios.post(
-        `${URL}/users`,
-        {username, password}
+        `${URL}/register`,
+        {
+          email: email,
+          langKey: 'en',
+          login: username,
+          password: password
+        }
       )
-      dispatch({ type: constants.SIGN_UP_SUCCESS })
-      const user = {
-        token: res.data.token,
-        access_token: res.data.access_token
-      }
-      localStorage.setItem('user', JSON.stringify(user))
-      history.push('/dashboard')
+      console.log(res)
+      console.log(JSON.stringify(res))
+      dispatch({type: constants.SIGN_UP_SUCCESS})
     } catch (error) {
       console.log(error)
+      console.log(JSON.stringify(error))
       dispatch({
         type: constants.SIGN_UP_ERROR,
         payload: error.response.data
