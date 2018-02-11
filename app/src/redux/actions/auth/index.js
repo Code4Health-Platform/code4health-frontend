@@ -37,6 +37,12 @@ export function signUpUnloadAction () {
   }
 }
 
+export function passwordResetUnloadAction () {
+  return {
+    type: constants.PASSWORD_RESET_UNLOAD
+  }
+}
+
 export function logOutAction () {
   return {
     type: constants.UNAUTHENTICATED
@@ -61,6 +67,25 @@ export function signUpAction ({username, password}, history) {
       console.log(error)
       dispatch({
         type: constants.SIGN_UP_ERROR,
+        payload: error.response.data
+      })
+    }
+  }
+}
+
+export function passwordResetAction ({username}, history) {
+  return async (dispatch) => {
+    try {
+      const res = await axios.post(
+        `${URL}/password-reset`,
+        {username}
+      )
+      dispatch({type: constants.PASSWORD_RESET_SENT, payload: res})
+    } catch (error) {
+      console.log(error)
+      console.log(JSON.stringify(error))
+      dispatch({
+        type: constants.PASSWORD_RESET_ERROR,
         payload: error.response.data
       })
     }

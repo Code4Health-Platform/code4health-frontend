@@ -3,7 +3,7 @@
 import axios from 'axios'
 import * as constants from '@constants/dashboard'
 
-const URL = 'http://localhost:3001/api/protected/random-quote'
+const URL = 'http://localhost:8080/api/protected/random-quote'
 
 function receiveSomething (something) {
   return {

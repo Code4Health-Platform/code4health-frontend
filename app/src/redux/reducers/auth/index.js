@@ -15,7 +15,7 @@ export default function (state = {}, action) {
     case constants.LOG_IN_UNLOAD:
       return {...state, log_in_error: null}
     case constants.SIGN_UP_SUCCESS:
-      return {...state, authenticated: true}
+      return {...state, activation_sent: true}
     case constants.SIGN_UP_UNLOAD:
       return {...state, sign_up_error: null}
   }
