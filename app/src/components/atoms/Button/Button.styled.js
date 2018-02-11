@@ -7,7 +7,7 @@ function BuildButtonStyled (width, variant, href, type, clickHandler) {
   let styles = `
     width: ${width === 'auto' ? 'auto' : '100%'};
     border-radius: 4px;
-    margin: ${type === 'submit' ? '0 0 1rem 0' : '0'};
+    margin: 0 0 1rem 0;
     padding: 0;
     background-color: ${variant === 'muted' ? 'white' : '#3273dc'};
     cursor: pointer;
