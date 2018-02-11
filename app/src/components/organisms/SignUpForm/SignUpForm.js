@@ -24,6 +24,19 @@ class SignUp extends Component {
           }
         />
         <Field
+          name='email'
+          component={field =>
+            <Input
+              type='text'
+              placeholder='email'
+              content={field.input.value}
+              onChangeHander={param =>
+                field.input.onChange(param)
+              }
+            />
+          }
+        />
+        <Field
           name='password'
           component={field =>
             <Input
@@ -66,7 +79,7 @@ SignUp.propTypes = {
 
 const reduxFormSignUp = reduxForm({
   form: 'signUp',
-  fields: ['username', 'password', 'confirm-password']
+  fields: ['username', 'email', 'password', 'confirm-password']
 })(SignUp)
 
 export default reduxFormSignUp
