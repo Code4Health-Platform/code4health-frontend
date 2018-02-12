@@ -1,21 +1,24 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {fetchSomethingIfNeeded} from '@actions/dashboard'
+import {fetchProjectsIfNeeded} from '@actions/dashboard'
+import {Paragraph} from '@atoms'
+import {FormattedMessage} from 'react-intl'
 import PropTypes from 'prop-types'
 
 class Dashboard extends Component {
   componentDidMount () {
     const { dispatch } = this.props
-    dispatch(fetchSomethingIfNeeded())
+    dispatch(fetchProjectsIfNeeded())
   }
 
   render () {
     const { isLoading } = this.props
     return (
       <div>
-        <h1>Dashboard</h1>
+        <h1>Projects</h1>
         {isLoading && <h2>Loading</h2>}
-        {this.props.data}
+        {this.props.data && this.props.data.length > 0 && <h2>Your operinos</h2>}
+        {this.props.data && <Paragraph><FormattedMessage id='projects.dashboard.noProjects' /></Paragraph>}
       </div>
     )
   }
@@ -24,7 +27,7 @@ class Dashboard extends Component {
 Dashboard.propTypes = {
   dispatch: PropTypes.func,
   isLoading: PropTypes.bool,
-  data: PropTypes.string
+  data: PropTypes.any
 }
 
 function mapStateToProps (state) {

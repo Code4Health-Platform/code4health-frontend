@@ -38,7 +38,7 @@ class NavigationBar extends Component {
 
             {this.props.authenticated &&
               <NavigationItem type='link' href='/dashboard' click={this.closeMenu}>
-                Dashboard
+                Projects
               </NavigationItem>
             }
 

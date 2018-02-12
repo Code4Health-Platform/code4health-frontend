@@ -1,12 +1,10 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
-import {fetchSomethingIfNeeded} from '@actions/dashboard'
 import PropTypes from 'prop-types'
 
 class Account extends Component {
   componentDidMount () {
-    const { dispatch } = this.props
-    dispatch(fetchSomethingIfNeeded())
+
   }
 
   render () {

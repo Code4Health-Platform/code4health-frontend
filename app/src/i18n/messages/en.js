@@ -28,6 +28,11 @@ export const ENGLISH_TRANSLATION = {
         inProgress: 'Activating your account',
         success: 'Your account has been successfully activated'
       }
+    },
+    projects: {
+      dashboard: {
+        noProjects: 'You don\'t have any projects! You can create a new Project using the button above or you can create a Sandbox project to get up and running quickly!'
+      }
     }
   }
 }

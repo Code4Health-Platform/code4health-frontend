@@ -3,9 +3,9 @@
 import axios from 'axios'
 import * as constants from '@constants/dashboard'
 
-const URL = 'http://localhost:8080/api/protected/random-quote'
+const URL = 'http://localhost:8080/api/operinos?page=0&size=20&sort=id,asc'
 
-function receiveSomething (something) {
+function receiveProjects (something) {
   return {
     type: constants.RECEIVE_SOMETHING,
     data: something,
@@ -19,26 +19,29 @@ function isLoading () {
   }
 }
 
-function shouldFetchSomething (state) {
+function shouldFetchProjects (state) {
   const data = state.dashboard.data
-  if (data) {
-    return false
-  } else {
+  const lastFetch = state.dashboard.received
+
+  if (!data || lastFetch + 6000 < Date.now()) {
+    console.log('should fetch projects')
     return true
+  } else {
+    return false
   }
 }
 
-function fetchSomething () {
+function fetchProjects () {
   return async (dispatch) => {
     dispatch(isLoading())
     try {
       const user = JSON.parse(localStorage.getItem('user'))
       const res = await axios.get(`${URL}`, {
         headers: {
-          Authorization: `Bearer ${user.access_token}`
+          Authorization: `Bearer ${user.token}`
         }
       })
-      dispatch(receiveSomething(res.data))
+      dispatch(receiveProjects(res.data))
     } catch (error) {
       dispatch({
         type: constants.ERROR_GETTING_SOMETHING,
@@ -48,10 +51,10 @@ function fetchSomething () {
   }
 }
 
-export function fetchSomethingIfNeeded () {
+export function fetchProjectsIfNeeded () {
   return (dispatch, getState) => {
-    if (shouldFetchSomething(getState())) {
-      return dispatch(fetchSomething())
+    if (shouldFetchProjects(getState())) {
+      return dispatch(fetchProjects())
     }
   }
 }

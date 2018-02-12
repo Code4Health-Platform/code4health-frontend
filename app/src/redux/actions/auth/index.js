@@ -11,9 +11,10 @@ export function logInAction ({username, password}, history) {
       const res = await axios.post(`${URL}/authenticate`, { username: username, password: password })
       dispatch({type: constants.LOG_IN_SUCCESS})
       const user = {
-        token: res.data.token,
-        access_token: res.data.access_token
+        token: res.data.id_token
       }
+      console.log(res)
+      console.log(JSON.stringify(res))
       localStorage.setItem('user', JSON.stringify(user))
       history.push('/dashboard')
     } catch (error) {
