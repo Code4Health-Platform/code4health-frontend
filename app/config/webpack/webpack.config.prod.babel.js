@@ -1,13 +1,13 @@
 import webpack from 'webpack'
 import {config} from './webpack.config.common.js'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
-import { resolve } from 'path'
+import CompressionPlugin from 'compression-webpack-plugin'
+import {resolve} from 'path'
 
 export default () => {
   return {
     bail: true,
-    devtool: 'source-map',
-
+    devtool: 'cheap-module-source-map',
     entry: config.entry,
 
     output: {
@@ -27,12 +27,20 @@ export default () => {
       }),
 
       new webpack.DefinePlugin({
-        'process.env': {
-          NODE_ENV: JSON.stringify('production')
-        }
+        'process.env.NODE_ENV': '"production"'
       }),
 
-      new webpack.optimize.UglifyJsPlugin()
+      new webpack.NoEmitOnErrorsPlugin(),
+
+      new webpack.optimize.UglifyJsPlugin(),
+
+      new CompressionPlugin({
+        asset: '[path].gz[query]',
+        algorithm: 'gzip',
+        test: /\.js$|\.css$|\.html$/,
+        threshold: 10240,
+        minRatio: 0.8
+      })
     ],
 
     module: {

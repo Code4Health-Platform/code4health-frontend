@@ -13,6 +13,7 @@
     "babel-plugin-module-resolver": "^3.0.0",
     "babel-polyfill": "^6.26.0",
     "babel-preset-stage-2": "^6.24.1",
+    "compression-webpack-plugin": "^1.1.6",
     "grid-styled": "^2.0.0-11",
     "prop-types": "^15.6.0",
     "query-string": "^5.1.0",
@@ -49,7 +50,7 @@
     "webpack-dev-server": "^2.10.0"
   },
   "scripts": {
-    "build": "webpack --config ./app/config/webpack/webpack.config.prod.babel.js",
+    "build": "webpack --config ./app/config/webpack/webpack.config.prod.babel.js --progress",
     "lint": "eslint . --ignore-pattern build/",
     "lint:fix": "eslint . --ignore-pattern build/ --fix",
     "start:dev": "webpack-dev-server --config ./app/config/webpack/webpack.config.dev.babel.js --port 8888 --host 0.0.0.0"
