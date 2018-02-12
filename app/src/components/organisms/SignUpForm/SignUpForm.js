@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Fields, formValueSelector, reduxForm} from 'redux-form'
+import {Fields, reduxForm} from 'redux-form'
 import PropTypes from 'prop-types'
 import {Button, Input, Paragraph} from '@atoms'
 
