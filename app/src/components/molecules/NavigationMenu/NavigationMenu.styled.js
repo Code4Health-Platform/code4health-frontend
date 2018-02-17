@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 function BuildNavigationMenuStyled (open) {
   return styled.ul`
     list-style-type:none;
-    margin: 0.5rem 0 0 0;
+    margin: 1rem 0;
     padding: 0;
     width: 100%;
     display: ${open ? 'block' : 'none'};

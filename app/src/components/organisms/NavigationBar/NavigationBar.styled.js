@@ -29,6 +29,7 @@ const Nav = styled(Flex)`
   padding: 0;
   align-items: center;
   display: block;
+  height: inherit;
 
 
   @media (min-width: 768px) {

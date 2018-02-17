@@ -15,6 +15,10 @@ function BuildListItemStyled (type) {
       margin: 1rem;
     }
 
+    svg {
+      margin-right: 0.5em;
+    }
+
     a, a:active, a:visited {
       padding: 0 1rem;
       height: 3.6rem;

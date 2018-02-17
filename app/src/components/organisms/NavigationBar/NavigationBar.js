@@ -3,11 +3,15 @@ import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import {Nav, Container} from './NavigationBar.styled.js'
 import {NavigationItem, NavigationMenu, NavigationLogo, NavigationToggle} from '@molecules'
+import FontAwesomeIcon from '@fortawesome/react-fontawesome'
+import faUser from '@fortawesome/fontawesome-free-solid/faUser'
+import faSignOutAlt from '@fortawesome/fontawesome-free-solid/faSignOutAlt'
+import faTh from '@fortawesome/fontawesome-free-solid/faTh'
 
 class NavigationBar extends Component {
   constructor () {
     super()
-    this.state = {menuOpen: true}
+    this.state = {menuOpen: false}
     this.toggleMenu = this.toggleMenu.bind(this)
     this.closeMenu = this.closeMenu.bind(this)
   }
@@ -23,7 +27,7 @@ class NavigationBar extends Component {
   render () {
     return (
       <Container>
-        <Nav align='center' is='nav'>
+        <Nav align='center'>
 
           <NavigationToggle
             clickHandler={this.toggleMenu}
@@ -31,25 +35,28 @@ class NavigationBar extends Component {
           />
 
           <NavigationLogo href='/'>
-              inidus
+            inidus
           </NavigationLogo>
 
           <NavigationMenu open={this.state.menuOpen}>
 
             {this.props.authenticated &&
-              <NavigationItem type='link' href='/dashboard' click={this.closeMenu}>
+              <NavigationItem type='link' href='/projects' click={this.closeMenu}>
+                <FontAwesomeIcon icon={faTh} />
                 Projects
               </NavigationItem>
             }
 
             {this.props.authenticated &&
               <NavigationItem type='link' href='/account' click={this.closeMenu}>
-                Account
+                <FontAwesomeIcon icon={faUser} />
+                  Account
               </NavigationItem>
             }
 
             {this.props.authenticated &&
               <NavigationItem type='link' href='/log-out' click={this.closeMenu}>
+                <FontAwesomeIcon icon={faSignOutAlt} />
                 Log Out
               </NavigationItem>
             }
