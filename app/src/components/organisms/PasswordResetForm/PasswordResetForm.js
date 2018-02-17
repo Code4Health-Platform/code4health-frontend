@@ -1,33 +1,18 @@
 import React, { Component } from 'react'
-import {Field, reduxForm} from 'redux-form'
+import {Fields, reduxForm} from 'redux-form'
 import PropTypes from 'prop-types'
 import {Button, Input} from '@atoms'
 
-class LoginForm extends Component {
+const renderFields = (fields) => (
+  <Input {...fields.email.input} type='text' placeholder='email' />
+)
+
+class PasswordResetForm extends Component {
   render () {
-    const {handleSubmit} = this.props
-
-    const usernameField = (
-      <Field
-        name='username'
-        component={field =>
-          <Input
-            type='text'
-            placeholder='username'
-            content={field.input.value}
-            onChangeHander={param =>
-              field.input.onChange(param)
-            }
-          />
-        }
-      />
-    )
-
     return (
-      <form onSubmit={handleSubmit(this.props.formHandler)}>
-        {this.props.errorMessage}
+      <form onSubmit={this.props.handleSubmit}>
 
-        {usernameField}
+        <Fields names={['email']} component={renderFields} />
 
         <Button type='submit'>
           Reset
@@ -37,15 +22,13 @@ class LoginForm extends Component {
   }
 }
 
-LoginForm.propTypes = {
-  formHandler: PropTypes.func,
-  handleSubmit: PropTypes.any,
-  errorMessage: PropTypes.string
+PasswordResetForm.propTypes = {
+  handleSubmit: PropTypes.any
 }
 
-const reduxFormLogin = reduxForm({
-  form: 'signUp',
-  fields: ['username', 'password', 'confirm-password']
-})(LoginForm)
+const reduxFormPasswordReset = reduxForm({
+  form: 'passwordReset',
+  fields: ['email']
+})(PasswordResetForm)
 
-export default reduxFormLogin
+export default reduxFormPasswordReset

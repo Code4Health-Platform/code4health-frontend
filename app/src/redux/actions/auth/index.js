@@ -16,7 +16,7 @@ export function logInAction ({username, password}, history) {
       console.log(res)
       console.log(JSON.stringify(res))
       localStorage.setItem('user', JSON.stringify(user))
-      history.push('/dashboard')
+      history.push('/projects')
     } catch (error) {
       console.log(error)
       console.log(JSON.stringify(error))
@@ -78,17 +78,15 @@ export function signUpAction ({email, username, password}, history) {
   }
 }
 
-export function passwordResetAction ({username}, history) {
+export function passwordResetAction ({email}, history) {
   return async (dispatch) => {
     try {
       const res = await axios.post(
-        `${URL}/password-reset`,
-        {username}
+        `${URL}/account/reset_password/init`,
+        email
       )
       dispatch({type: constants.PASSWORD_RESET_SENT, payload: res})
     } catch (error) {
-      console.log(error)
-      console.log(JSON.stringify(error))
       dispatch({
         type: constants.PASSWORD_RESET_ERROR,
         payload: error.response.data

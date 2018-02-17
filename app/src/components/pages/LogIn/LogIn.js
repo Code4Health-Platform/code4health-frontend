@@ -24,7 +24,10 @@ class LogIn extends Component {
       return (<h1>already logged in</h1>)
     } else {
       return (
-        <LogInTemplate formHandler={this.submit} errorMessage={this.props.errorMessage} />
+        <LogInTemplate
+          formHandler={this.submit}
+          errorMessage={this.props.errorMessage}
+        />
       )
     }
   }

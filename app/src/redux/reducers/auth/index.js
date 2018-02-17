@@ -24,6 +24,10 @@ export default function (state = {}, action) {
       return {...state, loading: true}
     case constants.ACTIVATION_ERROR:
       return {...state, error: true, loading: false, errorMessage: 'unable to activate account'}
+    case constants.PASSWORD_RESET_ERROR:
+      return {...state, password_reset_error: action.payload}
+    case constants.PASSWORD_RESET_UNLOAD:
+      return {...state, password_reset_error: null}
   }
   return state
 }

@@ -18,14 +18,6 @@ class PasswordReset extends Component {
     this.props.passwordResetAction(values, this.props.history)
   }
 
-  errorMessage () {
-    if (this.props.errorMessage) {
-      return (
-        <div>Error {this.props.errorMessage}</div>
-      )
-    }
-  }
-
   passwordResetForm () {
     return (
       <PasswordResetTemplate
@@ -54,7 +46,7 @@ PasswordReset.propTypes = {
 
 function mapStateToProps (state) {
   return {
-    errorMessage: state.auth.sign_up_error,
+    errorMessage: state.auth.password_reset_error,
     authenticated: state.auth.authenticated
   }
 }
