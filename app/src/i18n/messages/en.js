@@ -31,7 +31,7 @@ export const ENGLISH_TRANSLATION = {
     },
     projects: {
       dashboard: {
-        noProjects: 'You don\'t have any projects! You can create a new Project using the button above or you can create a Sandbox project to get up and running quickly!'
+        noProjects: 'The building blocks of the platform are called Projects. A Project provides a container for a set of services (or Project components) from the platform that you need for a particular application.'
       }
     }
   }
