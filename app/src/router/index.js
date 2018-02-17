@@ -24,7 +24,7 @@ class Router extends Component {
           <Route exact path='/sign-up' component={SignUp} />
           <Route exact path='/forgot-password' component={PasswordReset} />
           <Route exact path='/account' component={ConnectedAccount} />
-          <Route exact path='/dashboard' component={ConnectedDashboard} />
+          <Route exact path='/projects' component={ConnectedDashboard} />
         </Layout>
       </BrowserRouter>
     )
