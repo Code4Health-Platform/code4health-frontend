@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {fetchProjectsIfNeeded} from '@actions/dashboard'
-import {Paragraph} from '@atoms'
+import {Button, Heading, Paragraph} from '@atoms'
 import {FormattedMessage} from 'react-intl'
 import PropTypes from 'prop-types'
 
@@ -11,14 +11,31 @@ class Dashboard extends Component {
     dispatch(fetchProjectsIfNeeded())
   }
 
+  newProject () {
+    console.log('new project')
+  }
+
   render () {
-    const { isLoading } = this.props
     return (
       <div>
-        <h1>Projects</h1>
-        {isLoading && <h2>Loading</h2>}
-        {this.props.data && this.props.data.length > 0 && <h2>Your operinos</h2>}
-        {this.props.data && <Paragraph><FormattedMessage id='projects.dashboard.noProjects' /></Paragraph>}
+        <Heading level={2} icon='projects'>Projects</Heading>
+        {this.props.isLoading && <h2>Loading</h2>}
+        {this.props.data && this.props.data.length > 0 &&
+          <h2>Your operinos</h2>
+        }
+        {this.props.data &&
+          <Paragraph>
+            <FormattedMessage id='projects.dashboard.noProjects' />
+          </Paragraph>
+        }
+
+        <Button
+          type='link'
+          href='/projects/new'
+          width='auto'
+        >
+          Create a project
+        </Button>
       </div>
     )
   }

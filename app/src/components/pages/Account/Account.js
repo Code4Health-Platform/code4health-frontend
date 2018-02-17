@@ -1,18 +1,20 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
+import {Heading} from '@atoms'
 
 class Account extends Component {
   componentDidMount () {
-
   }
 
   render () {
     const { isLoading } = this.props
     return (
       <div>
-        <h1>Account</h1>
-        {isLoading && <h2>Loading</h2>}
+        <Heading level={2} icon='account'>Account</Heading>
+        {isLoading &&
+          <Heading level={2}>Loading</Heading>
+        }
         {this.props.data}
       </div>
     )
@@ -20,7 +22,6 @@ class Account extends Component {
 }
 
 Account.propTypes = {
-  dispatch: PropTypes.func,
   isLoading: PropTypes.bool,
   data: PropTypes.string
 }
