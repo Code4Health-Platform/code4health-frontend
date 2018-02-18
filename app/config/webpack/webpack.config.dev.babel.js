@@ -5,6 +5,9 @@ import { config } from './webpack.config.common.js'
 export default () => {
   return {
     entry: config.entry,
+    output: {
+      publicPath: '/'
+    },
     devServer: {
       hot: true,
       overlay: true,
