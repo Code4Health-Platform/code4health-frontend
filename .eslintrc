@@ -4,23 +4,3 @@
     "space-infix-ops": ["off"]
   }
 }
-
-# {
-#   "parser": "babel-eslint",
-#   "parserOptions": {
-#     "ecmaVersion": 6,
-#     "sourceType": "module",
-#     "ecmaFeatures": {
-#       "jsx": true,
-#       "modules": true,
-#       "experimentalObjectRestSpread": true
-#     }
-#   },
-#   "extends": ["standard"],
-#   "plugins": ["react"],
-#   "rules": {
-#     "react/jsx-uses-react": "error",
-#     "react/jsx-uses-vars": "error",
-#     "react/prefer-stateless-function": [0, { "ignorePureComponents": true}]
-#   }
-# }
