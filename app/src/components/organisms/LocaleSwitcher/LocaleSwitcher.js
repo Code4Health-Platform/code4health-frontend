@@ -6,7 +6,6 @@ import PropTypes from 'prop-types'
 class LocaleSwitcher extends Component {
   constructor (props) {
     super(props)
-
     this.handleChange = this.handleChange.bind(this)
   }
 
