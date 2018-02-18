@@ -9,13 +9,13 @@ const baseStyles = `
 `
 
 const H1 = styled.h1`
-  font-weight: 600;
+  font-weight: 500;
   font-size: 2rem;
   ${baseStyles}
 `
 
 const H2 = styled.h2`
-  font-weight: 600;
+  font-weight: 400;
   font-size: 1.9rem;
   ${baseStyles}
 `

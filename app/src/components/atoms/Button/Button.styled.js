@@ -34,6 +34,10 @@ function BuildButtonStyled (width, variant, href, type, clickHandler) {
     &:hover {
       background-color: ${variant === 'muted' ? '#f5f5f5' : '#276cda'};
     }
+
+    svg {
+      margin: 0 0.5rem 0 0;
+    }
   `
 
   if (href) {

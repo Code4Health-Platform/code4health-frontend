@@ -32,12 +32,8 @@ const Alert = props => {
   } else {
     return (
       <StyledAlert>
-        <StyledIcon>
-          <Icon type={props.type} />
-        </StyledIcon>
-        <StyledMessage>
-          {props.message}
-        </StyledMessage>
+        <StyledIcon><Icon type={props.type} /></StyledIcon>
+        <StyledMessage>{props.message}</StyledMessage>
       </StyledAlert>
     )
   }
