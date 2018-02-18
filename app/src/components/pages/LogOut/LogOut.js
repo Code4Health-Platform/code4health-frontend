@@ -1,9 +1,8 @@
 import React, {Component} from 'react'
 import {logOutAction} from '@actions/auth'
-import {Button, Paragraph} from '@atoms'
 import {connect} from 'react-redux'
-import Link from '@atoms/Link'
 import PropTypes from 'prop-types'
+import LogOutTemplate from '@templates/LogOut'
 
 class LogOut extends Component {
   constructor (props) {
@@ -12,31 +11,17 @@ class LogOut extends Component {
   }
 
   logOut () {
+    console.log('logOut action called')
     this.props.logOutAction(this.props.history)
   }
 
   render () {
-    if (this.props.authenticated) {
-      return (
-        <div>
-          <Paragraph>Are you sure you want to log out?</Paragraph>
-          <Button
-            type='button'
-            clickHandler={() => this.logOut}
-            width='auto'
-          >
-            Log Out
-          </Button>
-        </div>
-      )
-    } else {
-      return (
-        <div>
-          <h1>Logged out</h1>
-          <Link to={`/log-in`}>log in</Link>
-        </div>
-      )
-    }
+    return (
+      <LogOutTemplate
+        authenticated={this.props.authenticated}
+        logOutAction={this.logOut}
+      />
+    )
   }
 }
 
@@ -47,7 +32,7 @@ LogOut.propTypes = {
 }
 
 function mapStateToProps (state) {
-  return { authenticated: state.auth.authenticated }
+  return {authenticated: state.auth.authenticated}
 }
 
 export default connect(mapStateToProps, {logOutAction})(LogOut)
