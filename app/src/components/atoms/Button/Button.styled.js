@@ -8,6 +8,7 @@ function BuildButtonStyled (width, variant, href, type, clickHandler) {
     width: ${width === 'auto' ? 'auto' : '100%'};
     border-radius: 4px;
     margin: 0 0 1rem 0;
+    margin-right: ${width === 'auto' ? '1rem' : '0'};
     padding: 0;
     background-color: ${variant === 'muted' ? 'white' : '#3273dc'};
     cursor: pointer;
@@ -20,7 +21,7 @@ function BuildButtonStyled (width, variant, href, type, clickHandler) {
     border: 1px solid transparent;
     border-radius: $control-radius;
     box-shadow: none;
-    display: inline-flex;
+    display: ${width === 'auto' ? 'inline-block' : 'block'};
     font-size: $size-normal;
     line-height: 1.5;
     position: relative;

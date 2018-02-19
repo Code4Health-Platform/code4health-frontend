@@ -1,31 +1,54 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {Button, Heading, Paragraph} from '@atoms'
-import {FormattedMessage} from 'react-intl'
 import PropTypes from 'prop-types'
+import NewProjectTemplate from '@templates/NewProject'
+import {newProjectAction, newProjectUnloadAction} from '@actions/dashboard'
 
 class NewProject extends Component {
+  constructor (props) {
+    super(props)
+    this.submit= this.submit.bind(this)
+  }
+
+  componentWillUnmount () {
+    this.props.newProjectUnloadAction()
+  }
+
+  submit (values) {
+    this.props.newProjectAction(values, this.props.history)
+  }
+
   render () {
-    return (
-      <div>
-        <Heading level={2} icon='plus'>Create a New Project</Heading>
-      </div>
-    )
+    if (this.props.isLoading) {
+      return (
+        <div>is loading</div>
+      )
+    } else {
+      return (
+        <NewProjectTemplate
+          formHandler={this.submit}
+          errorMessage={this.props.errorMessage}
+          successMessage={this.props.successMessage}
+        />
+      )
+    }
   }
 }
 
 NewProject.propTypes = {
-  dispatch: PropTypes.func,
   isLoading: PropTypes.bool,
-  data: PropTypes.any
+  history: PropTypes.object,
+  errorMessage: PropTypes.any,
+  successMessage: PropTypes.any,
+  newProjectAction: PropTypes.func,
+  newProjectUnloadAction: PropTypes.func
 }
 
 function mapStateToProps (state) {
   return {
-    authenticated: state.auth.authenticated,
-    data: state.dashboard.data,
-    isLoading: state.dashboard.isLoading
+    isLoading: state.dashboard.isLoading,
+    errorMessage: state.dashboard.errorMessage
   }
 }
 
-export default connect(mapStateToProps)(NewProject)
+export default connect(mapStateToProps, {newProjectAction, newProjectUnloadAction})(NewProject)

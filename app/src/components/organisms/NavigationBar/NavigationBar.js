@@ -2,11 +2,8 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import {Nav, Container} from './NavigationBar.styled.js'
+import {Icon} from '@atoms'
 import {NavigationItem, NavigationMenu, NavigationLogo, NavigationToggle} from '@molecules'
-import FontAwesomeIcon from '@fortawesome/react-fontawesome'
-import faUser from '@fortawesome/fontawesome-free-solid/faUser'
-import faSignOutAlt from '@fortawesome/fontawesome-free-solid/faSignOutAlt'
-import faTh from '@fortawesome/fontawesome-free-solid/faTh'
 
 class NavigationBar extends Component {
   constructor () {
@@ -42,21 +39,21 @@ class NavigationBar extends Component {
 
             {this.props.authenticated &&
               <NavigationItem type='link' href='/projects' click={this.closeMenu}>
-                <FontAwesomeIcon icon={faTh} />
+                <Icon icon='projects' />
                 Projects
               </NavigationItem>
             }
 
             {this.props.authenticated &&
               <NavigationItem type='link' href='/account' click={this.closeMenu}>
-                <FontAwesomeIcon icon={faUser} />
+                <Icon icon='account' />
                   Account
               </NavigationItem>
             }
 
             {this.props.authenticated &&
               <NavigationItem type='link' href='/log-out' click={this.closeMenu}>
-                <FontAwesomeIcon icon={faSignOutAlt} />
+                <Icon icon='logout' />
                 Log Out
               </NavigationItem>
             }

@@ -41,11 +41,11 @@ const Alert = props => {
 
 Alert.propTypes = {
   message: PropTypes.string,
-  type: PropTypes.oneOf(['info', 'error'])
+  type: PropTypes.oneOf(['info', 'error', 'success'])
 }
 
 Icon.propTypes = {
-  type: PropTypes.oneOf(['info', 'error'])
+  type: PropTypes.oneOf(['info', 'error', 'success'])
 }
 
 export default Alert

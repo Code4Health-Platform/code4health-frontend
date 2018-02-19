@@ -2,9 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import faTh from '@fortawesome/fontawesome-free-solid/faTh'
-import faUser from '@fortawesome/fontawesome-free-solid/faUser'
+import faUserCircle from '@fortawesome/fontawesome-free-solid/faUserCircle'
 import faSignOutAlt from '@fortawesome/fontawesome-free-solid/faSignOutAlt'
 import faPlusCircle from '@fortawesome/fontawesome-free-solid/faPlusCircle'
+import faBan from '@fortawesome/fontawesome-free-solid/faBan'
+import faCloud from '@fortawesome/fontawesome-free-solid/faCloud'
 
 const Icon = props => {
   switch (props.icon) {
@@ -18,11 +20,19 @@ const Icon = props => {
       )
     case 'account':
       return (
-        <FontAwesomeIcon icon={faUser} />
+        <FontAwesomeIcon icon={faUserCircle} />
       )
     case 'plus':
       return (
         <FontAwesomeIcon icon={faPlusCircle} />
+      )
+    case 'cancel':
+      return (
+        <FontAwesomeIcon icon={faBan} />
+      )
+    case 'cloud':
+      return (
+        <FontAwesomeIcon icon={faCloud} />
       )
     default:
       return (<div />)

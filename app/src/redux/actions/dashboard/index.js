@@ -3,12 +3,12 @@
 import axios from 'axios'
 import * as constants from '@constants/dashboard'
 
-const URL = 'http://localhost:8080/api/operinos?page=0&size=20&sort=id,asc'
+const URL = 'http://localhost:8080/api/operinos'
 
-function receiveProjects (something) {
+function receiveProjects (projects) {
   return {
     type: constants.RECEIVE_SOMETHING,
-    data: something,
+    data: projects,
     receivedAt: Date.now()
   }
 }
@@ -22,8 +22,8 @@ function isLoading () {
 function shouldFetchProjects (state) {
   const data = state.dashboard.data
   const lastFetch = state.dashboard.received
-
-  if (!data || lastFetch + 6000 < Date.now()) {
+  const shouldRefresh = state.dashboard.shouldRefresh
+  if (!data || lastFetch + 6000 < Date.now() || shouldRefresh) {
     console.log('should fetch projects')
     return true
   } else {
@@ -36,7 +36,7 @@ function fetchProjects () {
     dispatch(isLoading())
     try {
       const user = JSON.parse(localStorage.getItem('user'))
-      const res = await axios.get(`${URL}`, {
+      const res = await axios.get(`${URL}?page=0&size=20&sort=id,asc`, {
         headers: {
           Authorization: `Bearer ${user.token}`
         }
@@ -56,5 +56,45 @@ export function fetchProjectsIfNeeded () {
     if (shouldFetchProjects(getState())) {
       return dispatch(fetchProjects())
     }
+  }
+}
+
+export function newProjectAction ({name}, history) {
+  return async (dispatch) => {
+    dispatch(isLoading())
+    try {
+      const user = JSON.parse(localStorage.getItem('user'))
+      const res = await axios.post(`${URL}`, {
+        name: name,
+        active: true,
+        provision: true
+      }, {
+        headers: {
+          Authorization: `Bearer ${user.token}`
+        }
+      })
+      history.push('/projects')
+      dispatch({
+        type: constants.SUCCESS_CREATING_PROJECT,
+        data: res.data
+      })
+    } catch (error) {
+      dispatch({
+        type: constants.ERROR_CREATING_PROJECT,
+        error: error
+      })
+    }
+  }
+}
+
+export function newProjectUnloadAction () {
+  return {
+    type: constants.CREATING_PROJECT_UNLOAD
+  }
+}
+
+export function dashboardUnloadAction () {
+  return {
+    type: constants.DASHBOARD_UNLOAD
   }
 }
