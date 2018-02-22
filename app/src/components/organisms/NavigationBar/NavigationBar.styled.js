@@ -22,8 +22,7 @@ const Nav = styled(Flex)`
 
   @media (min-width: 768px) {
     display: flex;
-    // padding: 0;
-    padding: 1rem auto 1rem 1rem;
+    padding: 0;
   }
 `
 

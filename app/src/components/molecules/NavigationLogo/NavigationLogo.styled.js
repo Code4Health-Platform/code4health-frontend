@@ -10,6 +10,7 @@ const NavigationLogoStyled = styled.div`
   }
 
   @media (min-width: 768px) {
+      margin: 0 auto 0 1rem;
     display: flex;
   }
 `

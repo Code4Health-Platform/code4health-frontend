@@ -2,12 +2,13 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import {Footer, NavigationBar} from '@organisms'
 import Container from './styled.js'
+import { withRouter } from 'react-router'
 
 class Layout extends Component {
   render () {
     return (
       <div>
-        <NavigationBar />
+        <NavigationBar location={this.props.location} />
         <Container>
           {this.props.children}
         </Container>
@@ -18,7 +19,9 @@ class Layout extends Component {
 }
 
 Layout.propTypes = {
-  children: PropTypes.node
+  children: PropTypes.node,
+  route: PropTypes.any,
+  location: PropTypes.object
 }
 
-export default Layout
+export default withRouter(Layout)

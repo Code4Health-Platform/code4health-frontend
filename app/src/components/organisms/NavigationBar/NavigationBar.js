@@ -21,6 +21,10 @@ class NavigationBar extends Component {
     this.setState({menuOpen: false})
   }
 
+  isActiveRoute (route) {
+    return this.props.location.pathname === route
+  }
+
   render () {
     return (
       <Container>
@@ -38,21 +42,35 @@ class NavigationBar extends Component {
           <NavigationMenu open={this.state.menuOpen}>
 
             {this.props.authenticated &&
-              <NavigationItem type='link' href='/projects' click={this.closeMenu}>
+              <NavigationItem
+                type='link'
+                href='/projects'
+                click={this.closeMenu}
+                active={this.isActiveRoute('/projects')}
+              >
                 <Icon icon='projects' />
                 Projects
               </NavigationItem>
             }
 
             {this.props.authenticated &&
-              <NavigationItem type='link' href='/account' click={this.closeMenu}>
+              <NavigationItem
+                type='link'
+                href='/account'
+                click={this.closeMenu}
+                active={this.isActiveRoute('/account')}
+              >
                 <Icon icon='account' />
                   Account
               </NavigationItem>
             }
 
             {this.props.authenticated &&
-              <NavigationItem type='link' href='/log-out' click={this.closeMenu}>
+              <NavigationItem
+                type='link'
+                href='/log-out' click={this.closeMenu}
+                active={this.isActiveRoute('/log-out')}
+              >
                 <Icon icon='logout' />
                 Log Out
               </NavigationItem>
@@ -77,7 +95,8 @@ class NavigationBar extends Component {
 }
 
 NavigationBar.propTypes = {
-  authenticated: PropTypes.bool
+  authenticated: PropTypes.bool,
+  location: PropTypes.object
 }
 
 function mapStateToProps (state) {

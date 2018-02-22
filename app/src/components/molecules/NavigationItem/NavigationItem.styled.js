@@ -3,7 +3,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-function BuildListItemStyled (type) {
+function BuildListItemStyled (type, active) {
   let styles = `
     margin: 0;
     display: -webkit-flex;
@@ -20,7 +20,7 @@ function BuildListItemStyled (type) {
     }
 
     a, a:active, a:visited {
-      padding: 0 1rem;
+      padding: 1rem;
       height: 3.6rem;
       display: -webkit-flex;
       -webkit-align-items: center;
@@ -34,19 +34,22 @@ function BuildListItemStyled (type) {
       width: 100%;
       background-color: ${type === 'link' ? 'white' : '#3273dc'};
       color: ${type === 'link' ? '#363636' : 'white'};
+      border-radius: ${type === 'link' ? '0' : '4px'};
+      ${active ? 'color: #276cda' : ''};
     }
 
     a:hover {
       color: ${type === 'link' ? '#276cda' : 'white'};
-      background-color: ${type === 'link' ? 'whitesmoke' : '#276cda'};
+      background-color: ${type === 'link' ? 'transparent' : '#276cda'};
+      ${active ? 'background-color: transparent;' : ''}
     }
 
     @media (min-width: 768px) {
       margin: 0 1rem;
 
       a:hover {
-        background-color: ${type === 'link' ? '#efefef' : '#276cda'};
-        border-radius: 4px;
+        background-color: ${type === 'link' ? 'transparent' : '#276cda'};
+        ${active ? 'background-color: transparent;' : ''}
       }
     }
   `
@@ -55,7 +58,8 @@ function BuildListItemStyled (type) {
 
 const NavigationItemStyled = (props) => {
   const RenderListItem = BuildListItemStyled(
-    props.type
+    props.type,
+    props.active
   )
 
   return (
@@ -67,7 +71,8 @@ const NavigationItemStyled = (props) => {
 
 NavigationItemStyled.propTypes = {
   children: PropTypes.node.isRequired,
-  type: PropTypes.oneOf(['link', 'button'])
+  type: PropTypes.oneOf(['link', 'button']),
+  active: PropTypes.bool
 }
 
 export default NavigationItemStyled
