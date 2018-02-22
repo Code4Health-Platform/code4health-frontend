@@ -1,10 +1,10 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {BrowserRouter, Route} from 'react-router-dom'
-
+import {Router, Route} from 'react-router-dom'
 import AuthRequired from '@components/auth/AuthRequired'
 import Layout from '@src/layout'
 import {Account, Activate, Dashboard, NewProject, LogIn, LogOut, SignUp, Welcome, PasswordReset} from '@pages'
+import History from '@history'
 
 const AuthenticatedDashboard = AuthRequired(Dashboard)
 const ConnectedDashboard = connect()(AuthenticatedDashboard)
@@ -15,10 +15,10 @@ const ConnectedNewProject = connect()(AuthenticatedNewProject)
 const AuthenticatedAccount = AuthRequired(Account)
 const ConnectedAccount = connect()(AuthenticatedAccount)
 
-class Router extends Component {
+class AppRouter extends Component {
   render () {
     return (
-      <BrowserRouter>
+      <Router history={History}>
         <Layout>
           <Route exact path='/' component={Welcome} />
           <Route exact path='/activate' component={Activate} />
@@ -30,9 +30,9 @@ class Router extends Component {
           <Route exact path='/projects' component={ConnectedDashboard} />
           <Route exact path='/projects/new' component={ConnectedNewProject} />
         </Layout>
-      </BrowserRouter>
+      </Router>
     )
   }
 }
 
-export default connect()(Router)
+export default AppRouter

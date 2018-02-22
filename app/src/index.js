@@ -11,10 +11,9 @@ import {AUTHENTICATED} from '@constants/auth'
 import I18nProvider from './i18n/provider'
 
 const rootElement = document.getElementById('app')
-
 const store = configureStore()
-
 const user = localStorage.getItem('user')
+
 if (user) {
   store.dispatch({type: AUTHENTICATED})
 }
