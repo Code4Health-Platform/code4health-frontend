@@ -1,9 +1,8 @@
 import styled from 'styled-components'
 
 const NavigationLogoStyled = styled.div`
-  margin: 1rem auto 0 1rem;
-  height: 4.6rem;
-  display: block;
+  margin: 0 auto 0 0;
+  display: inline-block;
   font-size: 3rem;
 
   a {
@@ -12,7 +11,6 @@ const NavigationLogoStyled = styled.div`
 
   @media (min-width: 768px) {
     display: flex;
-    margin: 0 auto 0 1rem;
   }
 `
 

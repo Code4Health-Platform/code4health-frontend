@@ -5,15 +5,17 @@ import PropTypes from 'prop-types'
 function BuildNavigationMenuStyled (open) {
   return styled.ul`
     list-style-type:none;
-    margin: 1rem 0;
+    margin: 0;
     padding: 0;
     width: 100%;
     display: ${open ? 'block' : 'none'};
+    margin-top: ${open ? '1rem' : '0'};
 
     @media (min-width: 768px) {
       width: auto;
       display: flex;
       padding: 0;
+      margin-top: 0;
     }
   `
 }

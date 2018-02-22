@@ -5,7 +5,7 @@ export const NavigationToggleStyled = styled.button`
   border-radius: 4px;
   width: 4.6rem;
   height: 4.6rem;
-  padding: 1rem;
+  padding: 0.5rem;
   cursor: pointer;
   display: inline-block;
   float: right;
@@ -23,7 +23,7 @@ export const NavigationToggleStyled = styled.button`
     top: 1.5rem;
     left: 1rem;
     right: 1rem;
-    background-color: #3273dc;
+    background-color: #363636;
   }
 
   span:nth-child(1) {
