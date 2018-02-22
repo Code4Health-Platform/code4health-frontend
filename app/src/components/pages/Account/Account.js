@@ -15,7 +15,7 @@ class Account extends Component {
         {isLoading &&
           <Heading level={2}>Loading</Heading>
         }
-        {this.props.data}
+        {JSON.stringify(this.props.data)}
       </div>
     )
   }
@@ -23,7 +23,7 @@ class Account extends Component {
 
 Account.propTypes = {
   isLoading: PropTypes.bool,
-  data: PropTypes.string
+  data: PropTypes.any
 }
 
 function mapStateToProps (state) {

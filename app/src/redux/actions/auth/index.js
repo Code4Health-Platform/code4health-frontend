@@ -2,6 +2,7 @@
 
 import axios from 'axios'
 import * as constants from '@constants/auth'
+// import History from '@history'
 
 const URL = 'http://localhost:8080/api'
 
@@ -25,6 +26,13 @@ export function logInAction ({username, password}, history) {
         payload: error.response.data
       })
     }
+  }
+}
+
+export function unauthorisedAction () {
+  console.log('unauthorisedAction')
+  return {
+    type: constants.UNAUTHENTICATED
   }
 }
 

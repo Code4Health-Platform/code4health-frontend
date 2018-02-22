@@ -7,6 +7,7 @@ export default function (state = {}, action) {
     case constants.LOG_IN_SUCCESS:
       return {...state, authenticated: true}
     case constants.UNAUTHENTICATED:
+      console.log('unauthenticated')
       return {...state, authenticated: false}
     case constants.LOG_IN_ERROR:
       return {...state, errorMessage: action.payload}

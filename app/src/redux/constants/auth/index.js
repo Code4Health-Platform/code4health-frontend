@@ -1,5 +1,6 @@
 export const AUTHENTICATED = 'authenticated_user'
 export const UNAUTHENTICATED = 'unauthenticated_user'
+export const UNAUTHORISED = 'unauthorised_user'
 
 export const LOG_IN_ERROR = 'log_in_error'
 export const LOG_IN_SUCCESS = 'log_in_success'

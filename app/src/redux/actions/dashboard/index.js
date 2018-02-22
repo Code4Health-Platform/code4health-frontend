@@ -2,6 +2,7 @@
 
 import axios from 'axios'
 import * as constants from '@constants/dashboard'
+import * as authActions from '@actions/auth'
 
 const URL = 'http://localhost:8080/api/operinos'
 
@@ -14,6 +15,7 @@ function receiveProjects (projects) {
 }
 
 function isLoading () {
+  console.log('isLoading')
   return {
     type: constants.IS_RECEIVING_SOMETHING
   }
@@ -23,10 +25,12 @@ function shouldFetchProjects (state) {
   const data = state.dashboard.data
   const lastFetch = state.dashboard.received
   const shouldRefresh = state.dashboard.shouldRefresh
-  if (!data || lastFetch + 6000 < Date.now() || shouldRefresh) {
+
+  if (!data || lastFetch + 60000 < Date.now() || shouldRefresh) {
     console.log('should fetch projects')
     return true
   } else {
+    console.log('should not fetch projects')
     return false
   }
 }
@@ -43,10 +47,14 @@ function fetchProjects () {
       })
       dispatch(receiveProjects(res.data))
     } catch (error) {
-      dispatch({
-        type: constants.ERROR_GETTING_SOMETHING,
-        error: error
-      })
+      if (error.response.status === 401) {
+        dispatch(authActions.unauthorisedAction())
+      } else {
+        dispatch({
+          type: constants.ERROR_GETTING_SOMETHING,
+          error: error
+        })
+      }
     }
   }
 }

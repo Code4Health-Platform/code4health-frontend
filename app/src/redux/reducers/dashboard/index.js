@@ -20,7 +20,7 @@ export default function (state = {}, action) {
     case constants.SUCCESS_CREATING_PROJECT:
       return {...state, isLoading: false, shouldRefresh: true, success: 'new project created'}
     case constants.DASHBOARD_UNLOAD:
-      return {...state, isLoading: false, shouldRefresh: true, success: null, error: null}
+      return {...state, isLoading: false, shouldRefresh: null, success: null, error: null}
   }
   return state
 }
