@@ -7,9 +7,19 @@ import faSignOutAlt from '@fortawesome/fontawesome-free-solid/faSignOutAlt'
 import faPlusCircle from '@fortawesome/fontawesome-free-solid/faPlusCircle'
 import faBan from '@fortawesome/fontawesome-free-solid/faBan'
 import faCloud from '@fortawesome/fontawesome-free-solid/faCloud'
+import faTrashAlt from '@fortawesome/fontawesome-free-solid/faTrashAlt'
+import faEye from '@fortawesome/fontawesome-free-solid/faEye'
 
 const Icon = props => {
   switch (props.icon) {
+    case 'delete':
+      return (
+        <FontAwesomeIcon icon={faTrashAlt} />
+      )
+    case 'eye':
+      return (
+        <FontAwesomeIcon icon={faEye} />
+      )
     case 'logout':
       return (
         <FontAwesomeIcon icon={faSignOutAlt} />

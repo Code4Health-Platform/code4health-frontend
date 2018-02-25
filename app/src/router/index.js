@@ -3,11 +3,11 @@ import {connect} from 'react-redux'
 import {Router, Route} from 'react-router-dom'
 import AuthRequired from '@components/auth/AuthRequired'
 import Layout from '@src/layout'
-import {Account, Activate, Dashboard, NewProject, LogIn, LogOut, SignUp, Welcome, PasswordReset} from '@pages'
+import {Account, Activate, NewProject, LogIn, LogOut, Projects, SignUp, Welcome, PasswordReset} from '@pages'
 import History from '@history'
 
-const AuthenticatedDashboard = AuthRequired(Dashboard)
-const ConnectedDashboard = connect()(AuthenticatedDashboard)
+const AuthenticatedProjects = AuthRequired(Projects)
+const ConnectedProjects = connect()(AuthenticatedProjects)
 
 const AuthenticatedNewProject = AuthRequired(NewProject)
 const ConnectedNewProject = connect()(AuthenticatedNewProject)
@@ -27,7 +27,7 @@ class AppRouter extends Component {
           <Route exact path='/sign-up' component={SignUp} />
           <Route exact path='/forgot-password' component={PasswordReset} />
           <Route exact path='/account' component={ConnectedAccount} />
-          <Route exact path='/projects' component={ConnectedDashboard} />
+          <Route exact path='/projects' component={ConnectedProjects} />
           <Route exact path='/projects/new' component={ConnectedNewProject} />
         </Layout>
       </Router>

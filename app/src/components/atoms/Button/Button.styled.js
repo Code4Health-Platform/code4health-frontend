@@ -4,13 +4,29 @@ import styled from 'styled-components'
 import {Link} from 'react-router-dom'
 
 function BuildButtonStyled (width, variant, href, type, clickHandler) {
+  const backgroundColor = (() => {
+    switch (variant) {
+      case 'danger': { return '#ff3860' }
+      case 'muted': { return 'white' }
+      default: { return '#3273dc' }
+    }
+  })()
+
+  const backgroundColorHover = (() => {
+    switch (variant) {
+      case 'danger': { return '#E93257' }
+      case 'muted': { return '#f5f5f5' }
+      default: { return '#276cda' }
+    }
+  })()
+
   let styles = `
     width: ${width === 'auto' ? 'auto' : '100%'};
     border-radius: 4px;
     margin: 0 0 1rem 0;
     margin-right: ${width === 'auto' ? '1rem' : '0'};
     padding: 0;
-    background-color: ${variant === 'muted' ? 'white' : '#3273dc'};
+    background-color: ${backgroundColor};
     cursor: pointer;
     justify-content: center;
     text-align: center;
@@ -33,7 +49,7 @@ function BuildButtonStyled (width, variant, href, type, clickHandler) {
     padding: 0.5rem;
 
     &:hover {
-      background-color: ${variant === 'muted' ? '#f5f5f5' : '#276cda'};
+      background-color: ${backgroundColorHover};
     }
 
     svg {

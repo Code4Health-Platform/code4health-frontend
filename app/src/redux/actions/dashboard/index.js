@@ -40,7 +40,7 @@ function fetchProjects () {
     dispatch(isLoading())
     try {
       const user = JSON.parse(localStorage.getItem('user'))
-      const res = await axios.get(`${URL}?page=0&size=20&sort=id,asc`, {
+      const res = await axios.get(`${URL}?page=0&size=100&sort=id,asc`, {
         headers: {
           Authorization: `Bearer ${user.token}`
         }

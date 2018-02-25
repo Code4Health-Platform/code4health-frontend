@@ -1,5 +1,4 @@
 import React from 'react'
-// import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
@@ -20,8 +19,7 @@ function BuildListItemStyled (type, active) {
     }
 
     a, a:active, a:visited {
-      padding: 1rem;
-      height: 3.6rem;
+      padding: 0.5rem 1rem;
       display: -webkit-flex;
       -webkit-align-items: center;
       align-items: center;

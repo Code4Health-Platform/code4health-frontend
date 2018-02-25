@@ -1,6 +1,6 @@
 import Account from '@pages/Account'
 import Activate from '@pages/Activate'
-import Dashboard from '@pages/Dashboard'
+import Projects from '@pages/Projects'
 import NewProject from '@pages/NewProject'
 import LogIn from '@pages/LogIn'
 import LogOut from '@pages/LogOut'
@@ -11,7 +11,7 @@ import Welcome from '@pages/Welcome'
 export {
   Account,
   Activate,
-  Dashboard,
+  Projects,
   NewProject,
   LogIn,
   LogOut,
