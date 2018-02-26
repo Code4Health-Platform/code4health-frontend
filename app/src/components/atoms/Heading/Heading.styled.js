@@ -6,18 +6,23 @@ const baseStyles = `
   svg {
     margin: 0 1rem 0 0;
   }
+
+  a {
+    text-decoration: none;
+  }
 `
 
 const H1 = styled.h1`
-  font-weight: 500;
-  font-size: 2rem;
+  font-weight: 400;
+  font-size: 2.2rem;
   ${baseStyles}
 `
 
 const H2 = styled.h2`
   font-weight: 400;
-  font-size: 1.9rem;
+  font-size: 2rem;
   ${baseStyles}
+  border-bottom: 1px solid black;
 `
 
 const H3 = styled.h3`
