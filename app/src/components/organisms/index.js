@@ -6,6 +6,8 @@ import PasswordResetForm from './PasswordResetForm/PasswordResetForm'
 import SignUpForm from './SignUpForm/SignUpForm'
 import NewProjectForm from './NewProjectForm/NewProjectForm'
 import ProjectsSummary from './ProjectsSummary/ProjectsSummary'
+import ProjectComponents from './ProjectComponents/ProjectComponents'
+import ProjectConfiguration from './ProjectConfiguration/ProjectConfiguration'
 
 export {
   Footer,
@@ -14,6 +16,8 @@ export {
   NavigationBar,
   NewProjectForm,
   PasswordResetForm,
+  ProjectConfiguration,
+  ProjectComponents,
   ProjectsSummary,
   SignUpForm
 }

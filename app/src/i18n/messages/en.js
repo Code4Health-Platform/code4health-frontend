@@ -33,6 +33,15 @@ export const ENGLISH_TRANSLATION = {
       dashboard: {
         noProjects: 'The building blocks of the platform are called Projects. A Project provides a container for a set of services (or Project components) from the platform that you need for a particular application.'
       }
+    },
+    components: {
+      cdr: {
+        description:
+          'Use this component to enable storage of patient or client records. The built-in openEHR standard allows the use of many ready-made clinical data templates and elements.'
+      },
+      demographics: {
+        description: 'Use this module to maintain an index of patients or clients with DOB, age, address and other subject-related information or identifiers.'
+      }
     }
   }
 }

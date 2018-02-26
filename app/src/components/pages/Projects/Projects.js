@@ -19,7 +19,7 @@ class Projects extends Component {
         isLoading={this.props.isLoading}
         successMessage={this.props.successMessage}
         errorMessage={this.props.errorMessage}
-        projects={this.props.data}
+        projects={this.props.projects}
       />
     )
   }
@@ -28,7 +28,7 @@ class Projects extends Component {
 Projects.propTypes = {
   dispatch: PropTypes.func,
   isLoading: PropTypes.bool,
-  data: PropTypes.any,
+  projects: PropTypes.any,
   successMessage: PropTypes.string,
   errorMessage: PropTypes.string,
   dashboardUnloadAction: PropTypes.func
@@ -37,7 +37,7 @@ Projects.propTypes = {
 function mapStateToProps (state) {
   return {
     authenticated: state.auth.authenticated,
-    data: state.dashboard.data,
+    projects: state.dashboard.projects,
     isLoading: state.dashboard.isLoading,
     successMessage: state.dashboard.success
   }

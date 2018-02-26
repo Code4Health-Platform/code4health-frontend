@@ -1,3 +1,4 @@
+import ComponentCard from './ComponentCard/ComponentCard'
 import FormInput from './FormInput/FormInput'
 import NavigationItem from './NavigationItem/NavigationItem'
 import NavigationMenu from './NavigationMenu/NavigationMenu'
@@ -6,6 +7,7 @@ import NavigationLogo from './NavigationLogo/NavigationLogo'
 import Panel from './Panel/Panel'
 
 export {
+  ComponentCard,
   FormInput,
   NavigationItem,
   NavigationLogo,

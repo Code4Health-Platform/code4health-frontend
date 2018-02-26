@@ -14,6 +14,15 @@ function receiveProjects (projects) {
   }
 }
 
+function receiveProject (project) {
+  console.log(JSON.stringify(project))
+  return {
+    type: constants.SUCCESS_FETCHING_PROJECT,
+    data: project,
+    receivedAt: Date.now()
+  }
+}
+
 function isLoading () {
   console.log('isLoading')
   return {
@@ -104,5 +113,69 @@ export function newProjectUnloadAction () {
 export function dashboardUnloadAction () {
   return {
     type: constants.DASHBOARD_UNLOAD
+  }
+}
+
+export function fetchSingleProjectIfNeeded (id) {
+  console.log('fetchSingleProjectIfNeeded')
+  return (dispatch, getState) => {
+    return dispatch(fetchSingleProject(id))
+  }
+}
+
+function fetchSingleProject (id) {
+  return async (dispatch) => {
+    dispatch(isLoading())
+    try {
+      const user = JSON.parse(localStorage.getItem('user'))
+      const res = await axios.get(`${URL}/${id}`, {
+        headers: {
+          Authorization: `Bearer ${user.token}`
+        }
+      })
+      dispatch(receiveProject(res.data))
+    } catch (error) {
+      if (error.response.status === 401) {
+        dispatch(authActions.unauthorisedAction())
+      } else {
+        dispatch({
+          type: constants.ERROR_GETTING_SOMETHING,
+          error: error
+        })
+      }
+    }
+  }
+}
+
+export function fetchProjectConfig (id) {
+  return async (dispatch) => {
+    dispatch(isLoading())
+    try {
+      const user = JSON.parse(localStorage.getItem('user'))
+      const res = await axios.get(`${URL}/${id}/config`, {
+        headers: {
+          Authorization: `Bearer ${user.token}`
+        }
+      })
+      dispatch(receiveProjectConfig(res.data))
+    } catch (error) {
+      if (error.response.status === 401) {
+        dispatch(authActions.unauthorisedAction())
+      } else {
+        dispatch({
+          type: constants.ERROR_GETTING_SOMETHING,
+          error: error
+        })
+      }
+    }
+  }
+}
+
+function receiveProjectConfig (project) {
+  console.log(JSON.stringify(project))
+  return {
+    type: constants.SUCCESS_FETCHING_PROJECT_CONFIG,
+    data: project,
+    receivedAt: Date.now()
   }
 }

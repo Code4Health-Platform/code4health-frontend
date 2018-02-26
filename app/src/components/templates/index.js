@@ -4,6 +4,7 @@ import PasswordReset from '@templates/PasswordReset'
 import SignUp from '@templates/SignUp'
 import NewProject from '@templates/NewProject'
 import Projects from '@templates/Projects'
+import SingleProject from '@templates/SingleProject'
 
 export {
   LogIn,
@@ -11,5 +12,6 @@ export {
   NewProject,
   PasswordReset,
   Projects,
-  SignUp
+  SignUp,
+  SingleProject
 }

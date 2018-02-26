@@ -6,6 +6,7 @@ import LogIn from '@pages/LogIn'
 import LogOut from '@pages/LogOut'
 import PasswordReset from '@pages/PasswordReset'
 import SignUp from '@pages/SignUp'
+import SingleProject from '@pages/SingleProject'
 import Welcome from '@pages/Welcome'
 
 export {
@@ -17,5 +18,6 @@ export {
   LogOut,
   PasswordReset,
   SignUp,
+  SingleProject,
   Welcome
 }
