@@ -5,13 +5,13 @@ import StyledLabel from './Label.styled.js'
 const Label = props => {
   return (
     <StyledLabel>
-      {props.label}
+      {props.children}
     </StyledLabel>
   )
 }
 
 Label.propTypes = {
-  label: PropTypes.string.isRequired
+  children: PropTypes.node
 }
 
 export default Label
