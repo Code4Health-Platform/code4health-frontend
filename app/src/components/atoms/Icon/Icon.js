@@ -9,9 +9,30 @@ import faBan from '@fortawesome/fontawesome-free-solid/faBan'
 import faCloud from '@fortawesome/fontawesome-free-solid/faCloud'
 import faTrashAlt from '@fortawesome/fontawesome-free-solid/faTrashAlt'
 import faEye from '@fortawesome/fontawesome-free-solid/faEye'
+import faCopy from '@fortawesome/fontawesome-free-solid/faCopy'
+import faDatabase from '@fortawesome/fontawesome-free-solid/faDatabase'
+import faCheckCircle from '@fortawesome/fontawesome-free-solid/faCheckCircle'
+import faSquare from '@fortawesome/fontawesome-free-solid/faSquare'
+import faUsers from '@fortawesome/fontawesome-free-solid/faUsers'
 
 const Icon = props => {
   switch (props.icon) {
+    case 'copy':
+      return (
+        <FontAwesomeIcon icon={faCopy} />
+      )
+    case 'database':
+      return (
+        <FontAwesomeIcon icon={faDatabase} />
+      )
+    case 'square':
+      return (
+        <FontAwesomeIcon icon={faSquare} />
+      )
+    case 'people':
+      return (
+        <FontAwesomeIcon icon={faUsers} />
+      )
     case 'delete':
       return (
         <FontAwesomeIcon icon={faTrashAlt} />
@@ -43,6 +64,10 @@ const Icon = props => {
     case 'cloud':
       return (
         <FontAwesomeIcon icon={faCloud} />
+      )
+    case 'success':
+      return (
+        <FontAwesomeIcon icon={faCheckCircle} />
       )
     default:
       return (<div />)
