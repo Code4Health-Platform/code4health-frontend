@@ -1,7 +1,7 @@
 import React from 'react'
 import {Grid} from 'grid-styled'
 import {Alert, Heading} from '@atoms'
-import {ProjectConfiguration, ProjectComponents} from '@organisms'
+import {ProjectConfiguration, ProjectComponents, ProjectPostman} from '@organisms'
 import PropTypes from 'prop-types'
 
 const SingleProject = props => (
@@ -17,6 +17,7 @@ const SingleProject = props => (
 
     <Grid w={1}>
       {props.config && <ProjectConfiguration config={props.config} />}
+      {props.project && <ProjectPostman link='/todo' />}
       {props.project && <ProjectComponents project={props.project} />}
     </Grid>
   </div>

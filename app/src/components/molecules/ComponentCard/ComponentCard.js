@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import {ButtonContainer, Container, DescriptionContainer, InnerContainer} from './ComponentCard.styled.js'
-import {Button, Heading} from '@atoms'
+import {Button, Checkbox, Heading} from '@atoms'
 import {FormattedMessage} from 'react-intl'
 
 class ComponentCard extends Component {
@@ -33,9 +33,15 @@ class ComponentCard extends Component {
           </DescriptionContainer>
 
           <ButtonContainer>
-            <Button>Active</Button>
+            <Checkbox
+              id={this.props.id}
+              label='Active'
+              checked={this.props.available}
+            >
+              Active
+            </Checkbox>
 
-            <Button variant='danger'>Delete</Button>
+            <Button variant='danger' icon='delete'>Delete</Button>
           </ButtonContainer>
         </InnerContainer>
       </Container>

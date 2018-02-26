@@ -7,8 +7,8 @@ export const StyledInput = styled.input`
   padding: 0;
   background-color: #fff;
   justify-content: left;
-  padding-left: 0.75em;
-  padding-right: 0.75em;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
   text-align: left;
   white-space: nowrap;
   -moz-appearance: none;
@@ -19,11 +19,11 @@ export const StyledInput = styled.input`
   box-shadow: none;
   display: inline-flex;
   font-size: $size-normal;
-  height: 2.25em;
+  height: 3.6rem;
   line-height: 1.5;
   position: relative;
   color: #333;
-  margin-bottom: 1em;
+  margin-bottom: 1rem;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;

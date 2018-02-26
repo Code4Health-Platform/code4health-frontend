@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import {Heading} from '@atoms'
-import {ComponentCard} from '@molecules'
+import {ComponentCard, NewComponentCard} from '@molecules'
 import {ComponentCardContainer} from './ProjectComponents.styled.js'
 
 class ProjectComponents extends Component {
@@ -20,6 +20,11 @@ class ProjectComponents extends Component {
               />
             )
           )}
+
+          <NewComponentCard>
+            add a new component
+          </NewComponentCard>
+
         </ComponentCardContainer>
       </div>
     )

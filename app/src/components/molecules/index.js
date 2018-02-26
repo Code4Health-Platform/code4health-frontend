@@ -1,4 +1,5 @@
 import ComponentCard from './ComponentCard/ComponentCard'
+import NewComponentCard from './NewComponentCard/NewComponentCard'
 import FormInput from './FormInput/FormInput'
 import NavigationItem from './NavigationItem/NavigationItem'
 import NavigationMenu from './NavigationMenu/NavigationMenu'
@@ -13,5 +14,6 @@ export {
   NavigationLogo,
   NavigationMenu,
   NavigationToggle,
+  NewComponentCard,
   Panel
 }

@@ -8,6 +8,7 @@ import NewProjectForm from './NewProjectForm/NewProjectForm'
 import ProjectsSummary from './ProjectsSummary/ProjectsSummary'
 import ProjectComponents from './ProjectComponents/ProjectComponents'
 import ProjectConfiguration from './ProjectConfiguration/ProjectConfiguration'
+import ProjectPostman from './ProjectPostman/ProjectPostman'
 
 export {
   Footer,
@@ -18,6 +19,7 @@ export {
   PasswordResetForm,
   ProjectConfiguration,
   ProjectComponents,
+  ProjectPostman,
   ProjectsSummary,
   SignUpForm
 }

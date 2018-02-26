@@ -14,6 +14,8 @@ import faDatabase from '@fortawesome/fontawesome-free-solid/faDatabase'
 import faCheckCircle from '@fortawesome/fontawesome-free-solid/faCheckCircle'
 import faSquare from '@fortawesome/fontawesome-free-solid/faSquare'
 import faUsers from '@fortawesome/fontawesome-free-solid/faUsers'
+import faCheckSquare from '@fortawesome/fontawesome-free-solid/faCheckSquare'
+import faDownload from '@fortawesome/fontawesome-free-solid/faDownload'
 
 const Icon = props => {
   switch (props.icon) {
@@ -21,9 +23,17 @@ const Icon = props => {
       return (
         <FontAwesomeIcon icon={faCopy} />
       )
+    case 'check':
+      return (
+        <FontAwesomeIcon icon={faCheckSquare} />
+      )
     case 'database':
       return (
         <FontAwesomeIcon icon={faDatabase} />
+      )
+    case 'download':
+      return (
+        <FontAwesomeIcon icon={faDownload} />
       )
     case 'square':
       return (
