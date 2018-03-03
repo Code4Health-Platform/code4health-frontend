@@ -18,7 +18,7 @@ export const StyledInput = styled.input`
   border-radius: $control-radius;
   box-shadow: none;
   display: inline-flex;
-  font-size: $size-normal;
+  font-size: 1.6rem;
   height: 3.6rem;
   line-height: 1.5;
   position: relative;
@@ -27,6 +27,7 @@ export const StyledInput = styled.input`
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  font-family: 'Nunito', -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
 
 
   &:hover {

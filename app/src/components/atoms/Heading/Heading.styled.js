@@ -13,7 +13,7 @@ const baseStyles = `
 `
 
 const H1 = styled.h1`
-  font-weight: 400;
+  font-weight: 600;
   font-size: 2.2rem;
   ${baseStyles}
 `

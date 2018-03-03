@@ -2,7 +2,11 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import {Footer, NavigationBar} from '@organisms'
 import Container from './styled.js'
-import { withRouter } from 'react-router'
+import {withRouter} from 'react-router'
+
+import GlobalStyles from '../styles/global.js'
+
+GlobalStyles()
 
 class Layout extends Component {
   render () {
