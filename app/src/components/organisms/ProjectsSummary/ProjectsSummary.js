@@ -24,7 +24,7 @@ class ProjectsSummary extends Component {
                   <ProjectTableColumn>
                     <Button
                       type='link'
-                      href={`/project/${project.id}`}
+                      href={`/projects/${project.id}`}
                       width='full'
                       icon='eye'
                     >
@@ -33,7 +33,7 @@ class ProjectsSummary extends Component {
 
                     <Button
                       type='link'
-                      href={`/project/delete/${project.id}`}
+                      href={`/projects/delete/${project.id}`}
                       width='full'
                       variant='danger'
                       icon='delete'

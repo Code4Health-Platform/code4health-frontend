@@ -22,7 +22,7 @@ class NavigationBar extends Component {
   }
 
   isActiveRoute (route) {
-    return this.props.location.pathname === route
+    return this.props.location.pathname.includes(route)
   }
 
   render () {

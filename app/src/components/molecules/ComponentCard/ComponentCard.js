@@ -34,7 +34,6 @@ class ComponentCard extends Component {
 
           <ButtonContainer>
             <Checkbox
-              id={this.props.id}
               label='Active'
               checked={this.props.available}
             >
@@ -50,7 +49,7 @@ class ComponentCard extends Component {
 }
 
 ComponentCard.propTypes = {
-  id: PropTypes.number,
+  id: PropTypes.string,
   type: PropTypes.string,
   available: PropTypes.bool
 }

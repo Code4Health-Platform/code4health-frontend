@@ -31,7 +31,6 @@ const InnerContainer = Styled.div`
 
   &:hover {
     box-shadow: 0px 3px 6px rgba(0,0,0,0.24);
-    margin-top:
   }
 `
 
