@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const baseStyles = `
+  font-weight: 600;
+
   svg {
     margin: 0 1rem 0 0;
   }
@@ -13,20 +15,16 @@ const baseStyles = `
 `
 
 const H1 = styled.h1`
-  font-weight: 600;
   font-size: 2.2rem;
   ${baseStyles}
 `
 
 const H2 = styled.h2`
-  font-weight: 400;
   font-size: 2rem;
   ${baseStyles}
-  border-bottom: 1px solid black;
 `
 
 const H3 = styled.h3`
-  font-weight: 300;
   font-size: 1.8rem;
   ${baseStyles}
 `

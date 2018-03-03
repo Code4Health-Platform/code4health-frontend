@@ -1,6 +1,7 @@
 import ComponentCard from './ComponentCard/ComponentCard'
 import NewComponentCard from './NewComponentCard/NewComponentCard'
 import FormInput from './FormInput/FormInput'
+import Masthead from './Masthead/Masthead'
 import NavigationItem from './NavigationItem/NavigationItem'
 import NavigationMenu from './NavigationMenu/NavigationMenu'
 import NavigationToggle from './NavigationToggle/NavigationToggle'
@@ -10,6 +11,7 @@ import Panel from './Panel/Panel'
 export {
   ComponentCard,
   FormInput,
+  Masthead,
   NavigationItem,
   NavigationLogo,
   NavigationMenu,

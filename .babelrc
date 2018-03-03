@@ -12,7 +12,8 @@
         "^@(reducers|actions|constants)/(.*)$": "./app/src/redux/\\1/\\2",
         "^@i18n": "./app/src/i18n",
         "^@messages/(.*)$": "./app/src/i18n/messages/\\1",
-        "@history": "./app/src/router/history.js"
+        "@history": "./app/src/router/history.js",
+        "^@theme/(.*)$": "./app/src/theme/\\1"
       }
     }]
   ]

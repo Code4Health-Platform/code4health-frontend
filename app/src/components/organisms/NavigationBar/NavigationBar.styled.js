@@ -1,11 +1,13 @@
 import styled from 'styled-components'
 import {Flex} from 'grid-styled'
+import Colors from '@theme/colors'
 
 const Container = styled.div`
   margin: 0;
   padding: 0;
   min-height: 5.6rem;
   position: relative;
+  background-color: ${Colors.navigation.background};
 
   @media (min-width: 768px) {
     padding: 0;
@@ -18,7 +20,6 @@ const Nav = styled(Flex)`
 
   display: block;
   min-height: 5.6rem;
-  border-bottom: 1px solid #363636;
 
   @media (min-width: 768px) {
     display: flex;

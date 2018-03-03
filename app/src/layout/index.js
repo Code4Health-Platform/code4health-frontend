@@ -4,7 +4,7 @@ import {Footer, NavigationBar} from '@organisms'
 import Container from './styled.js'
 import {withRouter} from 'react-router'
 
-import GlobalStyles from '../styles/global.js'
+import GlobalStyles from '@theme/global'
 
 GlobalStyles()
 
