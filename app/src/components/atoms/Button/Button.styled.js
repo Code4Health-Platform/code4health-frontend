@@ -21,7 +21,8 @@ function BuildButtonStyled (width, variant, href, type, clickHandler) {
   })()
 
   let styles = `
-    font-family: 'Nunito', -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    font-family: 'Source Sans Pro', -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    font-weight: 600;
     width: ${width === 'auto' ? 'auto' : '100%'};
     border-radius: 4px;
     margin: 0 0 1rem 0;
@@ -36,7 +37,6 @@ function BuildButtonStyled (width, variant, href, type, clickHandler) {
     -webkit-appearance: none;
     align-items: center;
     border: 1px solid transparent;
-    border-radius: $control-radius;
     box-shadow: none;
     display: ${width === 'auto' ? 'inline-block' : 'block'};
     font-size: 1.6rem;
@@ -44,8 +44,6 @@ function BuildButtonStyled (width, variant, href, type, clickHandler) {
     position: relative;
     color: ${variant === 'muted' ? '#363636' : '#fff'};
     text-decoration: ${variant === 'muted' ? 'underline' : 'none'};
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
     box-sizing: border-box;
     padding: 0.5rem;
 
