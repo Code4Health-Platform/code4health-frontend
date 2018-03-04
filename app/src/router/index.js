@@ -25,7 +25,7 @@ class AppRouter extends Component {
           <Route exact path='/account' component={AuthenticatedAccount} />
           <Route exact path='/projects' component={AuthenticatedProjects} />
           <Route exact path='/projects/new' component={AuthenticatedNewProject} />
-          <Route path='/projects/:id' component={AuthenticatedSingleProject} />
+          <Route path='/projects/:id(\d+)' component={AuthenticatedSingleProject} />
         </Layout>
       </Router>
     )
