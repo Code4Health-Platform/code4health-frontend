@@ -17,6 +17,7 @@ import faUsers from '@fortawesome/fontawesome-free-solid/faUsers'
 import faCheckSquare from '@fortawesome/fontawesome-free-solid/faCheckSquare'
 import faDownload from '@fortawesome/fontawesome-free-solid/faDownload'
 import faKey from '@fortawesome/fontawesome-free-solid/faKey'
+import faCube from '@fortawesome/fontawesome-free-solid/faCube'
 
 const Icon = props => {
   switch (props.icon) {
@@ -39,6 +40,10 @@ const Icon = props => {
     case 'key':
       return (
         <FontAwesomeIcon icon={faKey} />
+      )
+    case 'project':
+      return (
+        <FontAwesomeIcon icon={faCube} />
       )
     case 'square':
       return (
