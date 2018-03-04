@@ -41,7 +41,7 @@ export default function (state = {}, action) {
         ...state,
         accountDetails: {
           ...state.accountDetails,
-          successMessage: 'x.y.x',
+          successMessage: 'account.accountDetails.successMessage',
           isLoading: false,
           data: {...state.accountDetails.data, ...action.newDetails}
         }
@@ -54,7 +54,7 @@ export default function (state = {}, action) {
           ...state.accountDetails,
           successMessage: null,
           isLoading: false,
-          errorMessage: 'a.b.c'
+          errorMessage: 'account.accountDetails.errorMessage'
         }
       }
 
@@ -75,7 +75,7 @@ export default function (state = {}, action) {
         ...state,
         changePassword: {
           ...state.changePassword,
-          successMessage: 'x.y.x',
+          successMessage: 'account.changePassword.successMessage',
           isLoading: false
         }
       }
@@ -87,7 +87,7 @@ export default function (state = {}, action) {
           ...state.accountDetails,
           successMessage: null,
           isLoading: false,
-          errorMessage: 'a.b.c'
+          errorMessage: 'account.changePassword.errorMessage'
         }
       }
 

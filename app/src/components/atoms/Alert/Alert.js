@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import React from 'react'
+import {FormattedMessage} from 'react-intl'
 import {StyledAlert, StyledIcon, StyledMessage} from './Alert.styled.js'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import faExclamationCircle from '@fortawesome/fontawesome-free-solid/faExclamationCircle'
@@ -33,7 +34,9 @@ const Alert = props => {
     return (
       <StyledAlert type={props.type}>
         <StyledIcon><Icon type={props.type} /></StyledIcon>
-        <StyledMessage>{props.message}</StyledMessage>
+        <StyledMessage>
+          <FormattedMessage id={props.message} />
+        </StyledMessage>
       </StyledAlert>
     )
   }

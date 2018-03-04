@@ -42,6 +42,16 @@ export const ENGLISH_TRANSLATION = {
       demographics: {
         description: 'Use this module to maintain an index of patients or clients with DOB, age, address and other subject-related information or identifiers.'
       }
+    },
+    account: {
+      accountDetails: {
+        successMessage: 'Successfully update your account',
+        errorMessage: 'Unable to update your account'
+      },
+      changePassword: {
+        successMessage: 'Success',
+        errorMessage: 'Unable to update your password'
+      }
     }
   }
 }
