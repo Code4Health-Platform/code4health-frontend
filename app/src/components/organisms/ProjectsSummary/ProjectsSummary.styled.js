@@ -23,6 +23,9 @@ const ProjectTable = styled.table`
   }
 `
 
+const ProjectTableBody = styled.tbody`
+`
+
 const ProjectTableRow = styled.tr`
   padding: 0.5rem;
 `
@@ -37,6 +40,7 @@ export {
   StyledProjectsSummary,
   Container,
   ProjectTable,
+  ProjectTableBody,
   ProjectTableRow,
   ProjectTableColumn
 }
