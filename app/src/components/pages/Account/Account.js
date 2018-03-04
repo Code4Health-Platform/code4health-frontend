@@ -21,26 +21,16 @@ class Account extends Component {
   }
 
   submitAccountDetailsFormHandler (values) {
-    console.log('submitAccountDetailsFormHandler called')
-    console.log(JSON.stringify(values))
     this.props.updateAccountDetails(values)
   }
 
   changePasswordFormHandler (values) {
-    // `this.props.changePassword(values)
-    console.log('changePasswordFormHandler called')
-    console.log(JSON.stringify(values))
     this.props.changePassword(values)
   }
 
   render () {
     return (
-      <AccountTemplate
-        isLoading={this.props.isLoading}
-        successMessage={this.props.successMessage}
-        errorMessage={this.props.errorMessage}
-        projects={this.props.projects}
-        account={this.props.account}
+      <AccountTemplate {...this.props}
         accountDetailsFormHandler={this.submitAccountDetailsFormHandler}
         changePasswordFormHandler={this.changePasswordFormHandler}
       />
@@ -61,7 +51,7 @@ Account.propTypes = {
 
 function mapStateToProps (state) {
   return {
-    account: state.account.details,
+    accountDetails: state.account.accountDetails,
     authenticated: state.auth.authenticated,
     isLoading: state.account.isLoading
   }

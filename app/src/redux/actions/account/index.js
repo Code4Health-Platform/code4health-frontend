@@ -14,7 +14,7 @@ export function getAccountDetails () {
             Authorization: `Bearer ${user.token}`
           }
         })
-      console.log(res)
+
       dispatch({type: constants.SUCCESS_FETCHING_ACCOUNT, account: res.data})
     } catch (error) {
       console.log(error)
@@ -74,7 +74,6 @@ export function updateAccountDetails ({firstName, lastName, email}) {
 
 export function changePassword ({newPassword, confirmPassword}) {
   return async (dispatch) => {
-    console.log('changePassword called with: ' + newPassword + ' ' + confirmPassword)
     dispatch({type: constants.UPDATING_PASSWORD})
     try {
       const user = JSON.parse(localStorage.getItem('user'))

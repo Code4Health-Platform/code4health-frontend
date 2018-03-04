@@ -8,14 +8,18 @@ import {AccountDetailsForm, PasswordChangeForm} from '@organisms'
 function initialValues (account) {
   const initialValues = {}
 
-  if (account && account.firstName) {
-    initialValues.firstName = account.firstName || null
+  if (!account || !account.data) {
+    return initialValues
   }
-  if (account && account.lastName) {
-    initialValues.lastName = account.lastName || null
+
+  if (account.data.firstName) {
+    initialValues.firstName = account.data.firstName || null
   }
-  if (account && account.email) {
-    initialValues.email = account.email || null
+  if (account.data.lastName) {
+    initialValues.lastName = account.data.lastName || null
+  }
+  if (account.data.email) {
+    initialValues.email = account.data.email || null
   }
 
   return initialValues
@@ -37,8 +41,8 @@ const Account = props => (
       <AccountDetailsForm
         errorMessage={props.errorMessage}
         isLoading={props.isLoading}
-        account={props.account}
-        initialValues={initialValues(props.account)}
+        account={props.accountDetails}
+        initialValues={initialValues(props.accountDetails)}
         formHandler={props.accountDetailsFormHandler}
       />
     </Grid>
@@ -60,7 +64,7 @@ Account.propTypes = {
   changePasswordFormHandler: PropTypes.func,
   errorMessage: PropTypes.string,
   successMessage: PropTypes.string,
-  account: PropTypes.object
+  accountDetails: PropTypes.object
 }
 
 export default Account

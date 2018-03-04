@@ -4,7 +4,6 @@ import {Fields, reduxForm} from 'redux-form'
 import PropTypes from 'prop-types'
 import {Alert, Button, Form} from '@atoms'
 import {FormInput} from '@molecules'
-import {getAccountDetails, updateAccount, changePassword} from '@actions/account'
 import * as Validate from '@validators'
 
 const renderFields = (fields, isLoading) => (
@@ -44,22 +43,22 @@ const renderFields = (fields, isLoading) => (
 
 class AccountDetailsForm extends Component {
   render () {
+    const {successMessage, errorMessage, isLoading} = this.props.accountDetails
+
     return (
       <Form
         isLoading={this.props.isLoading} onSubmit={this.props.handleSubmit(this.props.formHandler)} >
-        <Alert type='error' message={this.props.errorMessage} />
-        <Alert type='success' message={this.props.successMessage} />
+        <Alert type='error' message={errorMessage} />
+        <Alert type='success' message={successMessage} />
 
         <Fields
           names={['firstName', 'lastName', 'email']}
           component={renderFields}
-          props={{isLoading: this.props.isLoading}}
         />
 
         <Button
           type='submit'
-          isLoading={this.props.isLoading}
-          disabled={this.props.invalid}
+          disabled={this.props.invalid || isLoading}
         >
           Update
         </Button>
@@ -70,18 +69,17 @@ class AccountDetailsForm extends Component {
 
 AccountDetailsForm.propTypes = {
   isLoading: PropTypes.bool,
-  successMessage: PropTypes.string,
-  errorMessage: PropTypes.string,
   handleSubmit: PropTypes.func,
   formHandler: PropTypes.func,
-  invalid: PropTypes.bool
+  invalid: PropTypes.bool,
+  accountDetails: PropTypes.object
 }
 
 function mapStateToProps (state, ownProps) {
   return {
-    account: state.account.details,
     authenticated: state.auth.authenticated,
-    isLoading: state.account.isLoading
+    isLoading: state.account.isLoading,
+    accountDetails: state.account.accountDetails || {}
   }
 }
 
@@ -107,7 +105,7 @@ const validate = values => {
   return errors
 }
 
-const ConnectedAccountDetails = connect(mapStateToProps, {getAccountDetails, updateAccount, changePassword})(AccountDetailsForm)
+const ConnectedAccountDetails = connect(mapStateToProps)(AccountDetailsForm)
 
 export default reduxForm({
   form: 'updateAccountDetails',

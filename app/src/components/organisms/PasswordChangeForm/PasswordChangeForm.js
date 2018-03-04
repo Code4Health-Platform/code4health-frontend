@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
+import {connect} from 'react-redux'
 import {Fields, reduxForm} from 'redux-form'
 import PropTypes from 'prop-types'
-import {Button, Form} from '@atoms'
+import {Alert, Button, Form} from '@atoms'
 import {FormInput} from '@molecules'
 import * as Validate from '@validators'
 
@@ -29,24 +30,26 @@ const renderFields = (fields) => (
 
 class PasswordChangeForm extends Component {
   render () {
+    const {successMessage, errorMessage, isLoading} = this.props.changePassword
+
     return (
-      <Form onSubmit={this.props.handleSubmit(this.props.formHandler)}>
+      <Form
+        isLoading={this.props.isLoading}
+        onSubmit={this.props.handleSubmit(this.props.formHandler)}
+      >
+
+        <Alert type='error' message={errorMessage} />
+        <Alert type='success' message={successMessage} />
 
         <Fields
           names={['newPassword', 'confirmPassword']} component={renderFields} />
 
-        <Button type='submit' disabled={this.props.invalid}>
+        <Button type='submit' disabled={this.props.invalid || isLoading}>
           Save
         </Button>
       </Form>
     )
   }
-}
-
-PasswordChangeForm.propTypes = {
-  handleSubmit: PropTypes.any,
-  formHandler: PropTypes.func,
-  invalid: PropTypes.bool
 }
 
 const validate = values => {
@@ -67,10 +70,28 @@ const validate = values => {
   return errors
 }
 
+PasswordChangeForm.propTypes = {
+  handleSubmit: PropTypes.any,
+  formHandler: PropTypes.func,
+  invalid: PropTypes.bool,
+  changePassword: PropTypes.object,
+  isLoading: PropTypes.bool
+}
+
+function mapStateToProps (state, ownProps) {
+  return {
+    authenticated: state.auth.authenticated,
+    isLoading: state.account.isLoading,
+    changePassword: state.account.changePassword || {}
+  }
+}
+
+const ConnectedPasswordChangeForm = connect(mapStateToProps)(PasswordChangeForm)
+
 const reduxFormPasswordChange = reduxForm({
   form: 'passwordChange',
   validate,
   fields: ['newPassword', 'confirmPassword']
-})(PasswordChangeForm)
+})(ConnectedPasswordChangeForm)
 
 export default reduxFormPasswordChange
