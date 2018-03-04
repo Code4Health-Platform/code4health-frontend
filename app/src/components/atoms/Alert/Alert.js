@@ -15,7 +15,7 @@ const Icon = props => {
       return (
         <FontAwesomeIcon icon={faInfoCircle} size={size} color={color} />
       )
-    case 'warning':
+    case 'error':
       return (
         <FontAwesomeIcon icon={faExclamationCircle} size={size} color={color} />
       )
@@ -31,7 +31,7 @@ const Alert = props => {
     return (<div />)
   } else {
     return (
-      <StyledAlert>
+      <StyledAlert type={props.type}>
         <StyledIcon><Icon type={props.type} /></StyledIcon>
         <StyledMessage>{props.message}</StyledMessage>
       </StyledAlert>

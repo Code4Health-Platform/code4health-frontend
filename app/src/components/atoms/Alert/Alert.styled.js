@@ -1,21 +1,46 @@
+import React from 'react'
 import styled from 'styled-components'
+import Colors from '@theme/colors'
 
-const StyledAlert = styled.div`
-  background-color: #eee;
-  border-radius: 4px;
-  margin: 1rem 0;
-  display: flex;
-  align-items: center;
-`
+const StyledAlert = props => {
+  let backgroundColor = '#eee'
+
+  switch (props.type) {
+    case 'success':
+      backgroundColor = Colors.success
+      break
+    case 'error':
+      backgroundColor = Colors.error
+      break
+  }
+
+  const StyledDiv = styled.div`
+    background-color: ${backgroundColor};
+    border-radius: 4px;
+    margin: 1rem 0;
+    display: flex;
+    align-items: center;
+  `
+
+  return (
+    <StyledDiv>
+      {props.children}
+    </StyledDiv>
+  )
+}
 
 const StyledIcon = styled.div`
   padding: 1rem;
+  svg {
+    color: #fff;
+  }
 `
 
 const StyledMessage = styled.div`
   padding: 1rem;
   font-size: 1.6rem;
   font-weight: normal;
+  color: #fff;
 `
 
 export {StyledAlert, StyledIcon, StyledMessage}
