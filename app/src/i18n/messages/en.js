@@ -45,12 +45,12 @@ export const ENGLISH_TRANSLATION = {
     },
     account: {
       accountDetails: {
-        successMessage: 'Successfully update your account',
+        successMessage: 'Successfully updated your account',
         errorMessage: 'Unable to update your account'
       },
       changePassword: {
-        successMessage: 'Success',
-        errorMessage: 'Unable to update your password'
+        successMessage: 'Successfully changed your password',
+        errorMessage: 'Unable to change your password'
       }
     }
   }
