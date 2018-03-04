@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Colors from '@theme/colors'
 
@@ -27,6 +28,11 @@ const StyledAlert = props => {
       {props.children}
     </StyledDiv>
   )
+}
+
+StyledAlert.propTypes = {
+  children: PropTypes.node,
+  type: PropTypes.string
 }
 
 const StyledIcon = styled.div`
