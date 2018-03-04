@@ -8,6 +8,7 @@ const StyledMasthead = styled.div`
   align-items: center;
   display: block;
   padding: 3rem 1rem;
+  box-sizing: border-box;
 
   h1, h2, h3, p {
     margin: 0;
