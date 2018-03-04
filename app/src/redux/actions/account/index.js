@@ -31,7 +31,7 @@ export function accountUnload () {
   }
 }
 
-export function updateAccountDetails ({firstName, lastName, email}) {
+export function updateAccountDetails ({firstName, lastName, email, login}) {
   return async (dispatch) => {
     dispatch({type: constants.UPDATING_ACCOUNT})
     try {
@@ -44,7 +44,7 @@ export function updateAccountDetails ({firstName, lastName, email}) {
           imageUrl: null,
           langKey: 'en',
           lastName: lastName,
-          login: '1234'
+          login: login
         },
         {
           headers: {

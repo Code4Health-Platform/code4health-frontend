@@ -111,5 +111,5 @@ export default reduxForm({
   form: 'updateAccountDetails',
   enableReinitialize: true,
   validate,
-  fields: ['firstName', 'lastName', 'email']
+  fields: ['firstName', 'lastName', 'email', 'login']
 })(ConnectedAccountDetails)

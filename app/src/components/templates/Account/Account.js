@@ -21,6 +21,9 @@ function initialValues (account) {
   if (account.data.email) {
     initialValues.email = account.data.email || null
   }
+  if (account.data.login) {
+    initialValues.login = account.data.login || ''
+  }
 
   return initialValues
 }
