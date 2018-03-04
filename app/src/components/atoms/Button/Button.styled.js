@@ -52,8 +52,9 @@ function BuildButtonStyled (width, variant, href, type, clickHandler, disabled) 
     }
 
     &:disabled, &[disabled] {
-      background-color: #efefef;
+      opacity: 0.3;
       cursor: not-allowed;
+
     }
 
     svg {
