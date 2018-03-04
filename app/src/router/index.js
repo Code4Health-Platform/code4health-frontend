@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {Router, Route} from 'react-router-dom'
-import AuthRequired from '@components/auth/AuthRequired'
+import AuthRequired from './AuthRequired'
 import Layout from '@src/layout'
 import {Account, Activate, NewProject, LogIn, LogOut, Projects, SingleProject, SignUp, Welcome, PasswordReset} from '@pages'
 import History from '@history'
