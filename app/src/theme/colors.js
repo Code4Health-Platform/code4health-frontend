@@ -1,5 +1,7 @@
 const Colors = {
   primary: '#3273dc',
+  error: '#ff3860',
+  succes: '#06CA7D',
   background: '#fff',
 
   navigation: {

@@ -13,7 +13,8 @@
         "^@i18n": "./app/src/i18n",
         "^@messages/(.*)$": "./app/src/i18n/messages/\\1",
         "@history": "./app/src/router/history.js",
-        "^@theme/(.*)$": "./app/src/theme/\\1"
+        "^@theme/(.*)$": "./app/src/theme/\\1",
+        "@validators": "./app/src/validators"
       }
     }]
   ]

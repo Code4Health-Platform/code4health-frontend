@@ -4,6 +4,8 @@ const NavigationLogoStyled = styled.div`
   margin: 0 auto 0 0;
   display: inline-block;
   font-size: 3rem;
+  font-weight: 600;
+
 
   a {
     text-decoration: none;

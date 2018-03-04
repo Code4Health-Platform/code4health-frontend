@@ -8,6 +8,7 @@ const Input = props => {
       type={props.type}
       placeholder={props.placeholder}
       onChange={props.onChange}
+      onBlur={props.onBlur}
       name={props.name}
       value={props.value}
     />
@@ -18,6 +19,7 @@ Input.propTypes = {
   placeholder: PropTypes.string,
   type: PropTypes.oneOf(['text', 'password']),
   onChange: PropTypes.func,
+  onBlur: PropTypes.func,
   name: PropTypes.any,
   value: PropTypes.string
 }

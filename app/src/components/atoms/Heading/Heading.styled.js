@@ -44,7 +44,7 @@ const StyledHeading = (props) => {
 
 StyledHeading.propTypes = {
   children: PropTypes.node,
-  level: PropTypes.oneOf([1, 2, 3, 4, 5, 6])
+  level: PropTypes.oneOf([1, 2, 3])
 }
 
 export default StyledHeading

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import {Link} from 'react-router-dom'
 
-function BuildButtonStyled (width, variant, href, type, clickHandler) {
+function BuildButtonStyled (width, variant, href, type, clickHandler, disabled) {
   const backgroundColor = (() => {
     switch (variant) {
       case 'danger': { return '#ff3860' }
@@ -51,6 +51,11 @@ function BuildButtonStyled (width, variant, href, type, clickHandler) {
       background-color: ${backgroundColorHover};
     }
 
+    &:disabled, &[disabled] {
+      background-color: #efefef;
+      cursor: not-allowed;
+    }
+
     svg {
       margin: 0 0.5rem 0 0;
     }
@@ -64,7 +69,8 @@ function BuildButtonStyled (width, variant, href, type, clickHandler) {
 
   return styled.button.attrs({
     'type': type,
-    'onClick': clickHandler
+    'onClick': clickHandler,
+    'disabled': disabled
   })`${styles}`
 }
 
@@ -74,7 +80,8 @@ const ButtonStyled = (props) => {
     props.variant,
     props.href,
     props.type,
-    props.clickHandler
+    props.clickHandler,
+    props.disabled
   )
 
   return (
@@ -90,7 +97,8 @@ ButtonStyled.propTypes = {
   type: PropTypes.string,
   variant: PropTypes.string,
   width: PropTypes.string,
-  clickHandler: PropTypes.func
+  clickHandler: PropTypes.func,
+  disabled: PropTypes.bool
 }
 
 export default ButtonStyled

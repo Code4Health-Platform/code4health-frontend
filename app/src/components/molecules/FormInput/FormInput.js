@@ -1,19 +1,29 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import {Input, Label} from '@atoms'
+import {ErrorMessage} from './FormInput.styled.js'
 
 class FormInput extends Component {
   render () {
     return (
       <div>
-        <Label label={this.props.label} />
+        <Label>{this.props.label}</Label>
+
         <Input
           type={this.props.type}
           placeholder={this.props.placeholder}
           value={this.props.content}
           onChange={this.props.onChangeHandler}
+          onBlur={this.props.onBlurHandler}
           name={this.props.name}
         />
+
+        {this.props.touched && this.props.error &&
+          <ErrorMessage>
+            {this.props.error}
+          </ErrorMessage>
+        }
+
       </div>
     )
   }
@@ -25,7 +35,10 @@ FormInput.propTypes = {
   content: PropTypes.string,
   label: PropTypes.string,
   onChangeHandler: PropTypes.func,
-  name: PropTypes.any
+  onBlurHandler: PropTypes.func,
+  name: PropTypes.any,
+  touched: PropTypes.bool,
+  error: PropTypes.any
 }
 
 export default FormInput

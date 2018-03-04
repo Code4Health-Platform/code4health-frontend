@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 
 export const StyledLabel = styled.label`
-  font-weight: 600;
+  margin: 0 0 1rem 0;
+  display: block;
 `
 
 export default StyledLabel

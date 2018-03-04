@@ -2,6 +2,7 @@
 
 import {combineReducers} from 'redux'
 import {reducer as formReducer} from 'redux-form'
+import accountReducer from '@reducers/account'
 import authReducer from '@reducers/auth'
 import dashboardReducer from '@reducers/dashboard'
 import localeReducer from '@reducers/locale'
@@ -11,7 +12,8 @@ const appReducer = combineReducers({
   auth: authReducer,
   dashboard: dashboardReducer,
   form: formReducer,
-  locale: localeReducer
+  locale: localeReducer,
+  account: accountReducer
 })
 
 const rootReducer = (state, action) => {

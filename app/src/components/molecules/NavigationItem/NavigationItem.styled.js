@@ -9,6 +9,7 @@ function BuildListItemStyled (type, active) {
     -webkit-align-items: center;
     display: flex;
     align-items: center;
+    font-weight: 600;
 
     @media (min-width: 468px) {
       margin: 1rem;

@@ -10,6 +10,7 @@ const Button = props => (
     width={props.width}
     href={props.href}
     clickHandler={props.clickHandler}
+    disabled={props.disabled}
   >
     <Icon icon={props.icon} />
     {props.children}
@@ -23,7 +24,8 @@ Button.propTypes = {
   width: PropTypes.oneOf(['full', 'auto']),
   href: PropTypes.string,
   clickHandler: PropTypes.func,
-  icon: PropTypes.string
+  icon: PropTypes.string,
+  disabled: PropTypes.bool
 }
 
 export default Button
