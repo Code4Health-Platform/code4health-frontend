@@ -17,8 +17,6 @@ export function getAccountDetails () {
 
       dispatch({type: constants.SUCCESS_FETCHING_ACCOUNT, account: res.data})
     } catch (error) {
-      console.log(error)
-      console.log(JSON.stringify(error))
       dispatch({
         type: constants.ERROR_FETCHING_ACCOUNT,
         error: error.response.data
@@ -62,8 +60,6 @@ export function updateAccountDetails ({firstName, lastName, email}) {
         }
       })
     } catch (error) {
-      console.log(error)
-      console.log(JSON.stringify(error))
       dispatch({
         type: constants.ERROR_UPDATING_ACCOUNT,
         error: error.response.data
@@ -77,7 +73,7 @@ export function changePassword ({newPassword, confirmPassword}) {
     dispatch({type: constants.UPDATING_PASSWORD})
     try {
       const user = JSON.parse(localStorage.getItem('user'))
-      const res = await axios.post(
+      await axios.post(
         `${URL}/account/change_password`,
         newPassword,
         {
@@ -85,13 +81,11 @@ export function changePassword ({newPassword, confirmPassword}) {
             Authorization: `Bearer ${user.token}`
           }
         })
-      console.log(res)
+
       dispatch({
         type: constants.SUCCESS_UPDATING_PASSWORD
       })
     } catch (error) {
-      console.log(error)
-      console.log(JSON.stringify(error))
       dispatch({
         type: constants.ERROR_UPDATING_PASSWORD,
         error: error.response.data

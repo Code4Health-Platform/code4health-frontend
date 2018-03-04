@@ -11,7 +11,6 @@ class LogOut extends Component {
   }
 
   logOut () {
-    console.log('logOut action called')
     this.props.logOutAction(this.props.history)
   }
 
