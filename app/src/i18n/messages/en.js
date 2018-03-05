@@ -13,6 +13,7 @@ export const ENGLISH_TRANSLATION = {
         }
       },
       logIn: {
+        title: 'Log In',
         cta: 'log in',
         form: {
           username: {
@@ -22,6 +23,9 @@ export const ENGLISH_TRANSLATION = {
             label: 'password'
           }
         }
+      },
+      signUp: {
+        title: 'Sign Up'
       },
       activate: {
         title: 'Activate your account',

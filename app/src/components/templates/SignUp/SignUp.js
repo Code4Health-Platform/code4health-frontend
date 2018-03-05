@@ -1,15 +1,18 @@
 import React from 'react'
 import {Grid} from 'grid-styled'
 import {Heading} from '@atoms'
-import {Panel} from '@molecules'
+import {Masthead, Panel} from '@molecules'
 import {SignUpForm} from '@organisms'
 import PropTypes from 'prop-types'
+import {FormattedMessage} from 'react-intl'
 
 const SignUp = props => (
   <div>
-    <Grid w={1} p={1}>
-      <Heading level={2}>Sign Up</Heading>
-    </Grid>
+    <Masthead>
+      <Heading level={2} icon='account'>
+        <FormattedMessage id='auth.signUp.title' />
+      </Heading>
+    </Masthead>
     <Grid w={[1, 1, 1 / 3]} p={1}>
       <SignUpForm
         onSubmit={props.formHandler}
