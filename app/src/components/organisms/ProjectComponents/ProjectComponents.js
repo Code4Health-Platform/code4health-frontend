@@ -14,7 +14,7 @@ class ProjectComponents extends Component {
           {this.props.project.components.map((component) =>
             (
               <ComponentCard
-                id={`componentCard-${component.id}`}
+                key={component.id}
                 type={component.type.toLowerCase()}
                 available={component.availability}
               />
