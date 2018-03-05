@@ -1,29 +1,35 @@
 import React from 'react'
 import {Grid} from 'grid-styled'
 import {Alert, Heading} from '@atoms'
-import {NewProjectForm} from '@organisms'
+import {Masthead} from '@molecules'
+import {NewProjectForm, NewProjectSummary} from '@organisms'
 import PropTypes from 'prop-types'
 
 const NewProject = props => (
   <div>
-    <Grid w={1} p={1}>
-      <Heading level={2} icon='plus'>
-        Create a New Project
-      </Heading>
+    <Masthead>
+      <Heading level={2} icon='plus'>Create a new project</Heading>
+    </Masthead>
+
+    <Grid w={[0, 1/4]} />
+
+    <Grid w={[1, 1/2, 1/2]} p='1rem'>
+
       <Alert type='error' message={props.errorMessage} />
-    </Grid>
-    <Grid w={[1, 1/2, 1/2]} p={1}>
-      <NewProjectForm
-        onSubmit={props.formHandler}
-        errorMessage={props.errorMessage}
-      />
+      <Alert type='success' message={props.successMessage} />
+
+      {!props.newProjectData && <NewProjectForm formHandler={props.formHandler} />}
+      {props.newProjectData && <NewProjectSummary data={props.newProjectData} />}
+
     </Grid>
   </div>
 )
 
 NewProject.propTypes = {
   formHandler: PropTypes.func,
-  errorMessage: PropTypes.string
+  newProjectData: PropTypes.object,
+  errorMessage: PropTypes.string,
+  successMessage: PropTypes.string
 }
 
 export default NewProject

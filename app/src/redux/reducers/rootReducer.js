@@ -6,6 +6,7 @@ import accountReducer from '@reducers/account'
 import authReducer from '@reducers/auth'
 import dashboardReducer from '@reducers/dashboard'
 import localeReducer from '@reducers/locale'
+import newProjectReducer from '@reducers/newProject'
 import * as authConstants from '@constants/auth'
 
 const appReducer = combineReducers({
@@ -13,14 +14,14 @@ const appReducer = combineReducers({
   dashboard: dashboardReducer,
   form: formReducer,
   locale: localeReducer,
-  account: accountReducer
+  account: accountReducer,
+  newProject: newProjectReducer
 })
 
 const rootReducer = (state, action) => {
   if (action.type === authConstants.UNAUTHENTICATED) {
     console.log('rootReducer received authConstants.UNAUTHENTICATED')
-    state.auth = {}
-    state.dashboard = {}
+    state = {}
     localStorage.clear()
   }
 

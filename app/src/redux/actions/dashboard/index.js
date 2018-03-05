@@ -1,5 +1,3 @@
-/* global localStorage */
-
 import axios from 'axios'
 import * as constants from '@constants/dashboard'
 import * as authActions from '@actions/auth'
@@ -76,46 +74,7 @@ export function fetchProjectsIfNeeded () {
   }
 }
 
-export function newProjectAction ({name}, history) {
-  return async (dispatch) => {
-    dispatch(isLoading())
-    try {
-      const user = JSON.parse(localStorage.getItem('user'))
-      const res = await axios.post(`${URL}`, {
-        name: name,
-        active: true,
-        provision: true
-      }, {
-        headers: {
-          Authorization: `Bearer ${user.token}`
-        }
-      })
-      history.push('/projects')
-      dispatch({
-        type: constants.SUCCESS_CREATING_PROJECT,
-        data: res.data
-      })
-    } catch (error) {
-      dispatch({
-        type: constants.ERROR_CREATING_PROJECT,
-        error: error
-      })
-    }
-  }
-}
-
-export function newProjectUnloadAction () {
-  return {
-    type: constants.CREATING_PROJECT_UNLOAD
-  }
-}
-
-export function dashboardUnloadAction () {
-  return {
-    type: constants.DASHBOARD_UNLOAD
-  }
-}
-
+// Single Project
 export function fetchSingleProjectIfNeeded (id) {
   console.log('fetchSingleProjectIfNeeded')
   return (dispatch, getState) => {
@@ -177,5 +136,11 @@ function receiveProjectConfig (project) {
     type: constants.SUCCESS_FETCHING_PROJECT_CONFIG,
     data: project,
     receivedAt: Date.now()
+  }
+}
+
+export function dashboardUnloadAction () {
+  return {
+    type: constants.DASHBOARD_UNLOAD
   }
 }

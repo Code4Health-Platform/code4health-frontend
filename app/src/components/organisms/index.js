@@ -7,6 +7,7 @@ import PasswordResetForm from './PasswordResetForm/PasswordResetForm'
 import PasswordChangeForm from './PasswordChangeForm/PasswordChangeForm'
 import SignUpForm from './SignUpForm/SignUpForm'
 import NewProjectForm from './NewProjectForm/NewProjectForm'
+import NewProjectSummary from './NewProjectSummary/NewProjectSummary'
 import ProjectsSummary from './ProjectsSummary/ProjectsSummary'
 import ProjectComponents from './ProjectComponents/ProjectComponents'
 import ProjectConfiguration from './ProjectConfiguration/ProjectConfiguration'
@@ -19,6 +20,7 @@ export {
   LocaleSwitcher,
   NavigationBar,
   NewProjectForm,
+  NewProjectSummary,
   PasswordChangeForm,
   PasswordResetForm,
   ProjectConfiguration,

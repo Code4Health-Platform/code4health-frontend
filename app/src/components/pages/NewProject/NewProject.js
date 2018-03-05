@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import NewProjectTemplate from '@templates/NewProject'
-import {newProjectAction, newProjectUnloadAction} from '@actions/dashboard'
+import {newProjectAction, newProjectUnloadAction} from '@actions/newProject'
 
 class NewProject extends Component {
   constructor (props) {
@@ -11,44 +11,42 @@ class NewProject extends Component {
   }
 
   componentWillUnmount () {
-    this.props.newProjectUnloadAction()
+    this.props.dispatch(newProjectUnloadAction())
   }
 
   submit (values) {
-    this.props.newProjectAction(values, this.props.history)
+    this.props.dispatch(newProjectAction(values, this.props.history))
   }
 
   render () {
-    if (this.props.isLoading) {
-      return (
-        <div>is loading</div>
-      )
-    } else {
-      return (
-        <NewProjectTemplate
-          formHandler={this.submit}
-          errorMessage={this.props.errorMessage}
-          successMessage={this.props.successMessage}
-        />
-      )
-    }
+    return (
+      <NewProjectTemplate
+        formHandler={this.submit}
+        errorMessage={this.props.errorMessage}
+        successMessage={this.props.successMessage}
+        isLoading={this.props.isLoading}
+        newProjectData={this.props.newProjectData}
+      />
+    )
   }
 }
 
 NewProject.propTypes = {
+  dispatch: PropTypes.func,
   isLoading: PropTypes.bool,
   history: PropTypes.object,
   errorMessage: PropTypes.any,
   successMessage: PropTypes.any,
-  newProjectAction: PropTypes.func,
-  newProjectUnloadAction: PropTypes.func
+  newProjectData: PropTypes.object
 }
 
 function mapStateToProps (state) {
   return {
-    isLoading: state.dashboard.isLoading,
-    errorMessage: state.dashboard.errorMessage
+    isLoading: state.newProject.isLoading,
+    errorMessage: state.newProject.errorMessage,
+    successMessage: state.newProject.successMessage,
+    newProjectData: state.newProject.newProjectData
   }
 }
 
-export default connect(mapStateToProps, {newProjectAction, newProjectUnloadAction})(NewProject)
+export default connect(mapStateToProps)(NewProject)

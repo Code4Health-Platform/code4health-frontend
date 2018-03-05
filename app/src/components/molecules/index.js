@@ -7,6 +7,7 @@ import NavigationMenu from './NavigationMenu/NavigationMenu'
 import NavigationToggle from './NavigationToggle/NavigationToggle'
 import NavigationLogo from './NavigationLogo/NavigationLogo'
 import Panel from './Panel/Panel'
+import ProjectCard from './ProjectCard/ProjectCard'
 
 export {
   ComponentCard,
@@ -17,5 +18,6 @@ export {
   NavigationMenu,
   NavigationToggle,
   NewComponentCard,
-  Panel
+  Panel,
+  ProjectCard
 }
