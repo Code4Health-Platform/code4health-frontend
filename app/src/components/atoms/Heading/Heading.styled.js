@@ -29,6 +29,13 @@ const H3 = styled.h3`
   ${baseStyles}
 `
 
+const H4 = styled.h4`
+  font-size: 1.6rem;
+  ${baseStyles}
+  font-weight: normal;
+  margin: 0.5rem 0;
+`
+
 const StyledHeading = (props) => {
   switch (props.level) {
     case 1:
@@ -37,6 +44,8 @@ const StyledHeading = (props) => {
       return (<H2>{props.children}</H2>)
     case 3:
       return (<H3>{props.children}</H3>)
+    case 4:
+      return (<H4>{props.children}</H4>)
     default:
       return (<div>missing heading!</div>)
   }
@@ -44,7 +53,7 @@ const StyledHeading = (props) => {
 
 StyledHeading.propTypes = {
   children: PropTypes.node,
-  level: PropTypes.oneOf([1, 2, 3])
+  level: PropTypes.oneOf([1, 2, 3, 4])
 }
 
 export default StyledHeading

@@ -12,7 +12,7 @@ const Heading = props => (
 
 Heading.propTypes = {
   children: PropTypes.node,
-  level: PropTypes.oneOf([1, 2, 3, 4, 5, 6]),
+  level: PropTypes.oneOf([1, 2, 3, 4]),
   icon: PropTypes.string
 }
 
