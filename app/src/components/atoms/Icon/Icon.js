@@ -18,6 +18,7 @@ import faCheckSquare from '@fortawesome/fontawesome-free-solid/faCheckSquare'
 import faDownload from '@fortawesome/fontawesome-free-solid/faDownload'
 import faKey from '@fortawesome/fontawesome-free-solid/faKey'
 import faCube from '@fortawesome/fontawesome-free-solid/faCube'
+import faCubes from '@fortawesome/fontawesome-free-solid/faCubes'
 
 const Icon = props => {
   switch (props.icon) {
@@ -65,9 +66,13 @@ const Icon = props => {
       return (
         <FontAwesomeIcon icon={faSignOutAlt} />
       )
-    case 'projects':
+    case 'grid':
       return (
         <FontAwesomeIcon icon={faTh} />
+      )
+    case 'projects':
+      return (
+        <FontAwesomeIcon icon={faCubes} />
       )
     case 'account':
       return (
