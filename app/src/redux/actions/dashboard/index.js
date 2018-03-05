@@ -2,7 +2,7 @@ import axios from 'axios'
 import * as constants from '@constants/dashboard'
 import * as authActions from '@actions/auth'
 
-const URL = 'http://localhost:8080/api/operinos'
+const URL = __API + '/operinos'
 
 function receiveProjects (projects) {
   return {

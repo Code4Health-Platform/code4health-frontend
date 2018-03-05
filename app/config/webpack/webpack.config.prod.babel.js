@@ -27,7 +27,8 @@ export default () => {
       }),
 
       new webpack.DefinePlugin({
-        'process.env.NODE_ENV': '"production"'
+        'process.env.NODE_ENV': '"production"',
+        '__API': "'http://localhost:8080/api'"
       }),
 
       new webpack.NoEmitOnErrorsPlugin(),

@@ -4,6 +4,7 @@
     "space-infix-ops": ["off"]
   },
   "globals": {
-    "localStorage": false
+    "localStorage": false,
+    "__API": false
   }
 }

@@ -1,7 +1,7 @@
 import axios from 'axios'
 import * as constants from '@constants/account'
 
-const URL = 'http://localhost:8080/api'
+const URL = __API
 
 export function getAccountDetails () {
   return async (dispatch) => {
@@ -78,7 +78,8 @@ export function changePassword ({newPassword, confirmPassword}) {
         newPassword,
         {
           headers: {
-            Authorization: `Bearer ${user.token}`
+            Authorization: `Bearer ${user.token}`,
+            'Content-Type': 'text/plain'
           }
         })
 

@@ -1,10 +1,7 @@
-/* global localStorage */
-
 import axios from 'axios'
 import * as constants from '@constants/auth'
-// import History from '@history'
 
-const URL = 'http://localhost:8080/api'
+const URL = __API
 
 export function logInAction ({username, password}, history) {
   return async (dispatch) => {

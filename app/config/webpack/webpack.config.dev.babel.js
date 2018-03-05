@@ -28,7 +28,11 @@ export default () => {
 
       new webpack.NamedModulesPlugin(),
 
-      new webpack.NoEmitOnErrorsPlugin()
+      new webpack.NoEmitOnErrorsPlugin(),
+
+      new webpack.DefinePlugin({
+        '__API': '"http://localhost:8080/api"'
+      })
     ],
     module: {
       rules: [

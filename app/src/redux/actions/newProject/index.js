@@ -1,7 +1,7 @@
 import axios from 'axios'
 import * as constants from '@constants/newProject'
 
-const URL = 'http://localhost:8080/api/operinos'
+const URL = __API + '/operinos'
 
 // New project
 export function newProjectAction ({name}, history) {
