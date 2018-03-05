@@ -11,9 +11,9 @@ const NewProject = props => (
       <Heading level={2} icon='plus'>Create a new project</Heading>
     </Masthead>
 
-    <Grid w={[0, 1/4]} />
+    <Grid w={[0, 1 / 4]} />
 
-    <Grid w={[1, 1/2, 1/2]} p='1rem'>
+    <Grid w={[1, 1 / 2, 1 / 2]} p='1rem'>
 
       <Alert type='error' message={props.errorMessage} />
       <Alert type='success' message={props.successMessage} />

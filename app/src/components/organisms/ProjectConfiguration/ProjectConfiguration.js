@@ -11,10 +11,10 @@ class ProjectConfiguration extends Component {
         <Grid w={1} p={[0, 1]}>
           <Label>Token</Label>
         </Grid>
-        <Grid w={[1, 3/4]} p={[0, '1rem']}>
+        <Grid w={[1, 3 / 4]} p={[0, '1rem']}>
           <Input value={this.props.config.token} readOnly />
         </Grid>
-        <Grid w={[1, 1/4]} p={[0, '1rem']}>
+        <Grid w={[1, 1 / 4]} p={[0, '1rem']}>
           <Button icon='copy' width='auto' variant='muted'>
             Copy
           </Button>
@@ -23,10 +23,10 @@ class ProjectConfiguration extends Component {
         <Grid w={1} p={[0, '1rem']}>
           <Label>Username</Label>
         </Grid>
-        <Grid w={[1, 3/4]} p={[0, '1rem']}>
+        <Grid w={[1, 3 / 4]} p={[0, '1rem']}>
           <Input value={this.props.config.username} readOnly />
         </Grid>
-        <Grid w={[1, 1/4]} p={[0, '1rem']}>
+        <Grid w={[1, 1 / 4]} p={[0, '1rem']}>
           <Button icon='copy' width='auto' variant='muted'>
             Copy
           </Button>
@@ -35,10 +35,10 @@ class ProjectConfiguration extends Component {
         <Grid w={1} p={[0, '1rem']}>
           <Label>Password</Label>
         </Grid>
-        <Grid w={[1, 3/4]} p={[0, '1rem']}>
+        <Grid w={[1, 3 / 4]} p={[0, '1rem']}>
           <Input value={this.props.config.password} readOnly />
         </Grid>
-        <Grid w={[1, 1/4]} p={[0, '1rem']}>
+        <Grid w={[1, 1 / 4]} p={[0, '1rem']}>
           <Button icon='copy' width='auto' variant='muted'>
             Copy
           </Button>

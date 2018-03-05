@@ -7,7 +7,7 @@ import PasswordResetTemplate from '@templates/PasswordReset'
 class PasswordReset extends Component {
   constructor (props) {
     super(props)
-    this.submit= this.submit.bind(this)
+    this.submit = this.submit.bind(this)
   }
 
   componentWillUnmount () {

@@ -8,8 +8,8 @@ import faInfoCircle from '@fortawesome/fontawesome-free-solid/faInfoCircle'
 import faCheckCircle from '@fortawesome/fontawesome-free-solid/faCheckCircle'
 
 const Icon = props => {
-  const size='1x'
-  const color='#333'
+  const size = '1x'
+  const color = '#333'
 
   switch (props.type) {
     case 'info':

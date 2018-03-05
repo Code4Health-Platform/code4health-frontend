@@ -13,8 +13,8 @@ const PasswordReset = props => (
       </Heading>
       <Alert type='error' message={props.errorMessage} />
     </Grid>
-    <Grid w={[1, 1/4, 1/4]} />
-    <Grid w={[1, 1/2, 1/2]} p={1}>
+    <Grid w={[1, 1 / 4, 1 / 4]} />
+    <Grid w={[1, 1 / 2, 1 / 2]} p={1}>
       <PasswordResetForm
         onSubmit={props.formHandler}
         errorMessage={props.errorMessage}

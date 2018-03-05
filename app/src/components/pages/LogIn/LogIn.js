@@ -8,7 +8,7 @@ import LogInTemplate from '@templates/LogIn'
 class LogIn extends Component {
   constructor (props) {
     super(props)
-    this.submit= this.submit.bind(this)
+    this.submit = this.submit.bind(this)
   }
 
   componentWillUnmount () {

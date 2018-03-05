@@ -24,7 +24,6 @@ class Layout extends Component {
 
 Layout.propTypes = {
   children: PropTypes.node,
-  route: PropTypes.any,
   location: PropTypes.object
 }
 

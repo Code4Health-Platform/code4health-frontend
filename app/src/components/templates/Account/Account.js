@@ -37,7 +37,7 @@ const Account = props => (
     <Alert type='error' message={props.errorMessage} />
     <Alert type='success' message={props.successMessage} />
 
-    <Grid w={[1, 1/2, 1/2]} p='1rem'>
+    <Grid w={[1, 1 / 2, 1 / 2]} p='1rem'>
       <Heading level={3} icon='account'>
         Change Account Details
       </Heading>
@@ -49,7 +49,7 @@ const Account = props => (
         formHandler={props.accountDetailsFormHandler}
       />
     </Grid>
-    <Grid w={[1, 1/2, 1/2]} p={'1rem'}>
+    <Grid w={[1, 1 / 2, 1 / 2]} p={'1rem'}>
       <Heading level={3} icon='key'>
         Change Password
       </Heading>

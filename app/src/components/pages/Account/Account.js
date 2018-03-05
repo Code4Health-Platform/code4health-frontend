@@ -8,8 +8,8 @@ import AccountTemplate from '@templates/Account'
 class Account extends Component {
   constructor (props) {
     super(props)
-    this.submitAccountDetailsFormHandler= this.submitAccountDetailsFormHandler.bind(this)
-    this.changePasswordFormHandler= this.changePasswordFormHandler.bind(this)
+    this.submitAccountDetailsFormHandler = this.submitAccountDetailsFormHandler.bind(this)
+    this.changePasswordFormHandler = this.changePasswordFormHandler.bind(this)
   }
 
   componentDidMount () {

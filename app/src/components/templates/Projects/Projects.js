@@ -17,15 +17,15 @@ const ProjectDashboard = props => (
       <Alert type='success' message={props.successMessage} />
     </Grid>
 
-    <Grid w={1/2} p={1}>
+    <Grid w={1 / 2} p={1}>
       Search
     </Grid>
 
-    <Grid w={[1, 3/4]} p={1}>
+    <Grid w={[1, 3 / 4]} p={1}>
       {props.projects && <ProjectsSummary projects={props.projects} />}
     </Grid>
 
-    <Grid w={[1, 1/4]} p={1}>
+    <Grid w={[1, 1 / 4]} p={1}>
       <Button
         type='link'
         href='/projects/new'
