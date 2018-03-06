@@ -15,7 +15,6 @@ class FormInput extends Component {
           value={this.props.content}
           onChange={this.props.onChangeHandler}
           onBlur={this.props.onBlurHandler}
-          name={this.props.name}
         />
 
         {this.props.touched && this.props.error &&
