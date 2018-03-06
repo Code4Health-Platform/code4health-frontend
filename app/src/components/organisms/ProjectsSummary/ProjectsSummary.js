@@ -1,13 +1,43 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import {Container, StyledProjectsSummary, ProjectTable, ProjectTableBody, ProjectTableRow, ProjectTableColumn} from './ProjectsSummary.styled.js'
-import {Button} from '@atoms'
+import {Button, Input} from '@atoms'
 
 class ProjectsSummary extends Component {
+  constructor (props) {
+    super(props)
+
+    this.state = {
+      filter: ''
+    }
+
+    this.updateProjectsFilter = this.updateProjectsFilter.bind(this)
+    this.filterProjects = this.filterProjects.bind(this)
+  }
+
+  updateProjectsFilter (e) {
+    this.setState({
+      filter: e.target.value
+    })
+  }
+
+  filterProjects (projects) {
+    const filter = this.state.filter || ''
+
+    return projects.filter(function (project) {
+      return project.name.toLowerCase().search(
+        filter) !== -1
+    })
+  }
+
   render () {
     return (
       <StyledProjectsSummary>
         <Container>
+          <Input
+            placeholder='search'
+            onChange={this.updateProjectsFilter}
+          />
           <ProjectTable>
             <ProjectTableBody>
               <ProjectTableRow>
@@ -16,7 +46,7 @@ class ProjectsSummary extends Component {
                 <ProjectTableColumn>Provision</ProjectTableColumn>
                 <ProjectTableColumn />
               </ProjectTableRow>
-              {this.props.projects.map((project) =>
+              {this.filterProjects(this.props.projects).map((project) =>
                 (
                   <ProjectTableRow key={`p${project.id}`}>
                     <ProjectTableColumn>{project.name}</ProjectTableColumn>
