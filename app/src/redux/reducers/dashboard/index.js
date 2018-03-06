@@ -31,6 +31,9 @@ export default function (state = {}, action) {
     case constants.DASHBOARD_UNLOAD:
     case constants.PROJECT_UNLOAD:
       return { }
+
+    case constants.DASHBOARD_SHOULD_REFRESH:
+      return {...state, shouldRefresh: true}
   }
   return state
 }

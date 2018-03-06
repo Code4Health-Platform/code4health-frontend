@@ -1,5 +1,6 @@
 import axios from 'axios'
 import * as constants from '@constants/newProject'
+import * as DashboardConstants from '@constants/dashboard'
 
 const URL = __API + '/operinos'
 
@@ -23,6 +24,9 @@ export function newProjectAction ({name}, history) {
       dispatch({
         type: constants.SUCCESS_CREATING_PROJECT,
         data: res.data
+      })
+      dispatch({
+        type: DashboardConstants.DASHBOARD_SHOULD_REFRESH
       })
     } catch (error) {
       dispatch({
