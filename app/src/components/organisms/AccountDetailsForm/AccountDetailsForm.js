@@ -16,6 +16,7 @@ const renderFields = (fields, isLoading) => (
       onChangeHandler={fields.firstName.input.onChange}
       onBlurHandler={fields.firstName.input.onBlur}
       content={fields.firstName.input.value}
+      required
     />
 
     <FormInput
@@ -26,6 +27,7 @@ const renderFields = (fields, isLoading) => (
       onChangeHandler={fields.lastName.input.onChange}
       onBlurHandler={fields.lastName.input.onBlur}
       content={fields.lastName.input.value}
+      required
     />
 
     <FormInput
@@ -36,6 +38,7 @@ const renderFields = (fields, isLoading) => (
       onChangeHandler={fields.email.input.onChange}
       onBlurHandler={fields.email.input.onBlur}
       content={fields.email.input.value}
+      required
     />
 
   </div>

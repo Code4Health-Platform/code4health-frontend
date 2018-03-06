@@ -5,42 +5,32 @@ const StyledProjectsSummary = styled(Box)`
   width: 100%;
 `
 
-const Container = styled(Box)`
-  max-width: 1024px;
-  margin-left: auto;
-  margin-right: auto;
-  overflow-x: auto;
-`
-
-const ProjectTable = styled.table`
+const ProjectContainer = styled.div`
   width: 100%;
-  overflow-x: scroll;
-  border-spacing: 0;
-  border-collapse: collapse;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
 
-  tr:nth-child(odd) {
-    background-color: #efefef;
+
+  h1, h2, h3 {
+    text-transform: capitalize;
+  }
+
+  @media (min-width: 768px) {
+    width: 33.3%;
+    margin: 0;
   }
 `
 
-const ProjectTableBody = styled.tbody`
-`
-
-const ProjectTableRow = styled.tr`
-  padding: 0.5rem;
-`
-
-const ProjectTableColumn = styled.td`
-  padding: 1rem;
-  word-wrap: break-word;
-  vertical-align: top;
+const ProjectsGridContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 `
 
 export {
   StyledProjectsSummary,
-  Container,
-  ProjectTable,
-  ProjectTableBody,
-  ProjectTableRow,
-  ProjectTableColumn
+  ProjectContainer,
+  ProjectsGridContainer
 }

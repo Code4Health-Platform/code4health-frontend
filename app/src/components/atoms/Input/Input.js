@@ -11,6 +11,7 @@ const Input = props => {
       onBlur={props.onBlur}
       name={props.name}
       value={props.value}
+      required={props.required}
     />
   )
 }
@@ -21,7 +22,8 @@ Input.propTypes = {
   onChange: PropTypes.func,
   onBlur: PropTypes.func,
   name: PropTypes.any,
-  value: PropTypes.string
+  value: PropTypes.string,
+  required: PropTypes.bool
 }
 
 export default Input

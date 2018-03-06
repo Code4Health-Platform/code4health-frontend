@@ -15,6 +15,7 @@ class FormInput extends Component {
           value={this.props.content}
           onChange={this.props.onChangeHandler}
           onBlur={this.props.onBlurHandler}
+          required={this.props.required}
         />
 
         {this.props.touched && this.props.error &&
@@ -35,9 +36,9 @@ FormInput.propTypes = {
   label: PropTypes.string,
   onChangeHandler: PropTypes.func,
   onBlurHandler: PropTypes.func,
-  name: PropTypes.any,
   touched: PropTypes.bool,
-  error: PropTypes.any
+  error: PropTypes.any,
+  required: PropTypes.bool
 }
 
 export default FormInput

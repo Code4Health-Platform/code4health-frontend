@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import {Container, StyledProjectsSummary, ProjectTable, ProjectTableBody, ProjectTableRow, ProjectTableColumn} from './ProjectsSummary.styled.js'
-import {Button, Input} from '@atoms'
+import {Container, StyledProjectsSummary, ProjectContainer, ProjectsGridContainer} from './ProjectsSummary.styled.js'
+import {Input} from '@atoms'
+import {ProjectCard} from '@molecules'
 
 class ProjectsSummary extends Component {
   constructor (props) {
@@ -23,7 +24,6 @@ class ProjectsSummary extends Component {
 
   filterProjects (projects) {
     const filter = this.state.filter || ''
-
     return projects.filter(function (project) {
       return project.name.toLowerCase().search(
         filter) !== -1
@@ -33,51 +33,19 @@ class ProjectsSummary extends Component {
   render () {
     return (
       <StyledProjectsSummary>
-        <Container>
-          <Input
-            placeholder='search'
-            onChange={this.updateProjectsFilter}
-          />
-          <ProjectTable>
-            <ProjectTableBody>
-              <ProjectTableRow>
-                <ProjectTableColumn>Name</ProjectTableColumn>
-                <ProjectTableColumn>Active</ProjectTableColumn>
-                <ProjectTableColumn>Provision</ProjectTableColumn>
-                <ProjectTableColumn />
-              </ProjectTableRow>
-              {this.filterProjects(this.props.projects).map((project) =>
-                (
-                  <ProjectTableRow key={`p${project.id}`}>
-                    <ProjectTableColumn>{project.name}</ProjectTableColumn>
-                    <ProjectTableColumn>{project.active ? 'true' : 'false'}</ProjectTableColumn>
-                    <ProjectTableColumn>{project.provision ? 'true' : 'false'}</ProjectTableColumn>
-                    <ProjectTableColumn>
-                      <Button
-                        type='link'
-                        href={`/projects/${project.id}`}
-                        width='full'
-                        icon='eye'
-                      >
-                      View
-                      </Button>
-
-                      <Button
-                        type='link'
-                        href={`/projects/delete/${project.id}`}
-                        width='full'
-                        variant='danger'
-                        icon='delete'
-                      >
-                      Delete
-                      </Button>
-                    </ProjectTableColumn>
-                  </ProjectTableRow>
-                )
-              )}
-            </ProjectTableBody>
-          </ProjectTable>
-        </Container>
+        <Input
+          placeholder='search'
+          onChange={this.updateProjectsFilter}
+        />
+        <ProjectsGridContainer>
+          {this.filterProjects(this.props.projects).map((project, index) =>
+            (
+              <ProjectContainer key={index} >
+                <ProjectCard data={project} interactive />
+              </ProjectContainer>
+            )
+          )}
+        </ProjectsGridContainer>
       </StyledProjectsSummary>
     )
   }

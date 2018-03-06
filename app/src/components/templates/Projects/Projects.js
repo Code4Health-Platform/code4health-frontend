@@ -17,10 +17,6 @@ const ProjectDashboard = props => (
       <Alert type='success' message={props.successMessage} />
     </Grid>
 
-    <Grid w={[1, 3 / 4]} p='1rem'>
-      {props.projects && <ProjectsSummary projects={props.projects} />}
-    </Grid>
-
     <Grid w={[1, 1 / 4]} p='1rem'>
       <Button
         type='link'
@@ -30,6 +26,10 @@ const ProjectDashboard = props => (
       >
         Create a project
       </Button>
+    </Grid>
+
+    <Grid w={1} p='1rem'>
+      {props.projects && <ProjectsSummary projects={props.projects} />}
     </Grid>
 
   </div>
