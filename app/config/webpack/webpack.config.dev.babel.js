@@ -18,6 +18,7 @@ export default () => {
         'errors-only': true
       }
     },
+    devtool: 'source-map',
     plugins: [
       new HtmlWebpackPlugin({
         inject: true,
