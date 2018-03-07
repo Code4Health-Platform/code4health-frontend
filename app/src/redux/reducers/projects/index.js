@@ -1,4 +1,4 @@
-import * as constants from '@constants/newProject'
+import * as constants from '@constants/projects'
 
 export default function (state = {}, action) {
   switch (action.type) {
@@ -23,6 +23,28 @@ export default function (state = {}, action) {
         isLoading: false,
         successMessage: 'new project created',
         newProjectData: action.data
+      }
+
+    case constants.DELETING_PROJECT:
+      return {
+        ...state,
+        isLoading: true,
+        errorMessage: null,
+        successMessage: null
+      }
+
+    case constants.ERROR_DELETING_PROJECT:
+      return {
+        ...state,
+        isLoading: false,
+        errorMessage: 'error deleting project'
+      }
+
+    case constants.SUCCESS_DELETING_PROJECT:
+      return {
+        ...state,
+        isLoading: false,
+        successMessage: 'project deleted'
       }
 
     case constants.CREATING_PROJECT_UNLOAD:

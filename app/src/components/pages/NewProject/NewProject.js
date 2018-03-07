@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import NewProjectTemplate from '@templates/NewProject'
-import {newProjectAction, newProjectUnloadAction} from '@actions/newProject'
+import {newProjectAction, newProjectUnloadAction} from '@actions/projects'
 
 class NewProject extends Component {
   constructor (props) {
@@ -42,10 +42,10 @@ NewProject.propTypes = {
 
 function mapStateToProps (state) {
   return {
-    isLoading: state.newProject.isLoading,
-    errorMessage: state.newProject.errorMessage,
-    successMessage: state.newProject.successMessage,
-    newProjectData: state.newProject.newProjectData
+    isLoading: state.projects.isLoading,
+    errorMessage: state.projects.errorMessage,
+    successMessage: state.projects.successMessage,
+    newProjectData: state.projects.newProjectData
   }
 }
 
