@@ -15,10 +15,11 @@ class FormInput extends Component {
           value={this.props.content}
           onChange={this.props.onChangeHandler}
           onBlur={this.props.onBlurHandler}
+          onFocus={this.props.onFocusHandler}
           required={this.props.required}
         />
 
-        {this.props.touched && this.props.error &&
+        {(this.props.touched || this.props.active) && this.props.error &&
           <ErrorMessage>
             {this.props.error}
           </ErrorMessage>
@@ -36,7 +37,9 @@ FormInput.propTypes = {
   label: PropTypes.string,
   onChangeHandler: PropTypes.func,
   onBlurHandler: PropTypes.func,
+  onFocusHandler: PropTypes.func,
   touched: PropTypes.bool,
+  active: PropTypes.bool,
   error: PropTypes.any,
   required: PropTypes.bool
 }

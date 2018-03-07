@@ -7,7 +7,16 @@ const Email = (value) => {
   return regex.test(String(value).toLowerCase())
 }
 
+const MinimumLength = (value, length) => {
+  if (!value || value.length < length) {
+    return false
+  }
+
+  return true
+}
+
 export {
   Email,
-  Match
+  Match,
+  MinimumLength
 }

@@ -14,16 +14,21 @@ const renderFields = (fields) => (
       placeholder='new password'
       error={fields.newPassword.meta.error}
       touched={fields.newPassword.meta.touched}
+      active={fields.newPassword.meta.active}
       onChangeHandler={fields.newPassword.input.onChange}
       onBlurHandler={fields.newPassword.input.onBlur}
+      onFocusHandler={fields.newPassword.input.onFocus}
     />
-
     <FormInput
       type='password'
       placeholder='Confirm Password'
-      label='Confirm Password' error={fields.confirmPassword.meta.error} touched={fields.confirmPassword.meta.touched}
+      label='Confirm Password'
+      error={fields.confirmPassword.meta.error}
+      touched={fields.confirmPassword.meta.touched}
+      active={fields.confirmPassword.meta.active}
       onChangeHandler={fields.confirmPassword.input.onChange}
       onBlurHandler={fields.confirmPassword.input.onBlur}
+      onFocusHandler={fields.newPassword.input.onFocus}
     />
   </div>
 )
@@ -31,7 +36,6 @@ const renderFields = (fields) => (
 class PasswordChangeForm extends Component {
   render () {
     const {successMessage, errorMessage, isLoading} = this.props.changePassword
-
     return (
       <Form
         isLoading={this.props.isLoading}
@@ -55,8 +59,16 @@ class PasswordChangeForm extends Component {
 const validate = values => {
   const errors = {}
 
+  if (!Validate.MinimumLength(values.newPassword, 4)) {
+    errors.newPassword = 'password must be at least 4 characters'
+  }
+
   if (!values.newPassword) {
     errors.newPassword = 'required'
+  }
+
+  if (!Validate.MinimumLength(values.confirmPassword, 4)) {
+    errors.confirmPassword = 'password must be at least 4 characters'
   }
 
   if (!values.confirmPassword) {

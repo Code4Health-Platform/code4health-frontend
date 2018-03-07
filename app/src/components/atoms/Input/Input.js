@@ -9,6 +9,7 @@ const Input = props => {
       placeholder={props.placeholder}
       onChange={props.onChange}
       onBlur={props.onBlur}
+      onFocus={props.onFocus}
       name={props.name}
       value={props.value}
       required={props.required}
@@ -21,6 +22,7 @@ Input.propTypes = {
   type: PropTypes.oneOf(['text', 'password']),
   onChange: PropTypes.func,
   onBlur: PropTypes.func,
+  onFocus: PropTypes.func,
   name: PropTypes.any,
   value: PropTypes.string,
   required: PropTypes.bool

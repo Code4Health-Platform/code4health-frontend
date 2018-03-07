@@ -9,7 +9,7 @@ const Button = props => (
     variant={props.variant}
     width={props.width}
     href={props.href}
-    clickHandler={props.clickHandler}
+    onClick={() => props.onClick}
     disabled={props.disabled}
   >
     <Icon icon={props.icon} />
@@ -23,7 +23,7 @@ Button.propTypes = {
   variant: PropTypes.oneOf(['default', 'muted', 'danger']),
   width: PropTypes.oneOf(['full', 'auto']),
   href: PropTypes.string,
-  clickHandler: PropTypes.func,
+  onClick: PropTypes.func,
   icon: PropTypes.string,
   disabled: PropTypes.bool
 }
