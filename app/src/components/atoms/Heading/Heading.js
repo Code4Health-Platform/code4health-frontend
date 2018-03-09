@@ -5,7 +5,7 @@ import Icon from '@atoms/Icon'
 
 const Heading = props => (
   <HeadingStyled level={props.level}>
-    <Icon icon={props.icon} />
+    <Icon icon={props.icon} spin={props.spin} />
     {props.children}
   </HeadingStyled>
 )
@@ -13,7 +13,8 @@ const Heading = props => (
 Heading.propTypes = {
   children: PropTypes.node,
   level: PropTypes.oneOf([1, 2, 3, 4]),
-  icon: PropTypes.string
+  icon: PropTypes.string,
+  spin: PropTypes.bool
 }
 
 export default Heading

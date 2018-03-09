@@ -19,88 +19,99 @@ import faDownload from '@fortawesome/fontawesome-free-solid/faDownload'
 import faKey from '@fortawesome/fontawesome-free-solid/faKey'
 import faCube from '@fortawesome/fontawesome-free-solid/faCube'
 import faCubes from '@fortawesome/fontawesome-free-solid/faCubes'
+import faSearch from '@fortawesome/fontawesome-free-solid/faSearch'
+import faSync from '@fortawesome/fontawesome-free-solid/faSync'
 
 const Icon = props => {
   switch (props.icon) {
     case 'copy':
       return (
-        <FontAwesomeIcon icon={faCopy} />
+        <FontAwesomeIcon icon={faCopy} spin={props.spin} />
       )
     case 'check':
       return (
-        <FontAwesomeIcon icon={faCheckSquare} />
+        <FontAwesomeIcon icon={faCheckSquare} spin={props.spin} />
       )
     case 'database':
       return (
-        <FontAwesomeIcon icon={faDatabase} />
+        <FontAwesomeIcon icon={faDatabase} spin={props.spin} />
       )
     case 'download':
       return (
-        <FontAwesomeIcon icon={faDownload} />
+        <FontAwesomeIcon icon={faDownload} spin={props.spin} />
       )
     case 'key':
       return (
-        <FontAwesomeIcon icon={faKey} />
+        <FontAwesomeIcon icon={faKey} spin={props.spin} />
       )
     case 'project':
       return (
-        <FontAwesomeIcon icon={faCube} />
+        <FontAwesomeIcon icon={faCube} spin={props.spin} />
       )
     case 'square':
       return (
-        <FontAwesomeIcon icon={faSquare} />
+        <FontAwesomeIcon icon={faSquare} spin={props.spin} />
       )
     case 'people':
       return (
-        <FontAwesomeIcon icon={faUsers} />
+        <FontAwesomeIcon icon={faUsers} spin={props.spin} />
       )
     case 'delete':
       return (
-        <FontAwesomeIcon icon={faTrashAlt} />
+        <FontAwesomeIcon icon={faTrashAlt} spin={props.spin} />
       )
     case 'eye':
       return (
-        <FontAwesomeIcon icon={faEye} />
+        <FontAwesomeIcon icon={faEye} spin={props.spin} />
       )
     case 'logout':
       return (
-        <FontAwesomeIcon icon={faSignOutAlt} />
+        <FontAwesomeIcon icon={faSignOutAlt} spin={props.spin} />
       )
     case 'grid':
       return (
-        <FontAwesomeIcon icon={faTh} />
+        <FontAwesomeIcon icon={faTh} spin={props.spin} />
       )
     case 'projects':
       return (
-        <FontAwesomeIcon icon={faCubes} />
+        <FontAwesomeIcon icon={faCubes} spin={props.spin} />
       )
     case 'account':
       return (
-        <FontAwesomeIcon icon={faUserCircle} />
+        <FontAwesomeIcon icon={faUserCircle} spin={props.spin} />
       )
     case 'plus':
       return (
-        <FontAwesomeIcon icon={faPlusCircle} />
+        <FontAwesomeIcon icon={faPlusCircle} spin={props.spin} />
+      )
+    case 'search':
+      return (
+        <FontAwesomeIcon icon={faSearch} spin={props.spin} />
       )
     case 'cancel':
       return (
-        <FontAwesomeIcon icon={faBan} />
+        <FontAwesomeIcon icon={faBan} spin={props.spin} />
       )
     case 'cloud':
       return (
-        <FontAwesomeIcon icon={faCloud} />
+        <FontAwesomeIcon icon={faCloud} spin={props.spin} />
       )
     case 'success':
       return (
-        <FontAwesomeIcon icon={faCheckCircle} />
+        <FontAwesomeIcon icon={faCheckCircle} spin={props.spin} />
+      )
+    case 'loading':
+      return (
+        <FontAwesomeIcon icon={faSync} spin={props.spin} />
       )
     default:
-      return (<div />)
+      return (<div spin={props.spin} />)
   }
 }
 
 Icon.propTypes = {
-  icon: PropTypes.string
+  icon: PropTypes.string,
+  spin: PropTypes.bool
 }
 
 export default Icon
