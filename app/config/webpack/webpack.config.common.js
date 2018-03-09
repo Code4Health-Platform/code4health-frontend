@@ -10,5 +10,8 @@ export const config = {
         }
       }
     }
+  },
+  output: {
+    filename: 'bundle.js'
   }
 }

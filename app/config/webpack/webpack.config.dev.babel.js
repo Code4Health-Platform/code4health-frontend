@@ -2,7 +2,7 @@ import webpack from 'webpack'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import { config } from './webpack.config.common.js'
 
-export default () => {
+module.exports = env => {
   return {
     entry: config.entry,
     output: {
@@ -32,7 +32,7 @@ export default () => {
       new webpack.NoEmitOnErrorsPlugin(),
 
       new webpack.DefinePlugin({
-        '__API': '"http://localhost:8080/api"'
+        __API: JSON.stringify(env.API)
       })
     ],
     module: {

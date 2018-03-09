@@ -4,7 +4,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin'
 import CompressionPlugin from 'compression-webpack-plugin'
 import {resolve} from 'path'
 
-export default () => {
+module.exports = env => {
   return {
     bail: true,
     devtool: 'cheap-module-source-map',
@@ -28,7 +28,7 @@ export default () => {
 
       new webpack.DefinePlugin({
         'process.env.NODE_ENV': '"production"',
-        '__API': "'http://localhost:8080/api'"
+        __API: JSON.stringify(env.API)
       }),
 
       new webpack.NoEmitOnErrorsPlugin(),

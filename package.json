@@ -2,7 +2,7 @@
   "name": "code4health-frontend",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/james-weaver/code4health-frontend.git",
+  "repository": "https://github.com/inidus/code4health-frontend.git",
   "author": "james@inidus.com",
   "license": "MIT",
   "dependencies": {
@@ -53,10 +53,10 @@
     "webpack-dev-server": "^2.10.0"
   },
   "scripts": {
-    "build": "webpack --config ./app/config/webpack/webpack.config.prod.babel.js --progress",
+    "build": "webpack --config ./app/config/webpack/webpack.config.prod.babel.js  --env.API='https://some-production-api:8080/api' --progress",
     "lint": "standard . --ignore-pattern build/",
     "lint:fix": "standard . --ignore-pattern build/ --fix",
-    "start:dev": "webpack-dev-server --config ./app/config/webpack/webpack.config.dev.babel.js --port 8888 --host 0.0.0.0"
+    "start:dev": "webpack-dev-server --config ./app/config/webpack/webpack.config.dev.babel.js --port 8888 --host 0.0.0.0 --env.API=http://localhost:8080/api"
   },
   "standard": {
     "globals": [
