@@ -1,9 +1,8 @@
 import React, {Component} from 'react'
-import {Router, Route} from 'react-router-dom'
+import {HashRouter as Router, Route} from 'react-router-dom'
 import AuthRequired from './AuthRequired'
 import Layout from '@src/layout'
 import {Account, Activate, NewProject, LogIn, LogOut, Projects, SingleProject, SignUp, Welcome, PasswordReset} from '@pages'
-import History from '@history'
 
 const AuthenticatedProjects = AuthRequired(Projects)
 const AuthenticatedSingleProject = AuthRequired(SingleProject)
@@ -14,7 +13,7 @@ const AuthenticatedLogOut = AuthRequired(LogOut)
 class AppRouter extends Component {
   render () {
     return (
-      <Router history={History}>
+      <Router>
         <Layout>
           <Route exact path='/' component={Welcome} />
           <Route exact path='/activate' component={Activate} />
