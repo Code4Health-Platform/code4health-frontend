@@ -17,6 +17,7 @@
     "compression-webpack-plugin": "^1.1.6",
     "grid-styled": "^2.0.0-11",
     "history": "^4.7.2",
+    "keycloak-js": "^3.4.3",
     "prop-types": "^15.6.0",
     "query-string": "^5.1.0",
     "react": "^16.2.0",
