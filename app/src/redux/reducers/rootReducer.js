@@ -17,7 +17,9 @@ const appReducer = combineReducers({
 const rootReducer = (state, action) => {
   if (action.type === authConstants.UNAUTHENTICATED) {
     console.log('rootReducer received authConstants.UNAUTHENTICATED')
-    state = {}
+    state = {
+      locale: state.locale
+    }
     localStorage.clear()
   }
 
