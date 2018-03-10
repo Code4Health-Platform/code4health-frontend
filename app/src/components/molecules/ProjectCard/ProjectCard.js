@@ -104,7 +104,7 @@ class ProjectCard extends Component {
           <ButtonContainer>
             <Button icon='eye' href={`/projects/${this.props.data.id}`}>View Project</Button>
 
-            {this.props.interactive && <Button variant='danger' icon='delete' onClick={() => this.deleteProject(this.props.data.id)}>Delete</Button>}
+            {this.props.interactive && <Button variant='muted' icon='delete' onClick={() => this.deleteProject(this.props.data.id)}>Delete</Button>}
           </ButtonContainer>
 
         </InnerContainer>
