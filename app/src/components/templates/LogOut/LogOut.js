@@ -17,7 +17,7 @@ const LogOut = props => (
       <Heading level={3}>Are you sure you want to log out?</Heading>
       <Button
         type='button'
-        clickHandler={() => props.logOutAction}
+        onClick={props.logOutAction}
         width='auto'
       >
         Log Out

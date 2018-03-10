@@ -11,7 +11,7 @@ class LogOut extends Component {
   }
 
   logOut () {
-    this.props.logOutAction(this.props.history)
+    this.props.dispatch(logOutAction(this.props.history))
   }
 
   render () {
@@ -26,12 +26,12 @@ class LogOut extends Component {
 
 LogOut.propTypes = {
   authenticated: PropTypes.bool,
-  history: PropTypes.object,
-  logOutAction: PropTypes.func
+  dispatch: PropTypes.func,
+  history: PropTypes.object
 }
 
 function mapStateToProps (state) {
   return {authenticated: state.auth.authenticated}
 }
 
-export default connect(mapStateToProps, {logOutAction})(LogOut)
+export default connect(mapStateToProps)(LogOut)
