@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import NewProjectTemplate from '@templates/NewProject'
-import {newProjectAction, newProjectUnloadAction} from '@actions/projects'
+import {NewProjectAction, UnloadAction} from '@actions/projects'
 
 class NewProject extends Component {
   constructor (props) {
@@ -11,11 +11,11 @@ class NewProject extends Component {
   }
 
   componentWillUnmount () {
-    this.props.dispatch(newProjectUnloadAction())
+    this.props.dispatch(UnloadAction())
   }
 
   submit (values) {
-    this.props.dispatch(newProjectAction(values, this.props.history))
+    this.props.dispatch(NewProjectAction(values, this.props.history))
   }
 
   render () {

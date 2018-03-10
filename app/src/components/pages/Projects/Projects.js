@@ -1,16 +1,22 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {fetchProjectsIfNeeded, dashboardUnloadAction} from '@actions/dashboard'
+import {ViewAllProjectsAction, UnloadAction} from '@actions/projects'
 import PropTypes from 'prop-types'
 import ProjectsTemplate from '@templates/Projects'
 
 class Projects extends Component {
   componentDidMount () {
-    this.props.dispatch(fetchProjectsIfNeeded())
+    this.props.dispatch(ViewAllProjectsAction())
   }
 
   componentWillUnmount () {
-    this.props.dashboardUnloadAction()
+    this.props.dispatch(UnloadAction())
+  }
+
+  componentWillReceiveProps (nextProps) {
+    if (nextProps.shouldRefresh) {
+      this.props.dispatch(ViewAllProjectsAction())
+    }
   }
 
   render () {
@@ -31,16 +37,16 @@ Projects.propTypes = {
   projects: PropTypes.any,
   successMessage: PropTypes.string,
   errorMessage: PropTypes.string,
-  dashboardUnloadAction: PropTypes.func
+  shouldRefresh: PropTypes.bool
 }
 
 function mapStateToProps (state) {
   return {
-    authenticated: state.auth.authenticated,
-    projects: state.dashboard.projects,
-    isLoading: state.dashboard.isLoading,
-    successMessage: state.dashboard.success
+    projects: state.projects.projects,
+    isLoading: state.projects.isLoading,
+    successMessage: state.projects.success,
+    shouldRefresh: state.projects.shouldRefresh
   }
 }
 
-export default connect(mapStateToProps, {dashboardUnloadAction})(Projects)
+export default connect(mapStateToProps)(Projects)

@@ -1,18 +1,16 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {bindActionCreators} from 'redux'
 import PropTypes from 'prop-types'
-import {fetchSingleProjectIfNeeded, fetchProjectConfig, dashboardUnloadAction} from '@actions/dashboard'
+import {ViewSingleProjectAction, UnloadAction} from '@actions/projects'
 import SingleProjectTemplate from '@templates/SingleProject'
 
 class SingleProject extends Component {
   componentDidMount () {
-    this.props.fetchSingleProjectIfNeeded(this.props.match.params.id)
-    this.props.fetchProjectConfig(this.props.match.params.id)
+    this.props.dispatch(ViewSingleProjectAction(this.props.match.params.id))
   }
 
   componentWillUnmount () {
-    this.props.dashboardUnloadAction()
+    this.props.dispatch(UnloadAction())
   }
 
   render () {
@@ -29,33 +27,23 @@ class SingleProject extends Component {
 }
 
 SingleProject.propTypes = {
+  dispatch: PropTypes.func,
   isLoading: PropTypes.bool,
   data: PropTypes.any,
   config: PropTypes.any,
   successMessage: PropTypes.string,
   errorMessage: PropTypes.string,
-  dashboardUnloadAction: PropTypes.func,
-  fetchSingleProjectIfNeeded: PropTypes.func,
-  fetchProjectConfig: PropTypes.func,
   match: PropTypes.object
 }
 
 function mapStateToProps (state) {
   return {
     authenticated: state.auth.authenticated,
-    data: state.dashboard.project,
-    config: state.dashboard.config,
-    isLoading: state.dashboard.isLoading,
-    successMessage: state.dashboard.success
+    data: state.projects.project,
+    config: state.projects.config,
+    isLoading: state.projects.isLoading,
+    successMessage: state.projects.success
   }
 }
 
-function mapDispatchToProps (dispatch) {
-  return bindActionCreators({
-    dashboardUnloadAction,
-    fetchSingleProjectIfNeeded,
-    fetchProjectConfig
-  }, dispatch)
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(SingleProject)
+export default connect(mapStateToProps)(SingleProject)
