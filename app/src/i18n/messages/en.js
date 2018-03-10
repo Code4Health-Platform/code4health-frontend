@@ -5,6 +5,11 @@ export const ENGLISH_TRANSLATION = {
       welcomeMessage: '[en] welcome'
     },
     auth: {
+      logOut: {
+        title: 'Log Out',
+        confirm: 'Are you sure you want to log out?',
+        action: 'Log Out'
+      },
       reset: {
         title: 'Forgotten your password?',
         form: {
