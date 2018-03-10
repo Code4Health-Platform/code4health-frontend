@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import {StyledProjectsSummary, ProjectContainer, ProjectsGridContainer} from './ProjectsSummary.styled.js'
-import {Button, Heading, Link} from '@atoms'
+import {Button, Heading} from '@atoms'
 import {FormInput, ProjectCard} from '@molecules'
 
 class ProjectsSummary extends Component {
