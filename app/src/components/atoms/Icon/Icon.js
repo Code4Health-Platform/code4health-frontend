@@ -21,9 +21,19 @@ import faCube from '@fortawesome/fontawesome-free-solid/faCube'
 import faCubes from '@fortawesome/fontawesome-free-solid/faCubes'
 import faSearch from '@fortawesome/fontawesome-free-solid/faSearch'
 import faSync from '@fortawesome/fontawesome-free-solid/faSync'
+import faGithub from '@fortawesome/fontawesome-free-brands/faGithub'
+import faGoogle from '@fortawesome/fontawesome-free-brands/faGoogle'
 
 const Icon = props => {
   switch (props.icon) {
+    case 'github':
+      return (
+        <FontAwesomeIcon icon={faGithub} spin={props.spin} />
+      )
+    case 'google':
+      return (
+        <FontAwesomeIcon icon={faGoogle} spin={props.spin} />
+      )
     case 'copy':
       return (
         <FontAwesomeIcon icon={faCopy} spin={props.spin} />

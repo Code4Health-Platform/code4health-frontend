@@ -3,9 +3,23 @@ const Colors = {
   error: '#ff3860',
   success: '#06CA7D',
   background: '#fff',
+  text: '#333',
+  gray: 'rgb(239,239,239)',
 
   navigation: {
     background: '#ffffff'
+  },
+
+  github: {
+    text: '#fff',
+    background: '#333',
+    backgroundHover: '#555'
+  },
+
+  google: {
+    text: '#fff',
+    background: '#EF3B2C',
+    backgroundHover: '#f04e41'
   },
 
   masthead: {

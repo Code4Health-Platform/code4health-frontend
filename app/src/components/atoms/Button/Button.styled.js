@@ -2,12 +2,15 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import {Link} from 'react-router-dom'
+import Colors from '@theme/colors'
 
 function BuildButtonStyled (width, variant, href, type, onClick, disabled) {
   const backgroundColor = (() => {
     switch (variant) {
       case 'danger': { return '#ff3860' }
       case 'muted': { return 'white' }
+      case 'github': { return Colors.github.background }
+      case 'google': { return Colors.google.background }
       default: { return '#3273dc' }
     }
   })()
@@ -16,6 +19,8 @@ function BuildButtonStyled (width, variant, href, type, onClick, disabled) {
     switch (variant) {
       case 'danger': { return '#E93257' }
       case 'muted': { return '#f5f5f5' }
+      case 'github': { return Colors.github.backgroundHover }
+      case 'google': { return Colors.google.backgroundHover }
       default: { return '#276cda' }
     }
   })()
