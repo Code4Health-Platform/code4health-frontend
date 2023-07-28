@@ -36,7 +36,7 @@ class NavigationBar extends Component {
           />
 
           <NavigationLogo href='/'>
-            Inidus
+            Code4Health
           </NavigationLogo>
 
           <NavigationMenu open={this.state.menuOpen}>
